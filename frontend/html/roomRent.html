@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Room Rent Payment</title>
+  <link rel="stylesheet" href="../css/roomRent.css">
+</head>
+
+
+
+
+<body>
+
+  <!-- ⭐ Fixed Header + Back Button -->
+  <div class="fixed-header">
+      <h1>Room Rent Payment</h1>
+      <button id="backBtn" class="back-btn">⬅ Back</button>
+  </div>
+
+  
+  <div class="payment-page">
+
+  <div class="header-gap"></div>
+
+  <!-- ⭐ LEFT SECTION -->
+  <div class="left-section">
+
+      <h2 class="left-title">UPI ID & QR Code</h2>
+
+      <!-- UPI Setup -->
+      <div class="upi-setup" id="upiSetupSection">
+        <h3>Setup UPI</h3>
+        <input type="text" id="upiIdInput" placeholder="Enter UPI ID" />
+        <input type="file" id="qrUpload" accept="image/*" />
+        <img id="qrPreview"
+     style="display:none;max-width:160px;margin-top:8px;border-radius:8px;">
+
+<p id="qrErrorMsg"
+   style="color:#d32f2f;font-size:13px;margin-top:4px;"></p>
+
+        <button id="saveUpiBtn">Save UPI Info</button>
+      </div>
+
+      <!-- Current UPI Info -->
+      <div class="current-info hidden" id="currentUpiInfo">
+        <h3>Current UPI</h3>
+        <p><strong>UPI:</strong> <span id="upiDisplay"></span></p>
+        <div class="qr-display">
+          <img id="qrDisplayImg" src="" alt="QR Code">
+        </div>
+        <button id="updateUpiBtn">Update UPI</button>
+      </div>
+
+  </div>
+
+  <!-- ⭐ RIGHT SECTION -->
+  <div class="right-section">
+
+      <div class="right-head">
+         <h2>Payment History</h2>
+
+         <!-- ⭐ Filter Buttons aligned with heading -->
+         <div class="filter-buttons">
+            <button class="filter-btn active" data-status="Verified">
+                Verified (<span id="countVerified">0</span>)
+            </button>
+            <button class="filter-btn" data-status="Rejected">
+                Rejected (<span id="countRejected">0</span>)
+            </button>
+            <button class="filter-btn" data-status="All">
+                All (<span id="countAll">0</span>)
+            </button>
+         </div>
+      </div>
+
+      <div class="table-wrapper">
+        <div id="paymentHistoryContainer" class="center">
+          <p>Loading payment history...</p>
+        </div>
+      </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+  <!-- ✅ Guest Info Modal -->
+  <div id="infoModal" class="modal-overlay">
+    <div class="modal-content" id="modalContent">
+      <span class="close" id="closeBtn">&times;</span>
+
+      <div class="info-grid">
+        <div class="guest-card">
+          <h3>Guest Details</h3>
+          <div class="profile-container">
+            <img id="modalPhoto" class="modal-photo zoomable" src="default-avatar.png" alt="Guest Photo">
+          </div>
+          <p><strong>Name:</strong> <span id="modalName"></span></p>
+          <p><strong>Temp Address:</strong> <span id="modalTAddress"></span></p>
+          <p><strong>Perm Address:</strong> <span id="modalPAddress"></span></p>
+          <p><strong>Mobile:</strong> <span id="modalMobile"></span></p>
+        </div>
+
+        <div class="room-card">
+          <h3>Room Details</h3>
+          <p><strong>Room No:</strong> <span id="roomNumber"></span></p>
+          <p><strong>Floor No:</strong> <span id="floorNumber"></span></p>
+          <p><strong>Building No:</strong> <span id="buildingNumber"></span></p>
+          <p><strong>Address:</strong> <span id="roomAddress"></span></p>
+        </div>
+      </div>
+
+      <div class="id-section">
+        <h3>Guest ID Proof</h3>
+        <div class="id-container">
+          <div>
+            <p>ID Front:</p>
+            <img id="idFrontImage" class="zoomable" src="default-id.png" alt="ID Front">
+          </div>
+          <div>
+            <p>ID Back:</p>
+            <img id="idBackImage" class="zoomable" src="default-id.png" alt="ID Back">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- 🔍 Full Image Zoom Modal -->
+  <div id="imageZoomModal" class="zoom-overlay">
+    <span id="zoomCloseBtn" class="zoom-close">&times;</span>
+    <img id="zoomedImage" src="" alt="Zoomed View" />
+  </div>
+
+  <script src="../js/roomRent.js"></script>
+</body>
+</html>

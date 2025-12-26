@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pending Guest Requests</title>
+  <link rel="stylesheet" href="../css/pendingRequests.css" />
+</head>
+<body>
+
+<!-- ===== TOP BAR ===== -->
+<header class="topbar">
+  <h2>Guest Requests</h2>
+  <button class="back-btn" onclick="history.back()">⬅ Back</button>
+</header>
+
+<div class="header-gap"></div>
+
+<!-- ===== MAIN CONTAINER ===== -->
+<div class="page-container">
+  <div class="table-card">
+
+    <table id="pendingRequestsTable">
+      <thead>
+        <tr>
+          <th style="width:60px;">#</th>
+          <th>Profile</th>
+          <th>Guest Name</th>
+          <th>Request Date</th>
+          <th>Mobile</th>
+          <th>Temporary Address</th>
+          <th>Permanent Address</th>
+          <th>ID & Verifcation</th>
+        </tr>
+      </thead>
+
+      <tbody id="pendingRequestsBody">
+        <tr>
+          <td colspan="7">Loading...</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+<!-- ================= VERIFY MODAL ================= -->
+<div id="verifyModal" class="modal">
+  <div class="modal-content verify-content">
+
+    <span class="modal-close" onclick="closeVerifyModal()">✕</span>
+   
+    <h3>Verify Guest</h3>
+
+    <p><b>Name:</b> <span id="vGuestName"></span></p>
+    <p><b>Mobile:</b> <span id="vGuestMobile"></span></p>
+    <p><b>Temporary Address:</b> <span id="vGuestTAddress"></span></p>
+    <p><b>Permanent Address:</b> <span id="vGuestPAddress"></span></p>
+
+    <h4 class="center">ID Proof</h4>
+    <div class="id-image-wrapper">
+      <img id="idFrontImage" class="id-img" onclick="openImageZoom(this.src)">
+      <img id="idBackImage" class="id-img" onclick="openImageZoom(this.src)">
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-submit" onclick="verified()">✅ Accept & Verify</button>
+      <button class="btn-cancel" onclick="idMismatch()">❌ ID Mismatch</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= ASSIGN MODAL ================= -->
+<div id="assignModal" class="modal">
+  <div class="modal-content">
+
+    <div class="assign-header">
+      <div>
+        <span class="assign-to">Assign to</span>
+        <span id="guestName" class="guest-name"></span>
+      </div>
+      <img id="assignGuestImage">
+    </div>
+
+    <input type="hidden" id="currentRequestId">
+    <input type="hidden" id="currentGuestMobile">
+
+    <div class="form-group">
+      <label>Room Number</label>
+      <input type="text" id="roomNumber" oninput="validateForm()">
+    </div>
+
+    <div class="form-group">
+      <label>Floor Number</label>
+      <input type="text" id="floorNumber" oninput="validateForm()">
+    </div>
+
+    <div class="form-group">
+      <label>Building Number</label>
+      <input type="text" id="buildingNumber" oninput="validateForm()">
+    </div>
+
+    <div class="form-group">
+      <label>Address</label>
+      <textarea id="roomAddress" oninput="validateForm()"></textarea>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeAssignModal()">Cancel</button>
+      <button class="btn-submit" id="assignBtn" disabled onclick="submitAssignment()">Assign</button>
+    </div>
+  </div>
+</div>
+
+<script src="../js/pendingRequests.js"></script>
+
+<!-- ===== IMAGE ZOOM MODAL ===== -->
+<div id="imageZoomModal" class="image-zoom-modal">
+  <span class="image-zoom-close" onclick="closeImageZoom()">✕</span>
+  <img id="zoomedImage" />
+</div>
+
+
+</body>
+</html>

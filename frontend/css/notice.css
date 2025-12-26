@@ -1,0 +1,278 @@
+/* ===============================
+   GLOBAL
+================================ */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #d5dcf8;
+  color: #333;
+}
+
+/* ===============================
+   FIXED TOPBAR
+================================ */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 56px;
+  background: #4b6bff;
+  color: white;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;   /* center reference */
+  z-index: 1000;
+}
+
+.topbar h2 {
+  position: absolute;       /* 👈 KEY FIX */
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: 25px;
+}
+
+.topbar button {
+  position: absolute;       /* 👈 remove from flex flow */
+  right: 14px;
+  background: white;
+  color: #4b6bff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 30px;
+}
+
+.topbar button:hover {
+  background: #4457ed;
+  color: white;
+}
+
+/* gap because header is fixed */
+.top-gap {
+  height: 60px;
+}
+
+/* ===============================
+   MAIN CONTAINER
+================================ */
+.container {
+  padding: 14px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* ===============================
+   OWNER BOX
+================================ */
+.owner-box {
+  background: white;
+  padding: 14px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.owner-box textarea {
+  width: 97%;
+  min-height: 90px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  font-size: 14px;
+}
+
+.owner-box button {
+  margin-top: 8px;
+  background: #4b6bff;
+  color: white;
+  border: none;
+  padding: 9px 18px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.owner-box button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+#infoMsg {
+  color: #d32f2f;
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+/* ===============================
+   NOTICE LIST
+================================ */
+.notice-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ===============================
+   NOTICE CARD
+================================ */
+.notice-card {
+  background: white;
+  padding: 14px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.notice-card p {
+  margin: 0 0 6px;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.notice-card small {
+  color: gray;
+  font-size: 12px;
+}
+
+/* ===============================
+   ACTION BUTTONS
+================================ */
+.notice-actions {
+  margin-top: 10px;
+}
+
+.notice-actions button {
+  margin-right: 8px;
+  background: #4e66ea;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.notice-actions button:hover {
+  background: #e0e5ff;
+}
+
+.notice-date {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+.notice-date .date {
+  color: #333;
+  font-weight: 600;
+}
+
+.notice-date .time {
+  color: #474747;
+  font-weight: 400;
+  margin-left: 2px;
+}
+
+
+
+
+/* ===============================
+   MOBILE OPTIMIZATION (FIXED)
+================================ */
+@media (max-width: 600px) {
+
+
+  /* Topbar */
+  .topbar {
+    height: 52px;
+    padding: 0 10px;
+  }
+
+  .topbar h2 {
+    font-size: 18px;
+    margin-left: -30px;
+  }
+
+  .topbar button {
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 5px;
+    margin-right: 20px;
+  }
+
+  .top-gap {
+    height: 54px;
+  }
+
+  /* Container full width */
+  .container {
+    padding: 10px;
+    max-width: 100%;
+  }
+
+  /* Owner box */
+  .owner-box {
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .owner-box textarea {
+    min-height: 70px;
+    width: 94%;
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .owner-box button {
+    width: 100%;
+    padding: 9px;
+    font-size: 14px;
+    border-radius: 16px;
+  }
+
+  #infoMsg {
+    font-size: 12px;
+  }
+
+  /* Notice list */
+  .notice-list {
+    gap: 8px;
+  }
+
+  /* Notice card full width */
+  .notice-card {
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .notice-card p {
+    font-size: 13.5px;
+    line-height: 1.35;
+  }
+
+  .notice-card small {
+    font-size: 11px;
+  }
+
+  /* Action buttons */
+  .notice-actions {
+    display: flex;
+    gap: 8px;
+  }
+
+  .notice-actions button {
+    flex: 1;
+    padding: 6px 0;
+    font-size: 12px;
+    border-radius: 12px;
+  }
+}
+
+
+
+

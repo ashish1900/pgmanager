@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pending Payments | Owner</title>
+  <link rel="stylesheet" href="../css/pendingPayment.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Payment Verification</h1>
+    <button id="backBtn">⬅ Back</button>
+  </header>
+
+  <main>
+  <div class="table-wrapper">
+    <table class="history-table">
+      <thead>
+        <tr>
+          <th style="color: white;">S.No</th>
+          <th>Guest</th>
+          <th>Type</th>
+          <th>Amount</th>
+          <th>Payment Date</th>
+          <th>Status</th>
+          <th>Receipt</th>
+          <th style="display: none;">Action</th>
+        </tr>
+      </thead>
+      <tbody id="pendingPaymentsBody"></tbody>
+    </table>
+  </div>
+</main>
+
+
+  <!-- ✅ Guest Info Modal -->
+  <div id="infoModal" class="modal-overlay">
+    <div class="modal-content" id="modalContent">
+      <span class="close" id="closeBtn">&times;</span>
+
+      <div class="info-grid">
+        <div class="guest-card">
+          <h3>Guest Details</h3>
+          <div class="profile-container">
+            <img id="modalPhoto" class="modal-photo zoomable" src="default-avatar.png" alt="Guest Photo">
+          </div>
+          <p><strong>Name:</strong> <span id="modalName"></span></p>
+          <p><strong>Temp Address:</strong> <span id="modalTAddress"></span></p>
+          <p><strong>Perm Address:</strong> <span id="modalPAddress"></span></p>
+          <p><strong>Mobile:</strong> <span id="modalMobile"></span></p>
+        </div>
+
+        <div class="room-card">
+          <h3>Room Details</h3>
+          <p><strong>Room No:</strong> <span id="roomNumber"></span></p>
+          <p><strong>Floor No:</strong> <span id="floorNumber"></span></p>
+          <p><strong>Building No:</strong> <span id="buildingNumber"></span></p>
+          <p><strong>Address:</strong> <span id="roomAddress"></span></p>
+        </div>
+      </div>
+
+      <div class="id-section">
+        <h3>Guest ID Proof</h3>
+        <div class="id-container">
+          <div>
+            <p>ID Front:</p>
+            <img id="idFrontImage" class="zoomable" src="default-id.png" alt="ID Front">
+          </div>
+          <div>
+            <p>ID Back:</p>
+            <img id="idBackImage" class="zoomable" src="default-id.png" alt="ID Back">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Receipt Modal -->
+  <div id="receiptModal" class="receipt-modal">
+    <div class="receipt-content">
+      <button class="close-receipt" id="closeReceiptBtn">&times;</button>
+      <img id="receiptImage" src="" alt="Payment Receipt">
+      <div id="modalActionButtons" class="modal-actions"></div>
+    </div>
+  </div>
+
+
+  <!-- 🔍 Full Image Zoom Modal -->
+<div id="imageZoomModal" class="zoom-overlay">
+  <span id="zoomCloseBtn" class="zoom-close">&times;</span>
+  <img id="zoomedImage" src="" alt="Zoomed View" />
+</div>
+
+
+  <script src="../js/pendingPayment.js"></script>
+</body>
+</html>

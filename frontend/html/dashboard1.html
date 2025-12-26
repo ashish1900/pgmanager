@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PG Manager - Dashboard</title>
+  <link rel="stylesheet" href="../css/dashboard1.css" />
+</head>
+<body>
+  <div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>PG Manager</h2>
+      <ul>
+        <li class="active"><a href="index.html">🏠 Dashboard</a></li>
+        <li><a href="guests.html">👥 Guests</a></li>
+        <li><a href="bookings.html">📅 Bookings</a></li>
+        <li><a href="rooms.html">🏢 Rooms</a></li>
+        <li><a href="subscription.html">💳 Subscription</a></li>
+        <li><a href="settings.html">⚙️ Settings</a></li>
+      </ul>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <h1>Dashboard Overview</h1>
+
+      <!-- Owner Info Section -->
+      <section class="pg-info">
+        <div class="pg-details">
+          <h2 id="pgName">--</h2>
+          <p><strong>Owner:</strong> <span id="ownerName">--</span></p>
+          <p><strong>Mobile:</strong> <span id="ownerMobile">--</span></p>
+          <p><strong>City:</strong> <span id="city">--</span></p>
+          <p><strong>Address:</strong> <span id="address">--</span></p>
+          <div class="pg-buttons">
+            <a href="aadhaar-verification.html" class="verify-btn">Aadhaar Verification</a>
+            <a href="pan-verification.html" class="verify-btn">PAN Verification</a>
+            <a href="police-verification.html" class="verify-btn">Police Verification</a>
+          </div>
+        </div>
+        <img id="profileImage" src="images/pg-placeholder.jpg" alt="PG Image" />
+      </section>
+
+      <!-- Quick Stats Cards -->
+      <div class="stats-cards">
+        <div class="card">Total Guests: <span id="totalGuests">--</span></div>
+        <div class="card">Vacant Rooms: <span id="vacantRooms">--</span></div>
+        <div class="card">Current Bookings: <span id="currentBookings">--</span></div>
+        <div class="card">Pending Payments: <span id="pendingPayments">--</span></div>
+     </div>
+
+
+     <!-- Room Assignment Modal -->
+<div id="assignModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeAssignModal()">&times;</span>
+    <h2>Assign Room</h2>
+    <input type="hidden" id="currentRequestId" />
+
+    <label>Room Number:</label>
+    <input type="text" id="roomNumber" placeholder="Enter Room No" /><br> 
+
+    <label>Building Number:</label>
+    <input type="text" id="buildingNumber" placeholder="Enter Building No" /><br> 
+
+    <label>Address:</label>
+    <input type="text" id="roomAddress" placeholder="Enter Address" />
+
+    <button onclick="submitAssignment()">Submit</button>
+  </div>
+</div>
+
+
+
+      <!-- Guest Table Preview -->
+      <section class="guest-list">
+        <h2>Recent Guests</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Mobile</th>
+              <th>Room</th>
+              <th>Check-In</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="guestTableBody">
+            <!-- JS will fill dynamically -->
+          </tbody>
+        </table>
+      </section>
+
+
+         <!-- Room Assignment Modal -->
+<div id="assignModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeAssignModal()">&times;</span>
+    <h2>Assign Room</h2>
+    <input type="hidden" id="currentRequestId" />
+
+    <label>Room Number:</label>
+    <input type="text" id="roomNumber" placeholder="Enter Room No" /><br> 
+
+    <label>Building Number:</label>
+    <input type="text" id="buildingNumber" placeholder="Enter Building No" /><br> 
+
+    <label>Address:</label>
+    <input type="text" id="roomAddress" placeholder="Enter Address" />
+
+    <button onclick="submitAssignment()">Submit</button>
+  </div>
+</div>
+
+
+
+      <!-- ✅ New Guest Requests Section -->
+      <section class="guest-requests">
+        <h2>Pending Guest Requests</h2>
+        <div id="requestsContainer"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="../js/dashboard1.js"></script>
+</body>
+</html>

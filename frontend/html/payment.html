@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guest Payment Details</title>
+  <link rel="stylesheet" href="../css/payment.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+
+<!-- 🔵 FIXED TOPBAR -->
+<header class="topbar">
+  <h2>Payment History</h2>
+  <button class="back-btn" onclick="goBack()">⬅ Back</button>
+</header>
+
+<div class="header-gap"></div>
+
+<!-- 🟣 MAIN CONTAINER LIKE ROOM RENT -->
+<section class="payment-page">
+
+  <!-- LEFT: Guest Card -->
+  <div class="left-section">
+    <h2 class="left-title">Guest Details</h2>
+
+    <div class="guest-info-card">
+      <div class="photo-wrapper">
+        <img id="guestPhoto" src="default-avatar.png" class="guest-photo">
+      </div>
+
+      <h3 id="guestName">Guest Name</h3>
+
+      <div class="guest-details">
+        <p><b>Mobile:</b> <span id="guestMobile"></span></p>
+
+        <p>
+  <b>Stay Status:</b>
+  <span id="guestStatus" class="status-badge"></span>
+</p>
+
+
+
+        <p><b>Joining Date:</b> <span id="guestJoinDate"></span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Payment Table -->
+  <div class="right-section">
+
+    <div class="right-head">
+      <h2>Payment History</h2>
+
+      <div class="payment-type-filters">
+        <button class="type-btn " data-type="ALL" style="display: none;" >All</button>
+        <button class="type-btn active" data-type="ROOM_RENT">Room Rent</button>
+        <button class="type-btn" data-type="ELECTRICITY_BILL">Electricity Bill</button>
+        <button class="type-btn" data-type="WATER_BILL">Water Bill</button>
+        <button class="type-btn" data-type="ADVANCE_MONEY">Advance Money</button>
+        <button class="type-btn" data-type="SECURITY_MONEY">Security Money</button>
+      </div>
+    </div>
+
+    <div class="table-wrapper">
+      <div class="table-scroll">
+        <table class="payment-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Month Cycle</th>
+              <th>Payment Type</th>
+              <th>Total (₹)</th>
+              <th>Amount</th>
+              <th>Payment Date</th>
+              <th>Verified</th>
+              <th>Status</th>
+              <th>Receipt</th>
+            </tr>
+          </thead>
+          <tbody id="paymentTableBody">
+            <tr><td colspan="9">Loading...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<script src="../js/payment.js"></script>
+
+<!-- 🔍 IMAGE ZOOM MODAL -->
+<div id="imageZoomModal" class="image-zoom-modal">
+  <span id="zoomCloseBtn" class="zoom-close">&times;</span>
+  <img id="zoomedImage" class="zoomed-image" />
+</div>
+
+
+
+</body>
+</html>

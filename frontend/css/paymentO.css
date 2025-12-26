@@ -1,0 +1,232 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #f0f3ff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+
+}
+
+@media (min-width: 700px) {
+
+  body {
+    overflow: hidden;
+  }
+}
+
+
+/* =============================
+   ⭐ FIXED TOP HEADER (Perfect)
+============================= */
+.fixed-header {
+  position: fixed;        /* ⭐ Always visible */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: #fff;
+  padding: 12px 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid #e1e4ff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Heading (Left) */
+.heading-area h1 {
+  margin: 0;
+  font-size: 20px;
+  color: #2f3bb5;
+}
+
+.heading-area p {
+  margin: 0;
+  font-size: 13px;
+  color: #666;
+  margin-top: -2px;
+}
+
+/* Back Button (Right) */
+.back-btn {
+  padding: 8px 16px;
+  background: #eef1ff;
+  border: 1px solid #c7ceff;
+  color: #1c2bb8;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-weight: bold;
+  transition: .2s;
+}
+
+.back-btn:hover {
+  background: #dfe4ff;
+}
+
+/* ======================================================
+   ⭐ MAIN CONTAINER – Shifted Correctly Below Fixed Header
+====================================================== */
+.payment-container {
+  max-width: 1200px;
+  margin: 90px auto 20px;     /* ⭐ Absolutely perfect offset */
+  background: #fff;
+  padding: 20px 25px 40px;
+  border-radius: 16px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* YEAR DROPDOWN */
+.yearDropdown {
+  padding: 7px 14px;
+  border: 1px solid #b7c1ff;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* =============================
+   ⭐ SMALL STAT CARDS (Top Row)
+============================= */
+.small-card-row {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.small-card {
+  flex: 1;
+  background: #eef2ff;
+  padding: 14px 10px;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: .25s;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
+
+.small-card:hover {
+  background: #d8e1ff;
+  transform: translateY(-3px);
+}
+
+.card-title {
+  font-size: 13px;
+  color: #3247c2;
+  margin: 0;
+}
+
+.card-amount {
+  margin-top: 2px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #1c3ed6;
+}
+
+.card-date {
+  font-size: 11px;
+  color: #555;
+  margin-top: -12px;
+}
+
+/* =============================
+   ⭐ GRAPH SECTION
+============================= */
+.chart-section {
+  margin-top: 30px;
+}
+
+.graph-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#graphTitle {
+  margin: 0;
+  color: #2a36a2;
+}
+
+#yearlyChart {
+  width: 100% !important;
+  height: 339px !important;
+}
+
+.graph-buttons {
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.graph-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #b8c0ff;
+  background: #e4e8ff;
+  color: #1e2f97;
+  font-size: 14px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.graph-btn.active {
+  background: #2332cc !important;
+  color: white !important;
+}
+
+.graph-btn:hover {
+  background: #cfd6ff;
+}
+
+/* =============================
+   ⭐ MOBILE RESPONSIVE
+============================= */
+@media(max-width: 700px) {
+
+  .fixed-header {
+    padding: 10px 12px;
+  }
+
+  .heading-area h1 {
+    font-size: 18px;
+  }
+
+  .back-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .payment-container {
+    margin: 80px 10px 15px;   /* ⭐ More compact for mobile */
+  }
+
+  .small-card-row {
+    flex-wrap: wrap;
+  }
+
+  .small-card {
+    flex: 48%;
+  }
+
+  .graph-buttons {
+    flex-wrap: wrap;
+  }
+
+  .graph-btn {
+    flex: 48%;
+  }
+
+  #yearlyChart {
+    height: 380px !important;
+  }
+}
+
+#currentMonthText {
+   visibility: hidden;  
+}

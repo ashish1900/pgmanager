@@ -1,0 +1,65 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin: 0;
+}
+
+.container {
+  background: rgba(255,255,255,0.1);
+  padding: 40px 50px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  width: 320px;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 25px;
+}
+
+input[type="tel"], input[type="text"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 12px 0 20px 0;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  text-align: center;
+}
+
+button {
+  background: #6a11cb;
+  background: linear-gradient(to right, #2575fc, #6a11cb);
+  color: white;
+  border: none;
+  padding: 14px 0;
+  width: 100%;
+  font-size: 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+}
+
+.otp-section {
+  display: none;
+  margin-top: 10px;
+}
+
+.message {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #ffd700;
+}

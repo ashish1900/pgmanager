@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboardG.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <img id="profileImage" src="default-avatar.png" alt="Profile">
+            <div>
+                <h2 id="guestName">Loading...</h2>
+                <p>Mobile: <span id="guestMobile"></span></p>
+            </div>
+        </div>
+        <button id="logoutBtn" class="logout-btn">Logout</button>
+    </header>
+
+    <main>
+        <!-- ✅ Guest Address Info -->
+        <section class="info-card">
+            <h3>Permanent Address</h3>
+            <p id="guestPAddress">Loading...</p>
+        </section>
+
+        <!-- <section class="info-card">
+            <h3>Temporary Address</h3>
+            <p id="guestTAddress">Loading...</p>
+        </section> -->
+
+        <!-- ✅ See PGs Section -->
+        <section class="info-card">
+            <h3>Find PGs</h3>
+            <button id="seePgsBtn">See PGs</button>
+
+            <!-- ✅ City Selection -->
+            <div id="citySection" style="display:none; margin-top:15px;">
+                <label for="citySelect">Select City:</label>
+                <select id="citySelect"></select>
+                <button id="loadPgsBtn">Load PGs</button>
+            </div>
+
+            <!-- ✅ PG List -->
+            <div id="pgList" style="margin-top:20px;"></div>
+        </section>
+
+
+        <!-- ✅ NEW: Owner Details (visible only if request accepted) -->
+  <section id="ownerSection" class="info-card" style="display:none;">
+    <h3>Owner Details (Accepted)</h3>
+    <div class="owner-card">
+      <img id="ownerImage" src="../images/default-avatar.png" alt="Owner Profile" />
+      <div class="owner-details">
+        <p><strong>Name:</strong> <span id="ownerName">—</span></p>
+        <p><strong>Mobile:</strong> <span id="ownerMobile">—</span></p>
+        <p><strong>PG Name:</strong> <span id="ownerPgName">—</span></p>
+        <p><strong>City:</strong> <span id="ownerCity">—</span></p>
+        <p><strong>Address:</strong> <span id="ownerAddress">—</span></p>
+
+
+
+         <!-- ✅ Assigned Room Info -->
+      <div class="room-info" style="margin-top:10px; padding:10px; border-top:1px solid #ddd;">
+        <h4>Assigned Room Info</h4>
+        <p><strong>Building:</strong> <span id="assignedBuilding">—</span></p>
+        <p><strong>Room Number:</strong> <span id="assignedRoom">—</span></p>
+        <p><strong>Room Address:</strong> <span id="assignedRoomAddress">—</span></p>
+      </div>
+
+
+
+        <div class="owner-actions">
+          <a id="callOwnerBtn" href="#" class="btn primary">Call Owner</a>
+          <button id="copyOwnerBtn" class="btn">Copy Number</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ❗ Optional: Message when no accepted request -->
+  <section id="noOwnerSection" class="info-card" style="display:none;">
+    <h3>No Accepted Request Yet</h3>
+    <p>Your stay request has not been accepted yet. As soon as any owner accepts, their details will appear here.</p>
+  </section>
+
+
+
+
+    </main>
+
+    <script src="../js/dashboardG.js"></script>
+</body>
+</html>

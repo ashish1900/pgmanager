@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment | Guest</title>
+  <link rel="stylesheet" href="../css/paymentG.css" />
+</head>
+<body>
+  <header>
+    <h1>PG Manager</h1>
+    <div class="right">
+      <span>Guest Payment</span>
+      <button id="backBtn">⬅ Back</button>
+    </div>
+  </header>
+
+  <main>
+   
+    <!-- Left Section -->
+<aside class="owner-sidebar-new">
+
+  <div class="owner-card-new">
+
+    <div class="owner-image-wrapper">
+      <img id="ownerImage" src="../images/default-avatar.png" alt="Owner Photo">
+    </div>
+
+    <div class="owner-name-box">
+      <h2 id="ownerName">Owner Name</h2>
+      <span class="pg-badge" id="modalPgName">PG Name</span>
+    </div>
+
+    <div class="owner-detail-list">
+
+  <div class="owner-row">
+    <span class="icon">📱</span>
+    <span class="label">Mobile:</span>
+    <span class="value" id="ownerMobile">—</span>
+  </div>
+
+  <div class="owner-row">
+    <span class="icon">🌆</span>
+    <span class="label">City:</span>
+    <span class="value" id="ownerCity">—</span>
+  </div>
+
+  <div class="owner-row">
+    <span class="icon">🏡</span>
+    <span class="label">Address:</span>
+    <span class="value" id="ownerAddress">—</span>
+  </div>
+
+</div>
+
+
+    <hr class="owner-divider">
+
+    <label class="select-label">Paying For</label>
+    <select id="pgDropdown" class="pg-dropdown owner-select-new"></select>
+
+
+  </div>
+
+</aside>
+
+
+
+    <!-- Right Section -->
+    <section class="payment-section">
+
+      <button id="viewHistoryBtn" class="history-top-btn">📜 Payment History</button>
+
+
+      <div class="payment-steps" id="paymentContainer">
+       
+
+        <h3>💰 Step 1: Select Payment Type</h3>
+        <div class="card">
+          <select id="paymentType" class="pg-dropdown">
+            <option value="">-- Select Type --</option>
+            <option>Room Rent</option>
+            <option>Advance Money</option>
+            <option>Electricity Bill</option>
+            <option>Water Bill</option>
+            <option>Security Money</option>
+          </select>
+        </div>
+
+
+       
+        <h3>💳 Step 2: Payment Details</h3>
+
+<div class="card payment-info-grid" id="paymentInfoCard">
+
+  <!-- DEFAULT MESSAGE (visible when type not selected) -->
+  <div id="noPaymentTypeMsg" class="no-type-msg">
+    <p>⚠️ Please select a payment type to view UPI details.</p>
+  </div>
+
+  <!-- LEFT SIDE DETAILS (hidden initially) -->
+  <div class="left-details hidden" id="upiLeftDetails">
+    <p><strong>Owner Mobile:</strong> <span id="payMobile">—</span></p>
+    <p><strong>UPI ID:</strong> <span id="payUpiId">—</span></p>
+  </div>
+
+  <!-- RIGHT SIDE QR CODE (hidden initially) -->
+  <div class="qr-box hidden" id="qrBox">
+    <p><strong>QR Code:</strong></p>
+    <img id="qrImage" src="../images/default-qr.png" alt="QR Code">
+  </div>
+
+</div>
+
+
+        
+
+<h3>📤 Step 3: Enter Amount & Upload Screenshot</h3>
+
+<div class="card step3-grid">
+
+  <input 
+    type="number" 
+    id="paymentAmount" 
+    placeholder="Amount (₹)" 
+    class="step-input"
+    min="1"
+  />
+
+  <input 
+    type="file" 
+    id="paymentScreenshot" 
+    class="step-file"
+    accept="image/*"
+  />
+
+  <button id="uploadPaymentBtn" class="step-submit">Upload & Submit</button>
+  
+
+</div>
+
+
+
+
+
+      </div>
+
+
+
+      <!-- Payment History Section -->
+<div id="historyContainer" class="hidden">
+  <div class="history-header">
+    <h3>📜 Payment History</h3>
+
+    <!-- 🟦 Horizontal Filter Buttons -->
+    <div class="filter-buttons" id="filterButtons">
+      <button class="filter-btn active" data-type="all">All</button>
+      <button class="filter-btn" data-type="ROOM_RENT">Room Rent</button>
+      <button class="filter-btn" data-type="ADVANCE_MONEY">Advance Money</button>
+      <button class="filter-btn" data-type="ELECTRICITY_BILL">Electricity Bill</button>
+      <button class="filter-btn" data-type="WATER_BILL">Water Bill</button>
+      <button class="filter-btn" data-type="SECURITY_MONEY">Security Money</button>
+    </div>
+
+    <button id="backToPayBtn" class="icon-btn">⬅ Back to Payment</button>
+  </div>
+
+  <!-- 🔥 Table Wrapper Added -->
+  <div class="table-wrapper">
+    <table class="history-table">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>PG Name</th>
+          <th>Type</th>
+          <th>Amount</th>
+          <th>Payment Date</th>
+          <th>Verified Date</th>
+          <th>Status</th>
+          <th>Receipt</th>
+        </tr>
+      </thead>
+      <tbody id="historyBody"></tbody>
+    </table>
+  </div>
+</div>
+
+      
+
+
+
+    </section>
+  </main>
+
+  <script src="../js/paymentG.js"></script>
+</body>
+</html>

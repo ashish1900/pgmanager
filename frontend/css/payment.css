@@ -1,0 +1,352 @@
+/* =====================================
+   GLOBAL
+===================================== */
+body {
+  font-family: Poppins, sans-serif;
+  background: #ced6ea;
+  margin: 0;
+  overflow: hidden; /* Desktop: prevent page scroll */
+}
+
+/* =====================================
+   TOP FIXED HEADER
+===================================== */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  color: #4b6bff;
+  padding: 1px 0;
+  text-align: center;
+  z-index: 9999;
+  height: 50px;
+}
+
+
+
+.topbar h2{
+  font-size: 21px;
+}
+
+
+.header-gap {
+  height: px;
+}
+
+.back-btn {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  padding: 4px 6px;
+  border: none;
+  border-radius: 6px;
+  background: #7089f7;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* =====================================
+   MAIN PAGE (DESKTOP)
+===================================== */
+.payment-page {
+  width: 95%;
+  max-width: 1500px;
+  margin: 65px auto 20px;
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  display: flex;
+  gap: 25px;
+  height: calc(100vh - 125px);
+  overflow: hidden;
+}
+
+/* LEFT */
+.left-section {
+  width: 30%;
+  margin-top: -23px;
+}
+
+.guest-info-card {
+  background: #fff;
+  border: 1px solid #d9ddf0;
+  padding: 18px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.guest-photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid #4b6bff;
+}
+
+/* =====================================
+   RIGHT SECTION
+===================================== */
+.right-section {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-top: -23px;
+}
+
+.right-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: px;
+}
+
+.payment-type-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.type-btn {
+  padding: 6px 12px;
+  border: 1px solid #4b6bff;
+  border-radius: 20px;
+  background: #fff;
+  color: #4b6bff;
+  cursor: pointer;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.type-btn.active {
+  background: #4b6bff;
+  color: #fff;
+}
+
+/* =====================================
+   TABLE (DESKTOP)
+===================================== */
+.table-wrapper {
+  flex: 1;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table-scroll {
+  height: 100%;
+  overflow-y: auto;     /* vertical scroll only */
+  overflow-x: auto;     /* 🔥 allow horizontal if needed */
+}
+
+.payment-table {
+  width: 100%;
+  min-width: 950px;
+  border-collapse: collapse;
+}
+
+.payment-table th {
+  background: #4b6bff;
+  color: #fff;
+  padding: 8px;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.payment-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.receipt-img {
+  width: 50px;
+  border-radius: 6px;
+  cursor: zoom-in;
+}
+
+
+
+
+
+
+/* ✅ FULL ROW HIGHLIGHT IF PAYMENT IS DONE */
+.payment-table tr:has(td.status-paid) {
+  background-color: #eaf8f0;   /* light green */
+  font-weight: 600;            /* 🔥 full row bold */
+}
+
+/* text color */
+.payment-table tr:has(td.status-paid) td {
+  color: #1f7a3f;
+}
+
+/* optional left indicator */
+.payment-table tr:has(td.status-paid) {
+  border-left: 4px solid #28a745;
+}
+
+
+
+
+/* =========================
+   IMAGE ZOOM MODAL
+========================= */
+
+.image-zoom-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 10000;
+  transition: 0.25s ease;
+}
+
+.image-zoom-modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.zoomed-image {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  background: #fff;
+}
+
+/* ❌ CUT / CLOSE BUTTON */
+.zoom-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  font-size: 36px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+}
+
+.zoom-close:hover {
+  color: #ff5c5c;
+}
+
+
+
+
+
+
+
+
+/* =========================
+   GUEST STATUS BADGE
+========================= */
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 15px;
+}
+
+/* 🟢 ACTIVE */
+.status-active {
+  background: #eafaf1;
+  color: #1f7a3f;
+}
+
+.status-active::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: #28a745;
+  border-radius: 50%;
+}
+
+/* 🔴 CHECKED OUT */
+.status-removed {
+  background: #fdecec;
+  color: #b02a2a;
+}
+
+.status-removed::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: #e44c4c;
+  border-radius: 50%;
+}
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+  body {
+    overflow-y: auto;          /* page scroll allowed */
+  }
+
+  .payment-page {
+    flex-direction: column;
+    width: 87%;
+    padding: 15px;
+    height: auto;
+    overflow: visible;
+  }
+
+  .left-section,
+  .right-section {
+    width: 100%;
+  }
+
+  .right-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .payment-type-filters {
+    width: 100%;
+  }
+
+  .topbar h2{
+  font-size: 19px;
+  margin-right: 80px;
+}
+  .type-btn {
+    flex: 1 1 48%;
+    text-align: center;
+  }
+
+  /* 🔥 MAIN FIX STARTS HERE */
+
+  .table-wrapper {
+    width: 100%;
+    max-height: 410px;         /* ✅ table height reduced */
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .table-scroll {
+    max-height: 410px;         /* ✅ rows scroll inside */
+    overflow-y: auto;          /* vertical scroll */
+    overflow-x: auto;          /* horizontal swipe */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .payment-table {
+    min-width: 950px;          /* force horizontal swipe */
+  }
+
+}

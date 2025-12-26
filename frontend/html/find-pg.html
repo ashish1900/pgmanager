@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Your PG Stay</title>
+  <link rel="stylesheet" href="../css/find-pg.css">
+  <link rel="stylesheet" href="../css/popup.css">
+</head>
+<body>
+ 
+  <!-- <header class="top-header">
+  <h1 class="app-title">PG Manager</h1>
+
+  <div class="header-right">
+    <span class="page-name">Request to join pg</span>
+    <button id="backBtn" class="back-btn">⬅ Back</button>
+  </div>
+</header> -->
+
+
+<header>
+    <h1>PG Manager</h1>
+    <div class="right">
+      <span>Request to join pg</span>
+      <button id="backBtn" class="back-btn">⬅ Back</button>
+    </div>
+</header>
+
+<!-- ⭐ FIXED SECOND BAR -->
+<div class="fixed-action-bar">
+    <button id="findPgBtn" class="trigger-btn fixed-btn">📍 Select City</button>
+    <h2 class="fixed-heading">Your PG Requests</h2>
+</div>
+
+<main>
+    <div class="page-container">
+
+      <section id="myRequestsSection" style="margin-top:120px; display:none;">
+        <div id="myRequestsList"></div>
+      </section>
+
+    </div>
+</main>
+
+
+
+  <!-- 🌆 FIND PG MODAL -->
+  <div id="findPgModal" class="modal hidden">
+    <div class="modal-content large-modal">
+      <span class="close" id="closeFindPgModal">&times;</span>
+      <h2>🏙️ Select City & Find PG</h2>
+
+      <div class="form-group">
+        <label for="citySelect"><b>Select City:</b></label>
+        <div class="city-select-container">
+          <select id="citySelect">
+            <option value="">--Select City--</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="pgListContainer" style="display:none;">
+        <h3>Available PGs</h3>
+        <div id="pgList"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🪪 ID Upload Modal -->
+  <div id="idUploadModal" class="modal hidden">
+    <div class="modal-content id-modal">
+      <span id="closeIdModal" class="close">&times;</span>
+      <h2>🪪 Upload Your ID</h2>
+
+      <form id="idUploadForm">
+        <div class="form-group">
+          <label for="idType"><b>ID Type:</b></label>
+          <select id="idType" required>
+            <option value="">--Select--</option>
+            <option value="Aadhar Card">Aadhar Card</option>
+            <option value="PAN Card">PAN Card</option>
+            <option value="Driving License">Driving License</option>
+            <option value="Voter ID">Voter ID</option>
+            <option value="Passport">Passport</option>
+          </select>
+        </div>
+
+        <div class="upload-section">
+          <div class="file-upload">
+            <label>Front Side:</label>
+            <input type="file" id="idFront" accept="image/*" required>
+            <div class="preview" id="frontPreview"></div>
+            <div class="error" id="frontError"></div>
+          </div>
+
+          <div class="file-upload">
+            <label>Back Side:</label>
+            <input type="file" id="idBack" accept="image/*" required>
+            <div class="preview" id="backPreview"></div>
+            <div class="error" id="backError"></div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="tempAddress"><b>Temporary Address:</b></label>
+          <textarea id="tempAddress" placeholder="Enter your temporary address" rows="3" required></textarea>
+        </div>
+
+        <button type="submit" class="upload-btn">🚀 Upload & Send Request</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Popup -->
+  <div id="mismatchPopup" class="popup-overlay" style="display:none;">
+    <div class="popup-box">
+      <h3>Request Mismatch</h3>
+      <p>Your previous stay request was marked as “Mismatch” by the owner.<br>
+         Please create a new request if needed.</p>
+      <button id="okBtn">OK</button>
+    </div>
+  </div>
+
+  <!-- Full-screen Image Viewer -->
+  <div id="imageViewer" class="image-viewer hidden">
+    <div class="image-viewer-content">
+      <span class="close-viewer" id="closeImageViewer">✖</span>
+      <img id="viewerImage" src="" alt="Preview">
+    </div>
+  </div>
+
+  <script src="../js/find-pg.js"></script>
+  <script src="../js/popup.js"></script>
+</body>
+</html>

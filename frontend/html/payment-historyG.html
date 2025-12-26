@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guest Payment History</title>
+  <link rel="stylesheet" href="../css/payment-historyG.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>PG Manager</h1>
+    <div class="right">
+      <span>Payment History</span>
+      <button id="backBtn">⬅ Back</button>
+    </div>
+  </header>
+
+  <!-- Main Section -->
+  <main>
+    <div class="history-header">
+      <h2>📜 All Payment Records</h2>
+
+      <div class="filter-buttons" id="filterButtons">
+        <button class="filter-btn active" data-type="all">All</button>
+        <button class="filter-btn" data-type="ROOM_RENT">Room Rent</button>
+        <button class="filter-btn" data-type="ADVANCE_MONEY">Advance Money</button>
+        <button class="filter-btn" data-type="ELECTRICITY_BILL">Electricity Bill</button>
+        <button class="filter-btn" data-type="WATER_BILL">Water Bill</button>
+        <button class="filter-btn" data-type="SECURITY_MONEY">Security Money</button>
+      </div>
+    </div>
+
+    <div class="table-wrapper">
+      <table class="history-table">
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>PG Name</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Payment Date</th>
+            <th>Verified Date</th>
+            <th>Status</th>
+            <th>Receipt</th>
+          </tr>
+        </thead>
+        <tbody id="historyBody"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="../js/payment-historyG.js"></script>
+</body>
+</html>

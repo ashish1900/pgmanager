@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Owner Payment Dashboard</title>
+
+  <link rel="stylesheet" href="../css/paymentO.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="payment-container">
+
+    <!-- TOP BAR -->
+     <header class="top-bar fixed-header">
+
+
+    <div class="heading-area">
+        <h1>Payment Overview</h1>
+        <p id="currentMonthText"></p>
+    </div>
+
+    <button class="back-btn" onclick="goBack()">⬅ Back</button>
+
+</header>
+
+
+    <!-- SMALL 5 CARD ROW -->
+    <section class="small-card-row">
+
+  <div class="small-card" onclick="goToPayment('ROOM_RENT')">
+    <p class="card-title">Room Rent</p>
+    <p class="card-amount" id="roomAmount">₹0</p>
+    <p class="card-date" id="roomDate"></p>
+  </div>
+
+  <div class="small-card" onclick="goToPayment('ADVANCE_MONEY')">
+    <p class="card-title">Advance</p>
+    <p class="card-amount" id="advanceAmount">₹0</p>
+    <p class="card-date" id="advanceDate"></p>
+  </div>
+
+  <div class="small-card" onclick="goToPayment('ELECTRICITY_BILL')">
+    <p class="card-title">Electricity</p>
+    <p class="card-amount" id="electricityAmount">₹0</p>
+    <p class="card-date" id="electricityDate"></p>
+  </div>
+
+  <div class="small-card" onclick="goToPayment('WATER_BILL')">
+    <p class="card-title">Water</p>
+    <p class="card-amount" id="waterAmount">₹0</p>
+    <p class="card-date" id="waterDate"></p>
+  </div>
+
+  <div class="small-card" onclick="goToPayment('SECURITY_MONEY')">
+    <p class="card-title">Security</p>
+    <p class="card-amount" id="securityAmount">₹0</p>
+    <p class="card-date" id="securityDate"></p>
+  </div>
+
+</section>
+
+
+    <!-- GRAPH SECTION -->
+    <section class="chart-section">
+      
+      <div class="graph-top">
+        <h2 id="graphTitle">Room Rent Trends</h2>
+
+        <!-- YEAR DROPDOWN MOVED NEAR GRAPH -->
+        <select id="yearSelect" class="yearDropdown"></select>
+      </div>
+
+      <canvas id="yearlyChart"></canvas>
+
+      <div class="graph-buttons">
+        <button class="graph-btn" id="btn_ROOM_RENT" onclick="changeGraph('ROOM_RENT')">Room Rent</button>
+        <button class="graph-btn" id="btn_ADVANCE_MONEY" onclick="changeGraph('ADVANCE_MONEY')">Advance</button>
+        <button class="graph-btn" id="btn_ELECTRICITY_BILL" onclick="changeGraph('ELECTRICITY_BILL')">Electricity</button>
+        <button class="graph-btn" id="btn_WATER_BILL" onclick="changeGraph('WATER_BILL')">Water</button>
+        <button class="graph-btn" id="btn_SECURITY_MONEY" onclick="changeGraph('SECURITY_MONEY')">Security</button>
+      </div>
+
+    </section>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+
+  <script src="../js/paymentO.js"></script>
+</body>
+</html>

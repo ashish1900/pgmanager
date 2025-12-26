@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Guests - With Cycle Indicator</title>
+
+  <link rel="stylesheet" href="../css/totalGuest.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <h2>Guests</h2>
+    <button class="back-btn" onclick="goBack()">⬅ Back</button>
+  </header>
+
+  
+  <section class="guest-section">
+   
+
+    <div class="filter-bar">
+
+      
+
+
+
+  <!-- LEFT SIDE: Guest Filters -->
+  <div class="left-filters">
+    <button id="btnAll" class="filter-btn active">
+  Total Guest <span id="countAll" class="count-box">0</span>
+</button>
+
+<button id="btnActive" class="filter-btn">
+  Active Guest <span id="countActive" class="count-box">0</span>
+</button>
+
+<button id="btnRemoved" class="filter-btn">
+  Check-out Guest <span id="countRemoved" class="count-box">0</span>
+</button>
+
+  </div>
+
+  <!-- RIGHT SIDE: Cycle Status Filters -->
+  <div class="right-filters" style="display:none;">
+  <button id="cycleAll" class="filter-btn2 active">
+    All <span id="countCycleAll" class="count-box green">0</span>
+  </button>
+
+  <button id="cyclePaid" class="filter-btn2">
+    Paid <span id="countCyclePaid" class="count-box green">0</span>
+  </button>
+
+  <button id="cycleDue" class="filter-btn2">
+    Due <span id="countCycleDue" class="count-box red">0</span>
+  </button>
+</div>
+
+
+
+<!-- MOBILE DROPDOWNS -->
+<div class="mobile-filters">
+  <select id="guestFilterMobile" onchange="guestFilterSelect()">
+    <option value="btnAll" id="optAll">Total Guest</option>
+    <option value="btnActive" id="optActive">Active Guest</option>
+    <option value="btnRemoved" id="optRemoved">Check-out Guest</option>
+  </select>
+
+  <select id="cycleFilterMobile" onchange="cycleFilterSelect()" style="display:none;">
+    <option value="cycleAll" id="optCycleAll">All</option>
+    <option value="cyclePaid" id="optCyclePaid">Paid</option>
+    <option value="cycleDue" id="optCycleDue">Due</option>
+  </select>
+</div>
+
+
+
+
+
+</div>
+
+
+    <div class="table-wrapper">
+
+
+
+<div class="head-table-wrapper">   
+
+
+
+  <!-- FIXED HEADER TABLE -->
+  <table class="guest-table head-table">
+
+    
+
+    <thead>
+
+
+      
+
+
+      <tr>
+        <th>#</th>
+        <th>Photo</th>
+        <th>Guest Name</th>
+        <th>Stay Status</th>
+        <th>Joining Date</th>
+        <th>Month Cycle</th>
+        <th>Check-out Request</th>
+        <th>Check-out Accepted</th>
+        <th>Payment History</th>
+      </tr>
+    </thead>
+  </table>
+
+  </div>   
+
+  <!-- SCROLLABLE BODY TABLE -->
+  <div class="table-body-scroll">
+    <table class="guest-table body-table">
+      <tbody id="guestsTableBody"></tbody>
+    </table>
+  </div>
+
+</div>
+
+
+
+
+  </section>
+
+  <!-- Modal (kept minimal) -->
+  <div id="infoModal" class="modal-overlay">
+    <div class="modal-content" id="modalContent">
+      <span class="close" id="closeBtn">&times;</span>
+      <div class="info-grid">
+        <div class="guest-card">
+          <h3>Guest Details</h3>
+          <div class="profile-container">
+            <img id="modalPhoto" class="modal-photo zoomable" src="default-avatar.png" alt="Guest Photo">
+          </div>
+          <p><strong>Name:</strong> <span id="modalName"></span></p>
+          <p><strong>Temp Address:</strong> <span id="modalTAddress"></span></p>
+          <p><strong>Perm Address:</strong> <span id="modalPAddress"></span></p>
+          <p><strong>Mobile:</strong> <span id="modalMobile"></span></p>
+        </div>
+
+        <div class="room-card">
+          <h3>Room Details</h3>
+          <p><strong>Room No:</strong> <span id="roomNumber"></span></p>
+          <p><strong>Floor No:</strong> <span id="floorNumber"></span></p>
+          <p><strong>Building No:</strong> <span id="buildingNumber"></span></p>
+          <p><strong>Address:</strong> <span id="roomAddress"></span></p>
+        </div>
+      </div>
+
+      <div class="id-section">
+        <h3>Guest ID Proof</h3>
+        <div class="id-container">
+          <div>
+            <p>ID Front:</p>
+            <img id="idFrontImage" class="zoomable" src="default-id.png" alt="ID Front">
+          </div>
+          <div>
+            <p>ID Back:</p>
+            <img id="idBackImage" class="zoomable" src="default-id.png" alt="ID Back">
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-nav">
+        <button id="prevBtn"><i class="fa-solid fa-arrow-left"></i> Prev</button>
+        <button id="nextBtn">Next <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div id="zoomOverlay"><img id="zoomImage" alt="Zoomed"></div>
+
+  <script src="../js/totalGuest.js"></script>
+</body>
+</html>

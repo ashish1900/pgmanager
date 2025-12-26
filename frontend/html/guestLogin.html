@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mobile OTP Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/login.css" />
+  <script defer src="../js/cheskUserG.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Login via Mobile OTP</h2>
+
+  <form id="sendOtpForm">
+    <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="Enter Mobile Number" maxlength="10" pattern="[0-9]{10}" required />
+    <button type="submit">Next</button>
+  </form>
+
+  <div class="message" id="message"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,541 @@
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background: #d2d6e4;
+  overflow: hidden;
+}
+.topbar {
+  background: #007bff;
+  color: white;
+
+  height: 60px;              /* fixed height */
+  display: flex;
+  align-items: center;       /* ✅ vertical center */
+  justify-content: center;   /* horizontal center */
+
+  margin-bottom: 20px;
+  position: relative;
+}
+
+
+
+.back-btn {
+  position: absolute;
+  right: 25px;
+  top: 15px;
+  background: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.back-btn:hover{
+  background: #8cc0f7;
+}
+
+
+
+.guest-section {
+  padding: 20px;
+}
+
+.guest-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.guest-table th{
+  background: #3595fb;
+  color: white;
+}
+
+.guest-table th,
+.guest-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.guest-profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ✅ Smaller See Button below name */
+.name-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 20px;
+}
+
+.see-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 100px;
+  padding: 6px 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.see-btn:hover {
+  background: #0056b3;
+}
+
+/* ===== Modal Styling ===== */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.show {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 14px;
+  padding: 25px 30px;
+  width: 90%;
+  max-width: 850px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+  animation: zoomIn 0.4s ease;
+}
+
+.close {
+  position: fixed;
+  top: 30px;
+  right: 35px;
+  font-size: 26px;
+  cursor: pointer;
+  color: #555;
+  background: #fff;
+  border-radius: 50%;
+  padding: 4px 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 10000;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.close:hover {
+  color: #fff;
+  background: #007bff;
+  transform: scale(1.1);
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.info-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.guest-card,
+.room-card {
+  flex: 1;
+  min-width: 300px;
+  background: #f9fbff;
+  border-radius: 10px;
+  padding: 15px 20px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.modal-photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid #007bff;
+  object-fit: cover;
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+}
+.modal-photo:hover {
+  transform: scale(1.05);
+}
+
+.id-section {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.id-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.id-container img {
+  width: 250px;
+  height: 170px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  cursor: zoom-in;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+}
+.id-container img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.modal-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.modal-nav button {
+  background: #007bff;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+.modal-nav button:hover {
+  background: #0056b3;
+}
+
+/* ===== Zoom Overlay ===== */
+#zoomOverlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+#zoomOverlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  animation: zoomEffect 0.3s ease;
+}
+@keyframes zoomEffect {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+
+.accept-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.accept-btn:hover {
+  background: #218838;
+}
+
+
+
+
+/* ===============================
+   FIXED HEADER + SCROLL BODY
+================================ */
+
+.guest-section {
+  padding: 0 20px 20px;
+  height: calc(100vh - 70px); /* topbar height adjust */
+}
+
+.guest-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.guest-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #ffffff;
+}
+
+.guest-table tbody {
+  display: block;
+  height: calc(100vh - 140px); /* adjust if needed */
+  overflow-y: auto;
+}
+
+.guest-table thead tr,
+.guest-table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.guest-table th,
+.guest-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   📱 MOBILE CARD VIEW
+========================= */
+@media (max-width: 700px) {
+
+  /* Allow vertical scroll on mobile */
+  body {
+    overflow-y: auto;
+    background: white;
+  }
+
+
+
+  .topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2000;
+  }
+
+
+  .topbar h2{
+    font-size: 20px;
+    margin-left: -80px;
+  }
+
+  .back-btn{
+    right: 12px;
+  }
+
+  /* Section scroll natural */
+  .guest-section {
+    height: auto;
+    overflow: visible;
+    padding: 4px;
+    margin-top: 70px;
+    
+  }
+
+  /* ❌ Hide table header */
+  .guest-table thead {
+    display: none;
+  }
+
+  /* Break table structure */
+  .guest-table,
+  .guest-table tbody,
+  .guest-table tr,
+  .guest-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .guest-table tbody {
+    height: auto;
+    overflow: visible;
+  }
+
+  /* ✅ Each row becomes a CARD */
+  .guest-table tbody tr {
+    background: #cfd9f0;
+    padding: 16px;
+    border-radius: 14px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+    text-align: center;
+
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+
+    background: #c9def6;
+  }
+
+  /* Remove hover scale */
+  .guest-table tbody tr:hover {
+    transform: none;
+  }
+
+  /* Cells */
+  .guest-table td {
+    border: none;
+    padding: 6px 0;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  /* ❌ Hide serial number in card */
+  .guest-table td:nth-child(1) {
+    display: none;
+    
+  }
+.guest-table td:nth-child(2) {
+  margin-top: 15px;
+    
+  }
+
+  /* Guest name + see button */
+  .guest-table td:nth-child(3) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .guest-table td:nth-child(3) span {
+    font-size: 17px;
+    font-weight: 600;
+    color: #1f2937;
+  }
+
+  /* Labels ABOVE value */
+  .guest-table td:nth-child(4)::before {
+    content: "Check-out Request Date";
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #6b7280;
+    margin-bottom: 2px;
+  }
+
+  .guest-table td:nth-child(5)::before {
+    content: "Joining Date";
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #6b7280;
+    margin-bottom: 2px;
+  }
+
+  /* Action button */
+  .guest-table td:nth-child(6) {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .accept-btn {
+    width: 80%;
+    height: 35px;
+    border-radius: 12px;
+    font-size: 16px;
+  }
+}
+
+
+
+
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .modal-overlay {
+    align-items: flex-start; /* top se start */
+    padding: 10px;
+  }
+
+  .modal-content {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    max-height: 95vh;
+    overflow-y: auto;
+    overflow-x: hidden;   /* ✅ MOST IMPORTANT */
+    padding: 16px;
+    box-sizing: border-box;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .info-grid {
+    flex-direction: column;   /* row ❌ → column ✅ */
+    gap: 15px;
+  }
+
+  .guest-card,
+  .room-card {
+    min-width: 100%;
+  }
+}
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .close {
+    position: sticky;
+    top: 8px;
+    right: 8px;
+    float: right;
+    z-index: 10001;
+  }
+}

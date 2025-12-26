@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Guest Registration</title>
+  <link rel="stylesheet" href="../css/registerG.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Guest Registration</h2>
+    <form id="guestRegisterForm">
+
+      <!-- Hidden field for mobile number -->
+      <input type="hidden" id="moNumber" name="moNumber" />
+      <p>Mobile: <span id="rawMobileNumber"></span></p>
+
+      <!-- Guest name -->
+      <input type="text" id="name" name="name" placeholder="Full Name" required />
+
+     <!-- Temporary Address -->
+      <!-- <textarea id="taddress" name="taddress" placeholder="Temporary Address" required></textarea> -->
+
+      <!-- Permanent Address -->
+      <textarea id="paddress" name="paddress" placeholder="Permanent Address" required></textarea>
+
+      <!-- Profile Image Upload + Preview -->
+      <label for="profileImage">Profile Image</label>
+      <input type="file" id="profileImage" accept="image/*" name="image" />
+      <p id="imageError" style="color:red; display:none;">Image size must be less than 1MB</p>
+
+      <div class="image-preview-container">
+        <img id="imagePreview" alt="Image Preview" style="display:none;" />
+        <p id="imageName" class="image-name" style="display:none;"></p>
+      </div>
+
+      <button type="submit">Send OTP</button>
+      <div id="message"></div>
+    </form>
+  </div>
+
+  <script src="../js/registerG.js"></script>
+</body>
+</html>

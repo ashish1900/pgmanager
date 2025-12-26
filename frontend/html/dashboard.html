@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guest Dashboard</title>
+  <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <h1>PG Manager</h1>
+    <div class="right">
+      <span>Guest Dashboard</span>
+      <button id="logoutBtn">Logout</button>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <main>
+    <!-- Sidebar -->
+    <aside>
+      <div class="profile-name-wrapper">
+        <img id="profileImage" src="../images/default-avatar.png" alt="Profile">
+        <h2 id="guestName" class="profile-name">Guest Name</h2>
+        <button class="icon-btn" id="toggleDetails">👁 <span>See More</span></button>
+        <button class="icon-btn" id="updateProfileBtn">✏️ <span>Update Profile</span></button>
+      </div>
+
+
+<!-- ===== Update Guest Modal ===== -->
+<div id="updateGuestModal" class="hidden modal-overlay">
+  <div class="modal-content">
+    <span class="close-btn" id="closeUpdateModal">&times;</span>
+    <h2>Update Profile</h2>
+    <form id="updateGuestForm" class="update-form">
+
+      <div class="form-group">
+        <label for="updateName">Name:</label>
+        <input type="text" id="updateName" required placeholder="Enter your name" />
+      </div>
+
+      <div class="form-group">
+        <label for="updatePAddress">Permanent Address:</label>
+        <input type="text" id="updatePAddress" required placeholder="Enter permanent address" />
+      </div>
+
+      <div class="form-group">
+        <label for="updateImage">Profile Image:</label>
+        <input type="file" id="updateImage" accept="image/*" />
+
+        <!-- 👇 Add this preview section -->
+        <div id="imagePreviewContainer" style="margin-top:10px; display:none; text-align:center;">
+          <p id="selectedFileName" style="font-size:14px; color:#333; margin-bottom:6px;"></p>
+          <img id="selectedImagePreview" src="" alt="Preview" style="max-width:100px; height:100px; border-radius:8px; object-fit:cover; border:1px solid #ccc;">
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn-save">Save Changes</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+      <!-- Welcome Message with Dropdown -->
+      <p class="welcome-msg">
+        Welcome to
+        <span id="ownerPgName" class="pg-name">PG Manager</span>
+        <select id="pgDropdown" class="pg-dropdown"></select>
+      </p>
+
+
+      <!-- Owner See More Button -->
+      <button class="icon-btn" id="toggleOwnerDetails">👁 <span>See Owner</span></button>
+
+      <!-- Room Details -->
+      <div class="room-details">
+        <h3>Room Details</h3>
+        <div>🏠 <p><strong>Room Number:</strong> <span id="assignedRoom">—</span></p>
+        </div>
+        <div>🪜 <p><strong>Floor Number:</strong> <span id="assignedFloor">—</span></p>
+        </div>
+        <div>🏢 <p><strong>Building:</strong> <span id="assignedBuilding">—</span></p>
+        </div>
+        <div>📍 <p><strong>Room Address:</strong> <span id="assignedRoomAddress">—</span></p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Right Section -->
+    <section>
+      <div class="actions">
+        <button id="findPgBtn" class="teal">📥 <span>Request to Join PG</span></button>
+        <button class="blue">💳 <span> Make Payment</span></button>
+        <button class="green">📈 <span>Payment History</span></button>
+        <button class="yellow">📑 <span>My Stay History</span></button>
+        <button class="purple">📤 <span>Send Check-out Request</span></button>
+        <button class="pink">🛠 <span>Help & Support</span></button>
+      </div>
+
+      <div class="notices">
+  <h3>Recent Notices</h3>
+  <ul id="guestNoticeList">
+    <!-- dynamic notices -->
+  </ul>
+</div>
+
+
+
+
+    </section>
+  </main>
+
+  <!-- Owner Modal -->
+  <div id="ownerModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn" id="closeOwnerModal">&times;</span>
+      <div class="modal-header">
+        <h4 class="modal-title">PG Owner Details</h4>
+        <img id="ownerImage" src="../images/default-avatar.png" alt="Owner Photo">
+      </div>
+      <div class="modal-body">
+        <div class="modal-item">👤 Owner Name: <p id="ownerName">—</p>
+        </div>
+        <div class="modal-item">📱 Mobile: <p id="ownerMobile">—</p>
+        </div>
+        <div class="modal-item">🏘 PG Name: <p id="modalPgName">—</p>
+        </div>
+        <div class="modal-item">🌆 City: <p id="ownerCity">—</p>
+        </div>
+        <div class="modal-item">🏡 Address: <p id="ownerAddress">—</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Guest Modal -->
+  <div id="guestModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
+      <div class="modal-header">
+        <h4 class="modal-title">Your Details</h4>
+        <img id="modalProfileImage" src="../images/default-avatar.png" alt="Profile Photo">
+        <h3 id="modalGuestName">Guest Name</h3>
+      </div>
+      <div class="modal-body">
+        <div class="modal-item">📱 Mobile: <p id="guestMobile">—</p>
+        </div>
+        <div class="modal-item">🏡 Permanent Address: <p id="guestPAddress">—</p>
+        </div>
+        <div class="modal-item">🏘 Temporary Address: <p id="guestTAddress">—</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/dashboard.js"></script>
+</body>
+
+</html>

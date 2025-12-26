@@ -1,0 +1,200 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  position: relative;
+}
+
+.title {
+  position: absolute;
+  top: 30px;
+  font-size: 54px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  text-shadow:
+    2px 2px 4px rgba(0, 0, 0, 0.8),
+    -1px -1px 0 gold,
+    1px 1px 0 gold;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  animation: slideIn 1.5s ease-out;
+  letter-spacing: 2px;
+  user-select: none;
+}
+
+.title i {
+  font-size: 54px;
+  color: gold;
+  animation: popIn 1.5s ease-in-out;
+  transition: transform 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.glass-box {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 50px 60px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  margin-top: 180px;
+  animation: fadeIn 1s ease-in;
+  max-width: 400px;
+  width: 90%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.glass-box h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+
+.button {
+  padding: 14px 40px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  width: 240px;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  z-index: -1;
+  transition: all 0.4s ease;
+}
+
+.button:hover::before {
+  left: 0;
+}
+
+.button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ffffffa1, 0 0 30px #ffffff91;
+}
+
+.candidate {
+  background: linear-gradient(to right, #00b09b, #96c93d);
+}
+
+.admin {
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+}
+
+.or-text {
+  font-size: 18px;
+  color: #ffffffcc;
+  margin: 20px 0;
+  position: relative;
+}
+
+.or-text::before,
+.or-text::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 60px;
+  height: 1px;
+  background-color: #ffffff70;
+}
+
+.or-text::before {
+  left: -70px;
+}
+
+.or-text::after {
+  right: -70px;
+}
+
+@media (max-width: 600px) {
+  .glass-box {
+    padding: 30px 20px;
+    margin-top: 150px;
+  }
+
+  .button {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .title {
+    font-size: 36px;
+    top: 20px;
+    flex-direction: column;
+    gap: 10px;
+    letter-spacing: 1.2px;
+  }
+
+  .title i {
+    font-size: 42px;
+  }
+
+  .or-text::before,
+  .or-text::after {
+    width: 40px;
+  }
+}

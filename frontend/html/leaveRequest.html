@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Guests</title>
+  <link rel="stylesheet" href="../css/leaveRequest.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <h2>Check-out Requests</h2>
+    <button class="back-btn" onclick="goBack()">⬅ Back</button>
+  </header>
+
+  <section class="guest-section">
+    <table id="guestsTable" class="guest-table">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Photo</th>
+          <th>Guest Name</th>
+          <th>Check-out Request Date</th>
+          <th>Joining Date</th>
+          <th>Action</th>
+
+        </tr>
+      </thead>
+      <tbody id="guestsTableBody">
+        <tr><td colspan="6">Loading...</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ✅ Modal -->
+  <div id="infoModal" class="modal-overlay">
+    <div class="modal-content" id="modalContent">
+      <span class="close" id="closeBtn">&times;</span>
+
+      <div class="info-grid">
+        <div class="guest-card">
+          <h3>Guest Details</h3>
+          <div class="profile-container">
+            <img id="modalPhoto" class="modal-photo zoomable" src="default-avatar.png" alt="Guest Photo">
+          </div>
+          <p><strong>Name:</strong> <span id="modalName"></span></p>
+          <p><strong>Temp Address:</strong> <span id="modalTAddress"></span></p>
+          <p><strong>Perm Address:</strong> <span id="modalPAddress"></span></p>
+          <p><strong>Mobile:</strong> <span id="modalMobile"></span></p>
+        </div>
+
+        <div class="room-card">
+          <h3>Room Details</h3>
+          <p><strong>Room No:</strong> <span id="roomNumber"></span></p>
+          <p><strong>Floor No:</strong> <span id="floorNumber"></span></p>
+          <p><strong>Building No:</strong> <span id="buildingNumber"></span></p>
+          <p><strong>Address:</strong> <span id="roomAddress"></span></p>
+        </div>
+      </div>
+
+      <div class="id-section">
+        <h3>Guest ID Proof</h3>
+        <div class="id-container">
+          <div>
+            <p>ID Front:</p>
+            <img id="idFrontImage" class="zoomable" src="default-id.png" alt="ID Front">
+          </div>
+          <div>
+            <p>ID Back:</p>
+            <img id="idBackImage" class="zoomable" src="default-id.png" alt="ID Back">
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-nav">
+        <button id="prevBtn" style="display: none;"><i class="fa-solid fa-arrow-left"></i> Prev</button>
+        <button id="nextBtn" style="display: none;">Next <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🔍 Zoom Overlay -->
+  <div id="zoomOverlay">
+    <img id="zoomImage" alt="Zoomed">
+  </div>
+
+  <script src="../js/leaveRequest.js"></script>
+</body>
+
+</html>

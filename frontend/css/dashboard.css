@@ -1,0 +1,498 @@
+/* Global */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f3f4f6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 80px;  
+}
+h1, h2, h3, h4, p { margin: 0; }
+.hidden { display: none !important; }
+
+/* Header */
+header {
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+   position: fixed; 
+   top: 0;
+  left: 0;
+  width: 97%;
+  z-index: 9999;
+
+}
+header h1 { font-size: 22px; font-weight: bold; color: #2563eb; }
+header .right { display: flex; align-items: center; gap: 10px; }
+header .right span { font-weight: 500; color: #374151; }
+
+/* Layout */
+main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+@media (min-width: 1024px) { main { grid-template-columns: 1fr 2fr; } }
+
+@media (max-width: 768px) {
+  header .right {
+    gap: 6px;
+  }
+
+  header .right span {
+    font-size: 14px;
+  }
+
+  #logoutBtn {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+}
+
+
+/* Sidebar */
+aside {
+  background: linear-gradient(135deg, #eff6ff, #dbeafe);
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+aside:hover { transform: scale(1.02); }
+
+aside img {
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 4px solid #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.profile-name-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.profile-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Welcome Message */
+.welcome-msg {
+  margin-top: 20px;
+  font-size: x-large;
+  font-style: italic;
+  margin-bottom: 5px;
+  color: #4b5563; /* Original color for "Welcome to" */
+}
+.pg-name {
+  color: #2563eb; /* Blue for PG Name */
+  font-weight: bold;
+  margin-left: 4px;
+}
+
+/* Icon Button */
+.icon-btn {
+  border: none;
+  background: #465e92;
+  color: #fff;
+  font-size: 13px;
+  border-radius: 999px;
+  padding: 5px 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+.icon-btn:hover { background: #1d4ed8; transform: scale(1.05); }
+
+/* Room Details */
+.room-details {
+  background: #fff;
+  border-radius: 12px;
+  padding: 6px;
+  text-align: left;
+  margin-top: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.room-details h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #2563eb;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+.room-details div {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+/* Actions */
+.actions {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;
+}
+@media (min-width: 640px) { .actions { grid-template-columns: repeat(3, 1fr); } }
+.actions button {
+  border: none;
+  padding: 30px 10px;
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-size: 14px; font-weight: 500;
+  cursor: pointer;
+  display: flex; flex-direction: column;
+  align-items: center;
+  transition: background 0.3s, transform 0.2s;
+}
+.actions button span { margin-top: 6px; }
+
+/* Color Variants */
+.blue { background: #eff6ff; } .blue:hover { background: #dbeafe; }
+.green { background: #ecfdf5; } .green:hover { background: #d1fae5; }
+.yellow { background: #fefce8; } .yellow:hover { background: #fef9c3; }
+.purple { background: #faf5ff; } .purple:hover { background: #f3e8ff; }
+.pink { background: #fdf2f8; } .pink:hover { background: #fce7f3; }
+.indigo { background: #eef2ff; } .indigo:hover { background: #e0e7ff; }
+.teal { background: #f0fdfa; } .teal:hover { background: #ccfbf1; }
+
+/* Notices */
+.notices {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-top: 20px;
+}
+.notices h3 { font-size: 18px; margin-bottom: 10px; color: #2563eb; }
+.notices ul { margin: 0; padding-left: 20px; color: #374151; }
+.notices li { margin-bottom: 6px; transition: transform 0.2s; }
+.notices li:hover { transform: translateX(5px); }
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.modal:not(.hidden) {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-content {
+  background: linear-gradient(135deg, #f0f4ff, #dbeafe);
+  border-radius: 20px;
+  padding: 25px 20px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  transform: translateY(-50px);
+  transition: transform 0.4s ease;
+}
+.modal:not(.hidden) .modal-content { transform: translateY(0); }
+
+.close-btn {
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.2s ease;
+}
+.close-btn:hover { color: #000; }
+
+.modal-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.modal-header img {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  border: 3px solid #2563eb;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+.modal-header img:hover { transform: scale(1.05) rotate(3deg); }
+
+.modal-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2563eb;
+  text-align: center;
+}
+
+.modal-body .modal-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  padding: 12px;
+  border-radius: 12px;
+  background: #e0efff;
+  transition: all 0.2s ease;
+}
+.modal-body .modal-item:hover {
+  background: #dbeafe;
+  transform: scale(1.02);
+}
+
+
+/* PG Dropdown */
+.pg-dropdown {
+  margin-left: 8px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background: #fff;
+  cursor: pointer;
+}
+.pg-dropdown:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 4px rgba(37, 99, 235, 0.4);
+}
+
+/* small tweak so updateProfile button spacing matches */
+.profile-name-wrapper .icon-btn#updateProfileBtn {
+  background: #16a34a; /* green */
+}
+.profile-name-wrapper .icon-btn#updateProfileBtn:hover {
+  background: #15803d;
+}
+
+
+.hidden { display: none; }
+
+/* Modal content */
+.modal-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px 25px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  position: relative;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Form styling */
+.update-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 10px;
+}
+.form-group { display: flex; flex-direction: column; text-align: left; }
+.form-group label { margin-bottom: 6px; font-weight: 600; color: #333; }
+.form-group input[type="text"],
+.form-group input[type="file"] {
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* Buttons */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.btn-save {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  flex: 1;
+  transition: 0.3s;
+}
+.btn-save:hover { background-color: #218838; }
+
+.btn-cancel {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  flex: 1;
+  transition: 0.3s;
+}
+.btn-cancel:hover { background-color: #c82333; }
+
+/* Animation */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(-20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+
+/* ===============================
+   GUEST DASHBOARD – NOTICES
+=============================== */
+
+.notices {
+  background: linear-gradient(135deg, #ffffff, #f8fbff);
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 24px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+/* soft accent strip */
+.notices::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  background: linear-gradient(90deg, #2563eb, #4f46e5);
+}
+
+/* Heading */
+.notices h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e40af;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Notice list */
+.notices ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Each notice */
+.notices li {
+  background: #f1f5ff;
+  border-left: 4px solid #2563eb;
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #1f2937;
+  line-height: 1.5;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Hover effect */
+.notices li:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+}
+
+/* Timestamp */
+.notices li time {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* Empty / info message */
+.notices li:only-child {
+  background: #f9fafb;
+  border-left: 4px dashed #9ca3af;
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* Mobile tweaks */
+@media (max-width: 768px) {
+  .notices {
+    padding: 16px;
+  }
+
+  .notices h3 {
+    font-size: 16px;
+  }
+
+  .notices li {
+    font-size: 13px;
+    padding: 10px 12px;
+  }
+}
+
+
+
+/* ===== DESKTOP / LARGE SCREEN ONLY ===== */
+@media (min-width: 1024px) {
+
+  body {
+    height: 100vh;
+    overflow: hidden;   /* ❌ page scroll band */
+  }
+
+  main {
+    height: calc(100vh - 80px);
+    overflow: hidden;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  /* Notices scrollable */
+  .notices {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .notices ul {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 6px;
+  }
+}
