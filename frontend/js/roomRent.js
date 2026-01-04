@@ -2,6 +2,30 @@ const token = localStorage.getItem("jwtToken");
 
 let ownerId = null;
 
+async function initOwnerId() {
+  try {
+    const res = await fetch("https://pgmanagerbackend.onrender.com/otp/current-user", {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+
+    if (!res.ok) throw new Error("Unauthorized");
+
+    const data = await res.json();
+
+    if (!data.userData || !data.userData.id) {
+      throw new Error("Owner ID missing");
+    }
+
+    ownerId = data.userData.id;
+
+    // 🔁 sync localStorage (future pages ke liye)
+    localStorage.setItem("currentUser", JSON.stringify(data.userData));
+
+  } catch (err) {
+    alert("Session error. Please login again.");
+    logout();   // tumhara existing logout()
+  }
+}
 
 
 const currentUserData = localStorage.getItem("currentUser");
@@ -40,17 +64,18 @@ if (!token) {
 // =============================
 // ✅ DOM Events
 // =============================
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+
+  await initOwnerId();   // 🔥 MOST IMPORTANT
+
   document.getElementById("saveUpiBtn").addEventListener("click", uploadUPI);
   document.getElementById("updateUpiBtn").addEventListener("click", showUpiSetup);
 
   loadUPI();
   loadRoomRentPayments();
-
   setupFilterButtons();
-
- // enableFullImageZoom(".receipt-img");
 });
+
 
 
 const BASE_URL = "https://pgmanagerbackend.onrender.com/otp";
