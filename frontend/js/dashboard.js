@@ -1,3 +1,22 @@
+// 🔥 BACK BUTTON = COMPLETE LOGOUT (JWT INCLUDED)
+(function forceLogoutOnBack() {
+
+  // history me dashboard ko lock karo
+  window.history.pushState(null, "", window.location.href);
+
+  window.addEventListener("popstate", function () {
+
+    // 🔐 CLEAR AUTH DATA (IMPORTANT)
+    localStorage.removeItem("jwtToken");     // ✅ JWT removed
+    localStorage.removeItem("currentUser");  // ✅ user data removed
+    sessionStorage.clear();                  // ✅ temp / OTP data
+
+    // 🔁 redirect safely (no back / no forward)
+    window.location.replace("home.html");
+  });
+
+})();
+
 
 
 // Modal / UI element refs
@@ -52,13 +71,20 @@ if (toggleOwnerBtn && ownerModal && closeOwnerModal) {
   closeOwnerModal.addEventListener("click", () => ownerModal.classList.add("hidden"));
   window.addEventListener("click", e => { if (e.target === ownerModal) ownerModal.classList.add("hidden"); });
 }
-
 if (document.getElementById("logoutBtn")) {
   document.getElementById("logoutBtn").addEventListener("click", () => {
+
+    // 🔥 Clear ALL auth & user related data
     localStorage.removeItem("jwtToken");
-    window.location.href = "home.html";
+    localStorage.removeItem("currentUser");
+
+    sessionStorage.clear(); // OTP / temp data
+
+    // 🔁 Redirect safely (no back)
+    window.location.replace("home.html");
   });
 }
+
 
 if (findPgBtn) {
   findPgBtn.addEventListener("click", () => {
@@ -126,21 +152,11 @@ async function fetchGuestDetails(token) {
     document.getElementById("guestPAddress").textContent = g.pAddress || g.paddress || "N/A";
     document.getElementById("modalGuestName").textContent = g.name || "N/A";
 
-    if (data.profileImageUrl) {
-      try {
-        const imgRes = await fetch(`https://pgmanagerbackend.onrender.com/otp${data.profileImageUrl}`, {
-          headers: { "Authorization": `Bearer ${token}` }
-        });
-        if (imgRes.ok) {
-          const blob = await imgRes.blob();
-          const imgUrl = URL.createObjectURL(blob);
-          document.getElementById("profileImage").src = imgUrl;
-          document.getElementById("modalProfileImage").src = imgUrl;
-        }
-      } catch (err) {
-        console.warn("profile image fetch failed", err);
-      }
-    }
+   if (data.profileImageUrl) {
+  document.getElementById("profileImage").src = data.profileImageUrl;
+  document.getElementById("modalProfileImage").src = data.profileImageUrl;
+}
+
 
   } catch (err) {
     console.error("fetchGuestDetails failed:", err);
@@ -507,7 +523,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   const token = localStorage.getItem("jwtToken");
   if (!token) {
     alert("Login required");
-    window.location.href = "login.html";
+     window.location.replace("home.html");
     return;
   }
 

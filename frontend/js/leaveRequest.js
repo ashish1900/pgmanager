@@ -71,12 +71,12 @@ function fetchAcceptedGuests(token) {
           const imgCell = document.createElement("td");
           const profileImg = document.createElement("img");
           profileImg.className = "guest-profile";
-          fetch(`https://pgmanagerbackend.onrender.com/otp/profileImageG?guestMobile=${g.guestMobile}`, {
-            headers: { "Authorization": `Bearer ${token}` }
-          })
-            .then(res => res.ok ? res.blob() : Promise.reject())
-            .then(blob => profileImg.src = URL.createObjectURL(blob))
-            .catch(() => profileImg.src = "default-avatar.png");
+          
+          profileImg.src = "../images/default-avatar.png";
+
+          // ✅ Cloudinary image loader
+          loadGuestProfileImage(profileImg, g.guestMobile);
+
           imgCell.appendChild(profileImg);
 
           // ✅ Guest Name + See Button
@@ -163,13 +163,21 @@ function openInfoModal(index) {
   document.getElementById("modalPAddress").innerText = g.paddress || "";
   document.getElementById("modalMobile").innerText = g.guestMobile || "";
 
-  const modalPhoto = document.getElementById("modalPhoto");
-  fetch(`https://pgmanagerbackend.onrender.com/otp/profileImageG?guestMobile=${g.guestMobile}`, {
-    headers: { "Authorization": `Bearer ${token}` }
-  })
-    .then(res => res.ok ? res.blob() : Promise.reject())
-    .then(blob => modalPhoto.src = URL.createObjectURL(blob))
-    .catch(() => modalPhoto.src = "default-avatar.png");
+   const modalPhoto = document.getElementById("modalPhoto");
+   modalPhoto.src = "../images/default-avatar.png";
+
+    // ✅ Cloudinary auto-load
+    loadGuestProfileImage(modalPhoto, g.guestMobile);
+
+    
+    // 1️⃣ Reset images
+  document.getElementById("idFrontImage").src = "";
+  document.getElementById("idBackImage").src = "";
+
+  // 2️⃣ AUTO load ID images (Pending Request style)
+  loadGuestIdImage(g.requestId, "front", "idFrontImage");
+  loadGuestIdImage(g.requestId, "back", "idBackImage");
+
 
   fetch(`https://pgmanagerbackend.onrender.com/otp/room-assignments?guestMobile=${g.guestMobile}`, {
     headers: { "Authorization": `Bearer ${token}` }
@@ -189,22 +197,9 @@ function openInfoModal(index) {
       document.getElementById("roomAddress").innerText = "-";
     });
 
-  loadIDImage(g.idFront, "idFrontImage", token);
-  loadIDImage(g.idBack, "idBackImage", token);
   setupZoomableImages();
 }
 
-function loadIDImage(fileName, elementId, token) {
-  const img = document.getElementById(elementId);
-  if (fileName) {
-    fetch(`https://pgmanagerbackend.onrender.com/otp/request-id-image?fileName=${fileName}`, {
-      headers: { "Authorization": `Bearer ${token}` }
-    })
-      .then(res => res.ok ? res.blob() : Promise.reject())
-      .then(blob => img.src = URL.createObjectURL(blob))
-      .catch(() => img.src = "default-id.png");
-  } else img.src = "default-id.png";
-}
 
 function closeModal() {
   const modal = document.getElementById("infoModal");
@@ -265,4 +260,64 @@ function acceptLeaveRequest(guestMobile) {
       console.error(err);
       alert("Error while processing request.");
     });
+}
+
+
+
+async function loadGuestIdImage(requestId, side, imgElementId) {
+  const token = localStorage.getItem("jwtToken");
+  const img = document.getElementById(imgElementId);
+
+  img.src = "";
+  img.alt = "Loading...";
+  img.classList.add("zoomable");
+  img.style.cursor = "zoom-in";
+
+  try {
+    const res = await fetch(
+      `https://pgmanagerbackend.onrender.com/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
+      {
+        headers: { Authorization: `Bearer ${token}` }
+      }
+    );
+
+    if (!res.ok) throw new Error("Not allowed");
+
+    const data = await res.json();
+    img.src = data.url;
+
+  } catch (err) {
+    img.src = "../images/default-id.png";
+    img.alt = "Image not available";
+  }
+}
+
+
+
+
+
+async function loadGuestProfileImage(imgElement, guestMobile) {
+  try {
+    const res = await fetch(
+      `https://pgmanagerbackend.onrender.com/otp/profileImageG?guestMobile=${guestMobile}`,
+      {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("jwtToken")
+        }
+      }
+    );
+
+    if (!res.ok) throw new Error("API failed");
+
+    const data = await res.json();
+
+    if (!data.imageUrl || !data.imageUrl.startsWith("http")) {
+      throw new Error("Invalid image URL");
+    }
+
+    imgElement.src = data.imageUrl;
+
+  } catch (err) {
+    imgElement.src = "../images/default-avatar.png";
+  }
 }

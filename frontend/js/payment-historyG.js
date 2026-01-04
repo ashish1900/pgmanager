@@ -7,6 +7,21 @@ if (!token) {
 const historyBody = document.getElementById("historyBody");
 const filterButtons = document.querySelectorAll(".filter-btn");
 
+const BASE_URL = "https://pgmanagerbackend.onrender.com/otp";
+
+function resolveUrl(url) {
+  if (!url) return "/images/default.png";
+
+  // ✅ Cloudinary / full URL
+  if (url.startsWith("http")) {
+    return url;
+  }
+
+  // ✅ Local backend path
+  return BASE_URL + url;
+}
+
+
 // -------------------------
 // Fetch ALL payment history
 // -------------------------
@@ -54,7 +69,7 @@ async function loadAllPayments(filter = "all") {
         <td>${format(p.verifiedDate)}</td>
         <td><span class="status ${p.status.toLowerCase()}">${p.status}</span></td>
         <td>
-          <button class="view-receipt-btn" data-url="https://pgmanagerbackend.onrender.com/otp${p.receiptUrl}">
+          <button class="view-receipt-btn" data-url="${resolveUrl(p.receiptUrl)}">
             View
           </button>
         </td>

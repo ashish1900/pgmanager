@@ -121,12 +121,18 @@ document.addEventListener("DOMContentLoaded", () => {
       <p><b>Uploaded ID:</b> ${req.idType || "—"}</p>
 
       <div class="id-images">
-        ${req.idFront ? `<img class="zoomable" src="https://pgmanagerbackend.onrender.com/otp/request-id-image?fileName=${req.idFront}">` : ""}
-        ${req.idBack  ? `<img class="zoomable" src="https://pgmanagerbackend.onrender.com/otp/request-id-image?fileName=${req.idBack}">` : ""}
-      </div>
+       <img id="idFront_${req.requestId}" class="zoomable" />
+       <img id="idBack_${req.requestId}" class="zoomable" />
+     </div>
+
     `;
 
     list.appendChild(card);
+
+    // ✅ Auto load ID images (Cloudinary)
+    loadGuestIdImage(req.requestId, "front", `idFront_${req.requestId}`);
+    loadGuestIdImage(req.requestId, "back",  `idBack_${req.requestId}`);
+
 
     // ⭐ Image zoom functionality
     card.querySelectorAll(".zoomable").forEach(img => {
@@ -153,3 +159,35 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+
+async function loadGuestIdImage(requestId, side, imgElementId) {
+  const token = localStorage.getItem("jwtToken");
+  const img = document.getElementById(imgElementId);
+
+  if (!img) return;
+
+  img.src = "";
+  img.alt = "Loading...";
+  img.style.cursor = "zoom-in";
+
+  try {
+    const res = await fetch(
+      `https://pgmanagerbackend.onrender.com/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
+      {
+        headers: { Authorization: `Bearer ${token}` }
+      }
+    );
+
+    if (!res.ok) throw new Error("Not allowed");
+
+    const data = await res.json();
+    img.src = data.url;
+
+    // zoom support
+    img.onclick = () => openImageViewer(data.url);
+
+  } catch (err) {
+    img.style.display = "none"; // hide if not available
+  }
+}

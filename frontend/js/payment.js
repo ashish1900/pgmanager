@@ -73,12 +73,10 @@ window.addEventListener("DOMContentLoaded", async () => {
 
   try {
     const photoEl = document.getElementById("guestPhoto");
-    fetch(`https://pgmanagerbackend.onrender.com/otp/profileImageG?guestMobile=${guestMobile}`, {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-      .then(r => (r.ok ? r.blob() : Promise.reject()))
-      .then(b => (photoEl.src = URL.createObjectURL(b)))
-      .catch(() => (photoEl.src = "default-avatar.png"));
+photoEl.src = "../images/default-avatar.png"; // fallback first
+
+// ✅ Cloudinary image loader (same as other pages)
+loadGuestProfileImage(photoEl, guestMobile);
 
     await loadGuestDetails(guestMobile, token);
     setupPaymentTypeFilters(guestMobile, token);
@@ -287,13 +285,14 @@ nonVerified.forEach(p => {
       <td>${formatDateTimeIndian(p.verifiedDate)}</td>
       <td class="status-pending">${p.status || "Pending"}</td>
       <td>
-        ${p.receiptUrl
-          ? `<img src="https://pgmanagerbackend.onrender.com/otp${p.receiptUrl}"
-                 class="receipt-img"
-                 width="55" height="55"
-                 style="border-radius:6px;cursor:zoom-in;">`
-          : "-"}
-      </td>
+  ${p.receiptUrl
+    ? `<img src="${resolveReceiptUrl(p.receiptUrl)}"
+           class="receipt-img"
+           width="55" height="55"
+           style="border-radius:6px;cursor:zoom-in;">`
+    : "-"}
+</td>
+
     </tr>
   `);
 });
@@ -320,12 +319,14 @@ nonVerified.forEach(p => {
             ${p.status || "Pending"}
           </td>
           <td>
-            ${p.receiptUrl
-              ? `<img src="https://pgmanagerbackend.onrender.com/otp${p.receiptUrl}"
-                     class="receipt-img" width="55" height="55"
-                     style="border-radius:6px;cursor:zoom-in;">`
-              : "-"}
-          </td>
+  ${p.receiptUrl
+    ? `<img src="${resolveReceiptUrl(p.receiptUrl)}"
+           class="receipt-img"
+           width="55" height="55"
+           style="border-radius:6px;cursor:zoom-in;">`
+    : "-"}
+</td>
+
         </tr>`;
 
         rows.push(row);
@@ -371,6 +372,52 @@ function enableFullImageZoom(selector) {
     });
   });
 }
+
+async function loadGuestProfileImage(imgElement, guestMobile) {
+  try {
+    const res = await fetch(
+      `https://pgmanagerbackend.onrender.com/otp/profileImageG?guestMobile=${guestMobile}`,
+      {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("jwtToken")
+        }
+      }
+    );
+
+    if (!res.ok) throw new Error("API failed");
+
+    const data = await res.json();
+
+    if (!data.imageUrl || !data.imageUrl.startsWith("http")) {
+      throw new Error("Invalid image URL");
+    }
+
+    imgElement.src = data.imageUrl;
+
+  } catch (err) {
+    imgElement.src = "../images/default-avatar.png";
+  }
+}
+
+
+
+
+const BASE_URL = "https://pgmanagerbackend.onrender.com/otp";
+
+function resolveReceiptUrl(url) {
+  if (!url) return "";
+
+  // ✅ Cloudinary / public URL
+  if (url.startsWith("http")) {
+    return url;
+  }
+
+  // ✅ backend relative path
+  return BASE_URL + url;
+}
+
+
+
 
 function goBack() {
   history.back();

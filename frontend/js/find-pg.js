@@ -90,10 +90,13 @@ document.addEventListener("DOMContentLoaded", () => {
       </p>
       <p><b>Date:</b> ${new Date(date).toLocaleString()}</p>
 
-      <div class="id-images">
-        ${req.idFront ? `<img src="https://pgmanagerbackend.onrender.com/otp/request-id-image?fileName=${req.idFront}">` : ""}
-        ${req.idBack ? `<img src="https://pgmanagerbackend.onrender.com/otp/request-id-image?fileName=${req.idBack}">` : ""}
-      </div>
+
+    <div class="id-images">
+  <button class="view-id-btn" data-side="front">View ID Front</button>
+  <button class="view-id-btn" data-side="back">View ID Back</button>
+</div>
+
+
 
       <div class="btn-area"></div>
     `;
@@ -112,13 +115,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ⭐ Image zoom on click (request cards)
-    card.querySelectorAll(".id-images img").forEach(img => {
-      img.addEventListener("click", () => openImageViewer(img.src));
-    });
+    // card.querySelectorAll(".id-images img").forEach(img => {
+    //   img.addEventListener("click", () => openImageViewer(img.src));
+    // });
+
+
+card.querySelectorAll(".view-id-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const side = btn.dataset.side;
+    viewMyIdImages(req.requestId, side); // ✅ requestId
+  });
+});
+
+
 
     myRequestsList.appendChild(card);
   }
 
+
+  
   // ⭐ CANCEL REQUEST FUNCTION
   async function cancelRequest(req, btn) {
 
@@ -149,6 +164,9 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.textContent = "❌ Cancel Request";
     }
   }
+
+
+
 
   // ---------------- Find PG Modal ----------------
   findPgBtn.addEventListener("click", async () => {
@@ -336,6 +354,35 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Failed to send request");
     }
   });
+
+
+async function viewMyIdImages(requestId, side) {
+  try {
+    const res = await fetch(
+      `https://pgmanagerbackend.onrender.com/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    );
+
+    const data = await res.json();
+    openImageViewer(data.url);
+
+  } catch (err) {
+    alert("Unable to load ID image");
+  }
+}
+
+
+
+
+
+
+
+
+
 
 
 

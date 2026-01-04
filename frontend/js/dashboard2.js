@@ -1,43 +1,21 @@
-
-  // DASHBOARD LOAD
-
-
+// 🔒 PREVENT BACK NAVIGATION — FORCE LOGOUT ON BACK
 (function () {
-    const token = localStorage.getItem("jwtToken");
-    const verified = sessionStorage.getItem("AUTH_VERIFIED");
+  history.pushState(null, "", location.href);
 
-    if (!token || verified !== "true") {
-        localStorage.clear();
-        sessionStorage.clear();
-        window.location.replace("home.html");
-    }
+  window.addEventListener("popstate", function () {
+    logout();   // 👈 back press = logout
+  });
 })();
 
-
-
-
+  // DASHBOARD LOAD
 window.addEventListener("DOMContentLoaded", () => {
-
-    const token = localStorage.getItem("jwtToken");
-    const verified = sessionStorage.getItem("AUTH_VERIFIED");
-
-    //  HARD AUTH GUARD
-    if (!token || verified !== "true") {
-        localStorage.clear();
-        sessionStorage.clear();
-        window.location.replace("home.html");
+  const token = localStorage.getItem("jwtToken");
+    if (!token) {
+        alert("आप लॉगिन नहीं हैं। कृपया लॉगिन करें।");
+        window.location.href = "home.html";
         return;
     }
 
-
-
-
-
-
-
-
-
-    
     loadDashboardInfo(token);
     fetchActiveGuestsCount(token);
     fetchTotalGuestsCount(token);
@@ -114,13 +92,12 @@ function loadDashboardInfo(token) {
             document.getElementById("address").textContent = user.address;
 
             if (data.profileImageUrl) {
-                fetch(`https://pgmanagerbackend.onrender.com/otp${data.profileImageUrl}`, {
-                    headers: { "Authorization": `Bearer ${token}` }
-                })
-                    .then(r => r.blob())
-                    .then(blob => document.getElementById("profileImage").src = URL.createObjectURL(blob))
-                    .catch(() => document.getElementById("profileImage").src = "images/pg-placeholder.jpg");
-            }
+    document.getElementById("profileImage").src = data.profileImageUrl;
+} else {
+    document.getElementById("profileImage").src =
+        "../images/pg-placeholder.jpg";
+}
+
         });
 }
 
@@ -351,52 +328,25 @@ document.querySelectorAll(".sidebar .menu li").forEach(item => {
 });
 
 
+
 function logout() {
-    //  clear all session + state
+  try {
+    // ✅ Clear auth + user data
+    localStorage.removeItem("jwtToken");
+    localStorage.removeItem("currentUser");
+
     localStorage.clear();
     sessionStorage.clear();
+  } catch (e) {
+    console.error("Logout error:", e);
+  }
 
-    //  HARD redirect (no back possible)
-    window.location.replace("home.html");
+  // ✅ HARD redirect (no back possible)
+  window.location.replace("home.html");
 }
 
 
 
-//  Prevent back to OTP / login using bfcache
-window.addEventListener("pageshow", function (event) {
-    if (event.persisted) {
-        logout();
-    }
-});
-
-
-
-
-
-// HARD DISABLE BACK & FORWARD ON DASHBOARD
-(function () {
-
-    function forceLogout() {
-        localStorage.clear();
-        sessionStorage.clear();
-        window.location.replace("home.html");
-    }
-
-    // push twice to kill forward cache
-    history.pushState(null, null, location.href);
-    history.pushState(null, null, location.href);
-
-    window.addEventListener("popstate", function () {
-        forceLogout();
-    });
-
-    window.addEventListener("pageshow", function (e) {
-        if (e.persisted) {
-            forceLogout();
-        }
-    });
-
-})();
 
 
 
@@ -549,15 +499,10 @@ changePhotoBtn.addEventListener("click", () => {
         document.getElementById("profileAddress").textContent = user.address || "-";
 
         if (data.profileImageUrl) {
-          fetch(`https://pgmanagerbackend.onrender.com/otp${data.profileImageUrl}`, {
-            headers: { Authorization: `Bearer ${token}` }
-          })
-            .then(r => r.blob())
-            .then(blob => {
-              document.getElementById("profileModalImage").src =
-                URL.createObjectURL(blob);
-            });
-        }
+  document.getElementById("profileModalImage").src =
+    data.profileImageUrl;
+}
+
 
         profileModal.classList.add("show");
       });
@@ -579,18 +524,13 @@ changePhotoBtn.addEventListener("click", () => {
         document.getElementById("editCity").value = user.city?.name || "";
         document.getElementById("editAddress").value = user.address || "";
 
-        if (data.profileImageUrl) {
-  fetch(`https://pgmanagerbackend.onrender.com/otp${data.profileImageUrl}`, {
-    headers: { Authorization: `Bearer ${token}` }
-  })
-    .then(res => res.blob())
-    .then(blob => {
-      previewImg.src = URL.createObjectURL(blob);
-      previewImg.style.display = "block";
-    });
+       if (data.profileImageUrl) {
+  previewImg.src = data.profileImageUrl;
+  previewImg.style.display = "block";
 } else {
   previewImg.style.display = "none";
 }
+
 
 
         updateModal.classList.add("show");

@@ -1,6 +1,9 @@
 const token = localStorage.getItem("jwtToken");
 
 let ownerId = null;
+
+
+
 const currentUserData = localStorage.getItem("currentUser");
 if (currentUserData) {
   try {
@@ -46,8 +49,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setupFilterButtons();
 
-  enableFullImageZoom(".receipt-img");
+ // enableFullImageZoom(".receipt-img");
 });
+
+
+const BASE_URL = "https://pgmanagerbackend.onrender.com/otp";
+
+function resolveUrl(url) {
+  if (!url) return "/images/default.png";
+
+  // ✅ Cloudinary signed URL
+  if (url.startsWith("http")) {
+    return url;
+  }
+
+  // ✅ Local backend path
+  return BASE_URL + url;
+}
+
+
 
 // =============================
 // ✅ Upload / Update UPI + QR
@@ -99,6 +119,10 @@ function uploadUPI(e) {
       alert("Error uploading UPI/QR.");
     });
 }
+
+
+
+
 
 // =============================
 // ✅ Load Existing UPI Data
@@ -193,9 +217,14 @@ function renderTable(list) {
         </tr>
       </thead>
       <tbody>
+      
+
 
       
   `;
+
+  
+
 
   // ⭐ First time count update
 document.getElementById("countAll").textContent = paymentList.length;
@@ -258,11 +287,20 @@ function formatStackDate(dateString) {
         <td class="${p.status === "Verified" ? "status-paid" : "status-pending"}">
           ${p.status || "Pending"}
         </td>
+        
+         
+
         <td>
-          <img src="https://pgmanagerbackend.onrender.com/otp${p.receiptUrl}" class="receipt-img" 
-               alt="Receipt" width="60" height="60"
-               style="cursor:zoom-in;border-radius:6px;">
-        </td>
+  <img src="${resolveUrl(p.receiptUrl)}"
+       class="receipt-img"
+       alt="Receipt"
+       width="60"
+       height="60"
+       style="cursor:zoom-in;border-radius:6px;">
+</td>
+
+
+
       </tr>
     `;
   });
@@ -280,6 +318,8 @@ function formatStackDate(dateString) {
     });
   });
 }
+
+
 
 // =============================
 // ✅ Payment Filter Logic
@@ -336,7 +376,7 @@ function applyPaymentFilter(status) {
 // =============================
 // ✅ Guest Info Modal Logic
 // =============================
-function openInfoModal(index) {
+async function openInfoModal(index) {
   const g = paymentList[index];
   if (!g) return;
 
@@ -349,13 +389,36 @@ function openInfoModal(index) {
   document.getElementById("modalPAddress").innerText = g.paddress || "-";
   document.getElementById("modalMobile").innerText = g.guestMobile || "";
 
+ 
+
   const modalPhoto = document.getElementById("modalPhoto");
-  fetch(`https://pgmanagerbackend.onrender.com/otp/profileImageG?guestMobile=${g.guestMobile}`, {
-    headers: { "Authorization": `Bearer ${token}` }
-  })
-    .then(res => res.ok ? res.blob() : Promise.reject())
-    .then(blob => modalPhoto.src = URL.createObjectURL(blob))
-    .catch(() => modalPhoto.src = "default-avatar.png");
+  modalPhoto.src = "../images/default-avatar.png";
+
+  // ✅ Cloudinary auto-load (same as other pages)
+  loadGuestProfileImage(modalPhoto, g.guestMobile);
+
+
+    /* ================= ID IMAGES ================= */
+
+    // reset
+    document.getElementById("idFrontImage").src = "";
+    document.getElementById("idBackImage").src = "";
+
+    // auto load (Pending / Active Guest jaisa)
+   
+// 🔥 resolve requestId using guestMobile
+const requestId = await fetchRequestIdByGuestMobile(g.guestMobile);
+
+if (requestId) {
+  loadGuestIdImage(requestId, "front", "idFrontImage");
+  loadGuestIdImage(requestId, "back", "idBackImage");
+} else {
+  document.getElementById("idFrontImage").src = "../images/default-id.png";
+  document.getElementById("idBackImage").src = "../images/default-id.png";
+}
+    /* ============================================= */
+
+
 
   fetch(`https://pgmanagerbackend.onrender.com/otp/room-assignments?guestMobile=${g.guestMobile}`, {
     headers: { "Authorization": `Bearer ${token}` }
@@ -375,22 +438,9 @@ function openInfoModal(index) {
       document.getElementById("roomAddress").innerText = "-";
     });
 
-  loadIDImage(g.idFront, "idFrontImage", token);
-  loadIDImage(g.idBack, "idBackImage", token);
 }
 
-// ✅ Load ID Image helper
-function loadIDImage(fileName, elementId, token) {
-  const img = document.getElementById(elementId);
-  if (fileName) {
-    fetch(`https://pgmanagerbackend.onrender.com/otp/request-id-image?fileName=${fileName}`, {
-      headers: { "Authorization": `Bearer ${token}` }
-    })
-      .then(res => res.ok ? res.blob() : Promise.reject())
-      .then(blob => img.src = URL.createObjectURL(blob))
-      .catch(() => img.src = "default-id.png");
-  } else img.src = "default-id.png";
-}
+
 
 // ✅ Close Modal
 document.getElementById("closeBtn").addEventListener("click", closeInfoModal);
@@ -469,6 +519,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const qrPreview = document.getElementById("qrPreview");
   const qrError = document.getElementById("qrErrorMsg");
 
+  
   if (!qrInput) return;
 
   qrInput.addEventListener("change", () => {
@@ -497,3 +548,74 @@ document.addEventListener("DOMContentLoaded", () => {
     reader.readAsDataURL(file);
   });
 });
+
+
+async function loadGuestIdImage(requestId, side, imgElementId) {
+  const token = localStorage.getItem("jwtToken");
+  const img = document.getElementById(imgElementId);
+
+  img.src = "";
+  img.alt = "Loading...";
+  img.classList.add("zoomable");
+  img.style.cursor = "zoom-in";
+
+  try {
+    const res = await fetch(
+      `https://pgmanagerbackend.onrender.com/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
+      {
+        headers: { Authorization: `Bearer ${token}` }
+      }
+    );
+
+    if (!res.ok) throw new Error("Not allowed");
+
+    const data = await res.json();
+    img.src = data.url;
+
+  } catch (err) {
+    img.src = "../images/default-id.png";
+    img.alt = "Image not available";
+  }
+}
+
+
+async function loadGuestProfileImage(imgElement, guestMobile) {
+  try {
+    const res = await fetch(
+      `https://pgmanagerbackend.onrender.com/otp/profileImageG?guestMobile=${guestMobile}`,
+      {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("jwtToken")
+        }
+      }
+    );
+
+    if (!res.ok) throw new Error("API failed");
+
+    const data = await res.json();
+    imgElement.src = data.imageUrl;
+
+  } catch {
+    imgElement.src = "../images/default-avatar.png";
+  }
+}
+
+
+
+
+async function fetchRequestIdByGuestMobile(guestMobile) {
+  const token = localStorage.getItem("jwtToken");
+
+  const res = await fetch("https://pgmanagerbackend.onrender.com/otp/all-guest", {
+    headers: { Authorization: `Bearer ${token}` }
+  });
+
+  if (!res.ok) return null;
+
+  const data = await res.json();
+  const guest = (data.requests || []).find(
+    g => g.guestMobile === guestMobile
+  );
+
+  return guest ? guest.requestId : null;
+}

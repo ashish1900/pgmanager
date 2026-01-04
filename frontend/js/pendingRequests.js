@@ -36,74 +36,125 @@ function formatDateTime(dateTimeStr) {
 
 
 // ✅ Fetch Pending Requests
+
+
 function fetchRequestsList(token) {
   fetch("https://pgmanagerbackend.onrender.com/otp/guest-requests", {
     headers: { Authorization: `Bearer ${token}` }
   })
-  .then(res => res.json())
-  .then(data => {
-    const tbody = document.getElementById("pendingRequestsBody");
-    tbody.innerHTML = "";
+    .then(res => res.json())
+    .then(data => {
+      const tbody = document.getElementById("pendingRequestsBody");
+      tbody.innerHTML = "";
 
-    if (data.status === "success" && data.requests.length > 0) {
+      if (data.status === "success" && data.requests.length > 0) {
 
-  // ⭐ LATEST REQUEST FIRST (DESC SORT)
-  data.requests.sort((a, b) => {
-    return new Date(b.requestDate) - new Date(a.requestDate);
-  });
+        // ⭐ LATEST REQUEST FIRST
+        data.requests.sort((a, b) =>
+          new Date(b.requestDate) - new Date(a.requestDate)
+        );
 
-  data.requests.forEach((req, index) => {
+        data.requests.forEach((req, index) => {
 
-    
+          const tr = document.createElement("tr");
+          const { date, time } = formatDateTime(req.requestDate);
 
-        const tr = document.createElement("tr");
+          // ⛔ Image column yahan HTML me nahi likh rahe
+          tr.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${req.guestName}</td>
+            <td>
+              ${date}<br>
+              <span style="font-size:12px;color:#777;">${time}</span>
+            </td>
+            <td>${req.guestMobile}</td>
+            <td>${req.taddress || "N/A"}</td>
+            <td>${req.paddress}</td>
+            <td>
+              <button class="accept-btn"
+                onclick='openVerifyModal(${JSON.stringify(req)})'>
+                View & Verify
+              </button>
+            </td>
+          `;
 
-        const { date, time } = formatDateTime(req.requestDate);
+          // ✅ Guest Image Column (2nd column)
+          const imgTd = document.createElement("td");
+          const img = document.createElement("img");
 
+          img.className = "guest-img";
+          img.src = "default-avatar.png";
 
-        tr.innerHTML = `
-          <td>${index + 1}</td>
-          <td><img class="guest-img"
-            src="https://pgmanagerbackend.onrender.com/otp/profileImageG?guestMobile=${req.guestMobile}"></td>
-          <td>${req.guestName}</td>
-          <td>
-             ${date}<br>
-               <span style="font-size:12px;color:#777;">${time}</span>
-          </td>
-          <td>${req.guestMobile}</td>
-          <td>${req.taddress || "N/A"}</td>
-          <td>${req.paddress}</td>
-          <td>
-            <button class="accept-btn"
-              onclick='openVerifyModal(${JSON.stringify(req)})'>View & Verify</button>
-            <button class="reject-btn"
-              onclick="rejectRequest(${req.requestId})" style=Display:none>Reject</button>
-          </td>
-        `;
-        tbody.appendChild(tr);
-      });
-    } else {
-      tbody.innerHTML = `<tr><td colspan="7">No pending requests</td></tr>`;
-    }
-  });
+          loadGuestProfileImage(img, req.guestMobile);
+
+          imgTd.appendChild(img);
+
+          // insert image after index column
+          tr.insertBefore(imgTd, tr.children[1]);
+
+          tbody.appendChild(tr);
+        });
+
+      } else {
+        tbody.innerHTML = `<tr><td colspan="8">No pending requests</td></tr>`;
+      }
+    })
+    .catch(err => {
+      console.error("Failed to fetch requests", err);
+    });
 }
 
+
+
+
+
+
+
 // ✅ Step 1: Open Verification Modal
+// function openVerifyModal(req) {
+//   currentRequestData = req;
+//   document.getElementById("verifyModal").style.display = "flex";
+
+//   document.getElementById("vGuestName").textContent = req.guestName;
+//   document.getElementById("vGuestMobile").textContent = req.guestMobile;
+//   document.getElementById("vGuestTAddress").textContent = req.taddress;
+//   document.getElementById("vGuestPAddress").textContent = req.paddress;
+
+//   // ID images
+//   // document.getElementById("idFrontImage").src =
+//   //   `https://pgmanagerbackend.onrender.com/otp/request-id-image?fileName=${req.idFront}`;
+//   // document.getElementById("idBackImage").src =
+//   //   `https://pgmanagerbackend.onrender.com/otp/request-id-image?fileName=${req.idBack}`;
+
+// }
+
 function openVerifyModal(req) {
   currentRequestData = req;
+
+  // 1️⃣ Modal open
   document.getElementById("verifyModal").style.display = "flex";
 
+  // 2️⃣ Guest details
   document.getElementById("vGuestName").textContent = req.guestName;
   document.getElementById("vGuestMobile").textContent = req.guestMobile;
   document.getElementById("vGuestTAddress").textContent = req.taddress;
   document.getElementById("vGuestPAddress").textContent = req.paddress;
 
-  // ID images
-  document.getElementById("idFrontImage").src =
-    `https://pgmanagerbackend.onrender.com/otp/request-id-image?fileName=${req.idFront}`;
-  document.getElementById("idBackImage").src =
-    `https://pgmanagerbackend.onrender.com/otp/request-id-image?fileName=${req.idBack}`;
+  // 3️⃣ Reset images
+  const frontImg = document.getElementById("idFrontImage");
+  const backImg  = document.getElementById("idBackImage");
+
+  frontImg.src = "";
+  backImg.src  = "";
+
+  frontImg.alt = "Loading ID Front...";
+  backImg.alt  = "Loading ID Back...";
+
+  // 4️⃣ AUTO load ID images (NO extra click)
+  loadOwnerIdImage(req.requestId, "front", "idFrontImage");
+  loadOwnerIdImage(req.requestId, "back", "idBackImage");
 }
+
 
 // ✅ Accept → Open Assign Room Modal
 function verified() {
@@ -234,4 +285,75 @@ function openImageZoom(src) {
 
 function closeImageZoom() {
   document.getElementById("imageZoomModal").style.display = "none";
+}
+
+
+async function loadOwnerIdImage(requestId, side, imgElementId) {
+  const token = localStorage.getItem("jwtToken");
+  const img = document.getElementById(imgElementId);
+
+  try {
+    const res = await fetch(
+      `https://pgmanagerbackend.onrender.com/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    );
+
+    if (!res.ok) {
+      img.alt = "Image not allowed";
+      return;
+    }
+
+    const data = await res.json();
+    img.src = data.url;
+
+    // 🔍 Zoom support
+    img.onclick = () => openImageZoom(data.url);
+
+  } catch (err) {
+    img.alt = "Failed to load image";
+    console.error(err);
+  }
+}
+
+
+function closeVerifyModal() {
+  document.getElementById("verifyModal").style.display = "none";
+  document.getElementById("idFrontImage").src = "";
+  document.getElementById("idBackImage").src = "";
+}
+
+
+
+
+
+async function loadGuestProfileImage(imgElement, guestMobile) {
+  try {
+    const res = await fetch(
+      `https://pgmanagerbackend.onrender.com/otp/profileImageG?guestMobile=${guestMobile}`,
+      {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("jwtToken")
+        }
+      }
+    );
+
+    if (!res.ok) throw new Error("API failed");
+
+    const data = await res.json();
+
+    // 🛡️ SAFETY CHECK
+    if (!data.imageUrl || !data.imageUrl.startsWith("http")) {
+      throw new Error("Invalid image URL");
+    }
+
+    imgElement.src = data.imageUrl;
+
+  } catch (err) {
+    console.warn("Profile image fallback:", err.message);
+    imgElement.src = "../images/default-avatar.png";
+  }
 }
