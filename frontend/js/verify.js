@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const otp = document.getElementById("otp").value;
 
     try {
-      const response = await fetch("http://localhost:8080/otp/verifyOtp", {
+      const response = await fetch("https://pgmanagerbackend.onrender.com/otp/verifyOtp", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

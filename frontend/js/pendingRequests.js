@@ -39,7 +39,7 @@ function formatDateTime(dateTimeStr) {
 
 
 function fetchRequestsList(token) {
-  fetch("http://localhost:8080/otp/guest-requests", {
+  fetch("https://pgmanagerbackend.onrender.com/otp/guest-requests", {
     headers: { Authorization: `Bearer ${token}` }
   })
     .then(res => res.json())
@@ -121,9 +121,9 @@ function fetchRequestsList(token) {
 
 //   // ID images
 //   // document.getElementById("idFrontImage").src =
-//   //   `http://localhost:8080/otp/request-id-image?fileName=${req.idFront}`;
+//   //   `https://pgmanagerbackend.onrender.com/otp/request-id-image?fileName=${req.idFront}`;
 //   // document.getElementById("idBackImage").src =
-//   //   `http://localhost:8080/otp/request-id-image?fileName=${req.idBack}`;
+//   //   `https://pgmanagerbackend.onrender.com/otp/request-id-image?fileName=${req.idBack}`;
 
 // }
 
@@ -165,7 +165,7 @@ function verified() {
 function idMismatch() {
   const token = localStorage.getItem("jwtToken");
 
-  fetch(`http://localhost:8080/otp/mismatch-request/${currentRequestData.requestId}`, {
+  fetch(`https://pgmanagerbackend.onrender.com/otp/mismatch-request/${currentRequestData.requestId}`, {
     method: 'PATCH',  // 
     headers: { 
       "Authorization": `Bearer ${token}`,
@@ -186,7 +186,7 @@ function idMismatch() {
 //  Reject (Table button)
 function rejectRequest(requestId) {
   const token = localStorage.getItem("jwtToken");
-  fetch(`http://localhost:8080/otp/reject-request/${requestId}`, {
+  fetch(`https://pgmanagerbackend.onrender.com/otp/reject-request/${requestId}`, {
     method: 'DELETE',
     headers: { "Authorization": `Bearer ${token}` }
   })
@@ -216,7 +216,7 @@ function openAssignModal(req) {
   document.getElementById("guestName").textContent = req.guestName;
 
   const img = document.getElementById("assignGuestImage");
-  img.src = `http://localhost:8080/otp/profileImageG?guestMobile=${req.guestMobile}`;
+  img.src = `https://pgmanagerbackend.onrender.com/otp/profileImageG?guestMobile=${req.guestMobile}`;
   img.onerror = () => img.src = "default-avatar.png";
 }
 
@@ -249,7 +249,7 @@ function submitAssignment() {
     address: document.getElementById("roomAddress").value.trim()
   };
 
-  fetch(`http://localhost:8080/otp/accept-and-assign/${requestId}`, {
+  fetch(`https://pgmanagerbackend.onrender.com/otp/accept-and-assign/${requestId}`, {
     method: "POST",
     headers: {
       "Authorization": `Bearer ${token}`,
@@ -293,7 +293,7 @@ async function loadOwnerIdImage(requestId, side, imgElementId) {
 
   try {
     const res = await fetch(
-      `http://localhost:8080/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
+      `https://pgmanagerbackend.onrender.com/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
       {
         headers: {
           Authorization: `Bearer ${token}`
@@ -332,7 +332,7 @@ function closeVerifyModal() {
 async function loadGuestProfileImage(imgElement, guestMobile) {
   try {
     const res = await fetch(
-      `http://localhost:8080/otp/profileImageG?guestMobile=${guestMobile}`,
+      `https://pgmanagerbackend.onrender.com/otp/profileImageG?guestMobile=${guestMobile}`,
       {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("jwtToken")

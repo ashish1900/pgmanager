@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function fetchGuestRequests() {
     try {
-      const res = await fetch("http://localhost:8080/otp/pending-acceptd-requests", {
+      const res = await fetch("https://pgmanagerbackend.onrender.com/otp/pending-acceptd-requests", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -146,7 +146,7 @@ card.querySelectorAll(".view-id-btn").forEach(btn => {
 
     try {
       const res = await fetch(
-        `http://localhost:8080/otp/delete-pg-request?ownerMobile=${ownerMobile}`,
+        `https://pgmanagerbackend.onrender.com/otp/delete-pg-request?ownerMobile=${ownerMobile}`,
         {
           method: "POST",
           headers: { Authorization: `Bearer ${token}` }
@@ -188,7 +188,7 @@ card.querySelectorAll(".view-id-btn").forEach(btn => {
 
   async function loadCities() {
     try {
-      const res = await fetch("http://localhost:8080/otp/cities");
+      const res = await fetch("https://pgmanagerbackend.onrender.com/otp/cities");
       const data = await res.json();
 
       citySelect.innerHTML = `<option value="">--Select City--</option>`;
@@ -219,7 +219,7 @@ card.querySelectorAll(".view-id-btn").forEach(btn => {
 
     try {
       const res = await fetch(
-        `http://localhost:8080/otp/pg-by-city?city=${encodeURIComponent(city)}`,
+        `https://pgmanagerbackend.onrender.com/otp/pg-by-city?city=${encodeURIComponent(city)}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -334,7 +334,7 @@ card.querySelectorAll(".view-id-btn").forEach(btn => {
     formData.append("ownerId", selectedPgId);
 
     try {
-      const res = await fetch("http://localhost:8080/otp/sendRequest-with-id", {
+      const res = await fetch("https://pgmanagerbackend.onrender.com/otp/sendRequest-with-id", {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
         body: formData,
@@ -359,7 +359,7 @@ card.querySelectorAll(".view-id-btn").forEach(btn => {
 async function viewMyIdImages(requestId, side) {
   try {
     const res = await fetch(
-      `http://localhost:8080/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
+      `https://pgmanagerbackend.onrender.com/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
       {
         headers: {
           Authorization: `Bearer ${token}`

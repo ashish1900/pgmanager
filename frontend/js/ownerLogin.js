@@ -9,7 +9,7 @@ function goBack() {
 }
 
 //  get current user role
-fetch("http://localhost:8080/otp/current-user", {
+fetch("https://pgmanagerbackend.onrender.com/otp/current-user", {
   headers: { Authorization: "Bearer " + token }
 })
 .then(r => r.json())
@@ -22,7 +22,7 @@ fetch("http://localhost:8080/otp/current-user", {
 });
 
 function loadNotices(role) {
-  fetch("http://localhost:8080/otp/notices", {
+  fetch("https://pgmanagerbackend.onrender.com/otp/notices", {
     headers: { Authorization: "Bearer " + token }
   })
   .then(r => r.json())
@@ -60,7 +60,7 @@ document.getElementById("addBtn")?.addEventListener("click", () => {
   const msg = document.getElementById("noticeMsg").value.trim();
   if (!msg) return alert("Notice cannot be empty");
 
-  fetch("http://localhost:8080/otp/owner/add-notice", {
+  fetch("https://pgmanagerbackend.onrender.com/otp/owner/add-notice", {
     method: "POST",
     headers: {
       Authorization: "Bearer " + token,
@@ -77,7 +77,7 @@ function updateNotice(id) {
   const msg = prompt("Update notice");
   if (!msg) return;
 
-  fetch("http://localhost:8080/otp/owner/update-notice", {
+  fetch("https://pgmanagerbackend.onrender.com/otp/owner/update-notice", {
     method: "PUT",
     headers: {
       Authorization: "Bearer " + token,
@@ -90,7 +90,7 @@ function updateNotice(id) {
 function deleteNotice(id) {
   if (!confirm("Delete this notice?")) return;
 
-  fetch(`http://localhost:8080/otp/owner/delete-notice?noticeId=${id}`, {
+  fetch(`https://pgmanagerbackend.onrender.com/otp/owner/delete-notice?noticeId=${id}`, {
     method: "DELETE",
     headers: { Authorization: "Bearer " + token }
   }).then(() => loadNotices("OWNER"));

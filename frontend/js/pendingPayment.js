@@ -10,7 +10,7 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  const BASE_URL = "http://localhost:8080/otp";
+  const BASE_URL = "https://pgmanagerbackend.onrender.com/otp";
 
 function resolveUrl(url) {
   if (!url) return "/images/default.png";
@@ -41,7 +41,7 @@ function resolveUrl(url) {
   loadPendingPayments(token);
 
   function loadPendingPayments(token) {
-    fetch("http://localhost:8080/otp/pending-payments", {
+    fetch("https://pgmanagerbackend.onrender.com/otp/pending-payments", {
       method: "GET",
       headers: { "Authorization": `Bearer ${token}` }
     })
@@ -144,7 +144,7 @@ function resolveUrl(url) {
 
   function updatePaymentStatus(paymentId, newStatus, token) {
     if (!confirm(`Are you sure you want to mark as ${newStatus}?`)) return;
-    fetch(`http://localhost:8080/otp/update-payment-status/${paymentId}?status=${newStatus}`, {
+    fetch(`https://pgmanagerbackend.onrender.com/otp/update-payment-status/${paymentId}?status=${newStatus}`, {
       method: "PUT",
       headers: { "Authorization": `Bearer ${token}` }
     })
@@ -204,7 +204,7 @@ if (requestId) {
 
 
 
-    fetch(`http://localhost:8080/otp/room-assignments?guestMobile=${g.guestMobile}`, {
+    fetch(`https://pgmanagerbackend.onrender.com/otp/room-assignments?guestMobile=${g.guestMobile}`, {
       headers: { "Authorization": `Bearer ${token}` }
     })
       .then(res => res.ok ? res.json() : Promise.reject())
@@ -284,7 +284,7 @@ async function loadGuestIdImage(requestId, side, imgElementId) {
 
   try {
     const res = await fetch(
-      `http://localhost:8080/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
+      `https://pgmanagerbackend.onrender.com/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
       {
         headers: { Authorization: `Bearer ${token}` }
       }
@@ -306,7 +306,7 @@ async function loadGuestIdImage(requestId, side, imgElementId) {
 async function loadGuestProfileImage(imgElement, guestMobile) {
   try {
     const res = await fetch(
-      `http://localhost:8080/otp/profileImageG?guestMobile=${guestMobile}`,
+      `https://pgmanagerbackend.onrender.com/otp/profileImageG?guestMobile=${guestMobile}`,
       {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("jwtToken")
@@ -330,7 +330,7 @@ async function loadGuestProfileImage(imgElement, guestMobile) {
 async function fetchRequestIdByGuestMobile(guestMobile) {
   const token = localStorage.getItem("jwtToken");
 
-  const res = await fetch("http://localhost:8080/otp/all-guest", {
+  const res = await fetch("https://pgmanagerbackend.onrender.com/otp/all-guest", {
     headers: { Authorization: `Bearer ${token}` }
   });
 

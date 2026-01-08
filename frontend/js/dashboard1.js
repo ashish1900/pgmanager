@@ -7,7 +7,7 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   // Fetch Owner Dashboard Info
-  fetch("http://localhost:8080/otp/current-user", {
+  fetch("https://pgmanagerbackend.onrender.com/otp/current-user", {
     method: "GET",
     headers: { "Authorization": `Bearer ${token}` }
   })
@@ -26,7 +26,7 @@ window.addEventListener("DOMContentLoaded", () => {
       document.getElementById("address").textContent = user.address || "N/A";
 
       if (data.profileImageUrl) {
-        fetch(`http://localhost:8080/otp${data.profileImageUrl}`, {
+        fetch(`https://pgmanagerbackend.onrender.com/otp${data.profileImageUrl}`, {
           method: "GET",
           headers: { "Authorization": `Bearer ${token}` }
         })
@@ -69,7 +69,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 // Fetch Guest Requests
 function fetchGuestRequests(token) {
-  fetch("http://localhost:8080/otp/guest-requests", {
+  fetch("https://pgmanagerbackend.onrender.com/otp/guest-requests", {
     method: "GET",
     headers: { "Authorization": `Bearer ${token}` }
   })
@@ -84,7 +84,7 @@ function fetchGuestRequests(token) {
           card.className = "request-card";
           card.innerHTML = `
            <div class="guest-info">
-    <img src="http://localhost:8080/otp${req.profileImageUrl}"
+    <img src="https://pgmanagerbackend.onrender.com/otp${req.profileImageUrl}"
     
          alt="Guest Profile" class="guest-profile"/>
     <div class="guest-details">
@@ -123,7 +123,7 @@ function submitAssignment() {
 
   const token = localStorage.getItem("jwtToken");
 
-  fetch(`http://localhost:8080/otp/accept-and-assign/${requestId}`, {
+  fetch(`https://pgmanagerbackend.onrender.com/otp/accept-and-assign/${requestId}`, {
     method: "POST",
     headers: {
       "Authorization": `Bearer ${token}`,

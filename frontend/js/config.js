@@ -3,8 +3,8 @@
 const API_BASE_URL =
   window.location.hostname === "localhost" ||
   window.location.hostname === "127.0.0.1"
-    ? "http://localhost:8080"
-    : "http://localhost:8080";
+    ? "https://pgmanagerbackend.onrender.com"
+    : "https://pgmanagerbackend.onrender.com";
 
 const originalFetch = window.fetch;
 
@@ -15,8 +15,8 @@ window.fetch = function (url, options = {}) {
     url = API_BASE_URL + url;
   }
 
-  if (typeof url === "string" && url.startsWith("http://localhost:8080")) {
-    url = url.replace("http://localhost:8080", API_BASE_URL);
+  if (typeof url === "string" && url.startsWith("https://pgmanagerbackend.onrender.com")) {
+    url = url.replace("https://pgmanagerbackend.onrender.com", API_BASE_URL);
   }
 
   return originalFetch(url, options);

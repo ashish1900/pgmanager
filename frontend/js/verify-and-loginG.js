@@ -15,7 +15,7 @@ document.getElementById("verifyOtpForm").addEventListener("submit", async functi
     const mobileNumber = "+91" + rawMobileNumber;
 
     try {
-        const res = await fetch("http://localhost:8080/otp/verify-and-loginG", {
+        const res = await fetch("https://pgmanagerbackend.onrender.com/otp/verify-and-loginG", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ mobileNumber, otp })

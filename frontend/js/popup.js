@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function checkMismatch() {
     if (mismatchCleared) return;
-    fetch(`http://localhost:8080/otp/mismatch/${guestId}`, {
+    fetch(`https://pgmanagerbackend.onrender.com/otp/mismatch/${guestId}`, {
       method: "GET",
       headers: { "Authorization": `Bearer ${token}` }
     })
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setInterval(checkMismatch, 10000);
 
   okBtn.addEventListener("click", () => {
-    fetch(`http://localhost:8080/otp/mismatch/${guestId}`, {
+    fetch(`https://pgmanagerbackend.onrender.com/otp/mismatch/${guestId}`, {
       method: "DELETE",
       headers: { "Authorization": `Bearer ${token}` }
     })

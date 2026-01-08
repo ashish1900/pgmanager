@@ -94,7 +94,7 @@ loadGuestProfileImage(photoEl, guestMobile);
  * LOAD GUEST DETAILS
  *************************/
 async function loadGuestDetails(mobile, token) {
-  const res = await fetch("http://localhost:8080/otp/all-guest", {
+  const res = await fetch("https://pgmanagerbackend.onrender.com/otp/all-guest", {
     headers: { Authorization: `Bearer ${token}` }
   });
 
@@ -217,7 +217,7 @@ async function loadPaymentsWithCycles(guestMobile, token) {
     return;
   }
 
-  const res = await fetch("http://localhost:8080/otp/payment-historyO", {
+  const res = await fetch("https://pgmanagerbackend.onrender.com/otp/payment-historyO", {
     headers: { Authorization: `Bearer ${token}` }
   });
 
@@ -376,7 +376,7 @@ function enableFullImageZoom(selector) {
 async function loadGuestProfileImage(imgElement, guestMobile) {
   try {
     const res = await fetch(
-      `http://localhost:8080/otp/profileImageG?guestMobile=${guestMobile}`,
+      `https://pgmanagerbackend.onrender.com/otp/profileImageG?guestMobile=${guestMobile}`,
       {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("jwtToken")
@@ -402,7 +402,7 @@ async function loadGuestProfileImage(imgElement, guestMobile) {
 
 
 
-const BASE_URL = "http://localhost:8080/otp";
+const BASE_URL = "https://pgmanagerbackend.onrender.com/otp";
 
 function resolveReceiptUrl(url) {
   if (!url) return "";

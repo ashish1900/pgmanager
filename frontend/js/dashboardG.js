@@ -8,7 +8,7 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   //  Guest Info Load (YOUR EXISTING)
-  fetch("http://localhost:8080/otp/current-guest", {
+  fetch("https://pgmanagerbackend.onrender.com/otp/current-guest", {
     method: "GET",
     headers: { "Authorization": `Bearer ${token}` }
   })
@@ -29,7 +29,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
       // Profile Image of guest (secure blob load)
       if (data.profileImageUrl) {
-        fetch(`http://localhost:8080/otp${data.profileImageUrl}`, {
+        fetch(`https://pgmanagerbackend.onrender.com/otp${data.profileImageUrl}`, {
           method: "GET",
           headers: { "Authorization": `Bearer ${token}` }
         })
@@ -55,7 +55,7 @@ window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("seePgsBtn").addEventListener("click", () => {
     document.getElementById("citySection").style.display = "block";
 
-    fetch("http://localhost:8080/otp/cities")
+    fetch("https://pgmanagerbackend.onrender.com/otp/cities")
       .then(res => res.json())
       .then(data => {
         let citySelect = document.getElementById("citySelect");
@@ -73,7 +73,7 @@ window.addEventListener("DOMContentLoaded", () => {
     let city = document.getElementById("citySelect").value;
     const token = localStorage.getItem("jwtToken");
 
-    fetch(`http://localhost:8080/otp/pg-by-city?city=${encodeURIComponent(city)}`, {
+    fetch(`https://pgmanagerbackend.onrender.com/otp/pg-by-city?city=${encodeURIComponent(city)}`, {
       headers: { "Authorization": `Bearer ${token}` }
     })
       .then(res => res.json())
@@ -114,7 +114,7 @@ window.addEventListener("DOMContentLoaded", () => {
 function sendRequest(pgId) {
   const token = localStorage.getItem("jwtToken");
 
-  fetch(`http://localhost:8080/otp/send?ownerId=${pgId}&pgId=${pgId}`, {
+  fetch(`https://pgmanagerbackend.onrender.com/otp/send?ownerId=${pgId}&pgId=${pgId}`, {
     method: "POST",
     headers: { "Authorization": `Bearer ${token}` }
   })
@@ -126,7 +126,7 @@ function sendRequest(pgId) {
 
 //  Load Owner Details (if accepted)
 function fetchOwnerDetails(token) {
-  fetch("http://localhost:8080/otp/owner-details", {
+  fetch("https://pgmanagerbackend.onrender.com/otp/owner-details", {
     method: "GET",
     headers: { "Authorization": `Bearer ${token}` }
   })
@@ -163,7 +163,7 @@ function fetchOwnerDetails(token) {
 
         //  Updated Image Loading Logic (with ownerMobile query param)
         if (o.moNumber) {
-          const profileImageUrl = `http://localhost:8080/otp/profileImage?ownerMobile=${o.moNumber}`;
+          const profileImageUrl = `https://pgmanagerbackend.onrender.com/otp/profileImage?ownerMobile=${o.moNumber}`;
           try {
             const imgRes = await fetch(profileImageUrl, {
               method: "GET",

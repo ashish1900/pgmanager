@@ -14,7 +14,7 @@ form.addEventListener("submit", async function (e) {
   const { name, moNumber, city, pgName, address } = JSON.parse(storedData);
 
   try {
-    const res = await fetch("http://localhost:8080/verify-and-register", {
+    const res = await fetch("https://pgmanagerbackend.onrender.com/verify-and-register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ otp, name, moNumber, city, pgName, address }),

@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     list.innerHTML = `<p>Loading...</p>`;
 
     try {
-      const res = await fetch("http://localhost:8080/otp/pending-acceptd-requests", {
+      const res = await fetch("https://pgmanagerbackend.onrender.com/otp/pending-acceptd-requests", {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await res.json();
@@ -173,7 +173,7 @@ async function loadGuestIdImage(requestId, side, imgElementId) {
 
   try {
     const res = await fetch(
-      `http://localhost:8080/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
+      `https://pgmanagerbackend.onrender.com/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
       {
         headers: { Authorization: `Bearer ${token}` }
       }

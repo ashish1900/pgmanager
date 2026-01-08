@@ -24,7 +24,7 @@ document.getElementById("verifyOtpForm").addEventListener("submit", async functi
   formData.append("imageName", imageName);
 
   try {
-    const res = await fetch("http://localhost:8080/otp/verify-and-registerG", {
+    const res = await fetch("https://pgmanagerbackend.onrender.com/otp/verify-and-registerG", {
       method: "POST",
       body: formData,
     });

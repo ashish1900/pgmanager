@@ -43,7 +43,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 function fetchAcceptedGuests(token) {
-  fetch("http://localhost:8080/otp/pending-leave-request", {
+  fetch("https://pgmanagerbackend.onrender.com/otp/pending-leave-request", {
     headers: { "Authorization": `Bearer ${token}` }
   })
     .then(res => res.json())
@@ -179,7 +179,7 @@ function openInfoModal(index) {
   loadGuestIdImage(g.requestId, "back", "idBackImage");
 
 
-  fetch(`http://localhost:8080/otp/room-assignments?guestMobile=${g.guestMobile}`, {
+  fetch(`https://pgmanagerbackend.onrender.com/otp/room-assignments?guestMobile=${g.guestMobile}`, {
     headers: { "Authorization": `Bearer ${token}` }
   })
     .then(res => res.ok ? res.json() : Promise.reject())
@@ -240,7 +240,7 @@ function acceptLeaveRequest(guestMobile) {
 
   if (!confirm("Are you sure you want to accept this leave request?")) return;
 
-  fetch(`http://localhost:8080/otp/leave-request/${guestMobile}`, {
+  fetch(`https://pgmanagerbackend.onrender.com/otp/leave-request/${guestMobile}`, {
     method: "PUT",
     headers: {
       "Authorization": `Bearer ${token}`,
@@ -275,7 +275,7 @@ async function loadGuestIdImage(requestId, side, imgElementId) {
 
   try {
     const res = await fetch(
-      `http://localhost:8080/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
+      `https://pgmanagerbackend.onrender.com/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
       {
         headers: { Authorization: `Bearer ${token}` }
       }
@@ -299,7 +299,7 @@ async function loadGuestIdImage(requestId, side, imgElementId) {
 async function loadGuestProfileImage(imgElement, guestMobile) {
   try {
     const res = await fetch(
-      `http://localhost:8080/otp/profileImageG?guestMobile=${guestMobile}`,
+      `https://pgmanagerbackend.onrender.com/otp/profileImageG?guestMobile=${guestMobile}`,
       {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("jwtToken")

@@ -40,7 +40,7 @@ loadNotices();
 
 function loadNotices() {
 
-  fetch("http://localhost:8080/otp/notices", {
+  fetch("https://pgmanagerbackend.onrender.com/otp/notices", {
     headers: {
       Authorization: "Bearer " + token
     }
@@ -125,7 +125,7 @@ document.getElementById("addBtn")?.addEventListener("click", () => {
 
   info.textContent = "";
 
-  fetch("http://localhost:8080/otp/owner/add-notice", {
+  fetch("https://pgmanagerbackend.onrender.com/otp/owner/add-notice", {
     method: "POST",
     headers: {
       Authorization: "Bearer " + token,
@@ -161,7 +161,7 @@ function updateNotice(id) {
   const msg = prompt("Update notice");
   if (!msg) return;
 
-  fetch("http://localhost:8080/otp/owner/update-notice", {
+  fetch("https://pgmanagerbackend.onrender.com/otp/owner/update-notice", {
     method: "PUT",
     headers: {
       Authorization: "Bearer " + token,
@@ -194,7 +194,7 @@ function deleteNotice(id) {
 
   if (!confirm("Delete this notice?")) return;
 
-  fetch(`http://localhost:8080/otp/owner/delete-notice?noticeId=${id}`, {
+  fetch(`https://pgmanagerbackend.onrender.com/otp/owner/delete-notice?noticeId=${id}`, {
     method: "DELETE",
     headers: {
       Authorization: "Bearer " + token

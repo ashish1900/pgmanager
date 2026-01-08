@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* ======================= FETCH ======================= */
 function fetchPayments() {
-  fetch("http://localhost:8080/otp/payment-historyO", {
+  fetch("https://pgmanagerbackend.onrender.com/otp/payment-historyO", {
     headers: { "Authorization": `Bearer ${token}` }
   })
     .then(r => r.json())

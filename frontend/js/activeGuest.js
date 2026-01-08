@@ -416,7 +416,7 @@ if (window.innerWidth <= 768) {
 ------------------------- */
 async function fetchPaymentHistory(token) {
   try {
-    const res = await fetch("http://localhost:8080/otp/payment-historyO", {
+    const res = await fetch("https://pgmanagerbackend.onrender.com/otp/payment-historyO", {
       headers: { Authorization: `Bearer ${token}` }
     });
     const data = await res.json();
@@ -437,7 +437,7 @@ async function fetchPaymentHistory(token) {
    FETCH GUEST LIST
 ------------------------- */
 function fetchAcceptedGuests(token, paymentsMap) {
-  fetch("http://localhost:8080/otp/all-guest", {
+  fetch("https://pgmanagerbackend.onrender.com/otp/all-guest", {
     headers: { Authorization: `Bearer ${token}` }
   })
     .then(res => res.json())
@@ -769,7 +769,7 @@ modalPhoto.src = "../images/default-avatar.png";
 //  Cloudinary auto-load
 loadGuestProfileImage(modalPhoto, g.guestMobile);
 
-  fetch(`http://localhost:8080/otp/room-assignments?guestMobile=${g.guestMobile}`, {
+  fetch(`https://pgmanagerbackend.onrender.com/otp/room-assignments?guestMobile=${g.guestMobile}`, {
     headers: { Authorization: `Bearer ${token}` }
   })
     .then(res => res.ok ? res.json() : Promise.reject())
@@ -821,7 +821,7 @@ function setupZoomableImages() {
 async function loadGuestProfileImage(imgElement, guestMobile) {
   try {
     const res = await fetch(
-      `http://localhost:8080/otp/profileImageG?guestMobile=${guestMobile}`,
+      `https://pgmanagerbackend.onrender.com/otp/profileImageG?guestMobile=${guestMobile}`,
       {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("jwtToken")
@@ -854,7 +854,7 @@ async function loadGuestIdImage(requestId, side, imgElementId) {
 
   try {
     const res = await fetch(
-      `http://localhost:8080/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
+      `https://pgmanagerbackend.onrender.com/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
       {
         headers: { Authorization: `Bearer ${token}` }
       }
