@@ -8,9 +8,10 @@ body {
   background: #007bff;
   color: white;
 
-  height: 60px;             
-  align-items: center;      
-  justify-content: center;  
+  height: 60px;              
+  display: flex;
+  align-items: center;       
+  justify-content: center;   
 
   margin-bottom: 20px;
   position: relative;
@@ -279,6 +280,10 @@ body {
 
 
 
+/* ===============================
+   FIXED HEADER + SCROLL BODY
+================================ */
+
 .guest-section {
   padding: 0 20px 20px;
   height: calc(100vh - 70px); 
@@ -298,7 +303,7 @@ body {
 
 .guest-table tbody {
   display: block;
-  height: calc(100vh - 140px); 
+  height: calc(100vh - 140px);
   overflow-y: auto;
 }
 
@@ -491,7 +496,6 @@ body {
 
   .modal-overlay {
     align-items: flex-start; 
-    
     padding: 10px;
   }
 
@@ -502,7 +506,6 @@ body {
     max-height: 95vh;
     overflow-y: auto;
     overflow-x: hidden;   
-    
     padding: 16px;
     box-sizing: border-box;
   }
@@ -512,7 +515,6 @@ body {
 @media (max-width: 768px) {
   .info-grid {
     flex-direction: column;   
-    
     gap: 15px;
   }
 
