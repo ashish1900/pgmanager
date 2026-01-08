@@ -19,17 +19,17 @@ const backToPayBtn = document.getElementById("backToPayBtn");
 const filterButtons = document.querySelectorAll(".filter-btn");
 
 
-const BASE_URL = "https://pgmanagerbackend.onrender.com/otp";
+const BASE_URL = "http://localhost:8080/otp";
 
 function resolveUrl(url) {
   if (!url) return "/images/default.png";
 
-  // ✅ Cloudinary / full URL
+  //  Cloudinary / full URL
   if (url.startsWith("http")) {
     return url;
   }
 
-  // ✅ Local backend path
+  //  Local backend path
   return BASE_URL + url;
 }
 
@@ -49,7 +49,7 @@ async function safeFetchJson(url, opts = {}) {
 // Load Accepted PGs
 // -------------------------------------------
 async function loadAcceptedPGs() {
-  const data = await safeFetchJson("https://pgmanagerbackend.onrender.com/otp/accepted-pgs", {
+  const data = await safeFetchJson("http://localhost:8080/otp/accepted-pgs", {
     headers: { Authorization: `Bearer ${token}` }
   });
 
@@ -72,7 +72,7 @@ async function loadAcceptedPGs() {
 // Fetch Owner Details
 // -------------------------------------------
 async function fetchOwnerDetails(ownerMobile) {
-  const url = `https://pgmanagerbackend.onrender.com/otp/owner-details?ownerMobile=${encodeURIComponent(ownerMobile)}`;
+  const url = `http://localhost:8080/otp/owner-details?ownerMobile=${encodeURIComponent(ownerMobile)}`;
   const data = await safeFetchJson(url, { headers: { Authorization: `Bearer ${token}` } });
   const o = data.ownerDetails;
 
@@ -84,12 +84,12 @@ async function fetchOwnerDetails(ownerMobile) {
 
   payMobile.textContent = o.moNumber || "—";
   payUpiId.textContent = o.upiId || "—";
-  qrImage.src = o.qrCodeUrl ? `https://pgmanagerbackend.onrender.com/otp${o.qrCodeUrl}` : "../images/default-qr.png";
+  qrImage.src = o.qrCodeUrl ? `http://localhost:8080/otp${o.qrCodeUrl}` : "../images/default-qr.png";
 
   // Profile Image
   const ownerImg = document.getElementById("ownerImage");
   if (o.moNumber) {
-    const imgUrl = `https://pgmanagerbackend.onrender.com/otp/profileImage?ownerMobile=${o.moNumber}`;
+    const imgUrl = `http://localhost:8080/otp/profileImage?ownerMobile=${o.moNumber}`;
     try {
       const imgRes = await fetch(imgUrl, { headers: { Authorization: `Bearer ${token}` } });
       if (imgRes.ok) {
@@ -131,7 +131,7 @@ uploadPaymentBtn.addEventListener("click", async () => {
   formData.append("screenshot", file);
 
   try {
-    const res = await fetch("https://pgmanagerbackend.onrender.com/otp/upload-payment", {
+    const res = await fetch("http://localhost:8080/otp/upload-payment", {
       method: "POST",
       headers: { Authorization: `Bearer ${token}` },
       body: formData
@@ -196,7 +196,7 @@ async function loadPaymentHistory(filter = "all") {
   const selectedOwnerMobile = pgDropdown.value;
 
   const res = await safeFetchJson(
-    `https://pgmanagerbackend.onrender.com/otp/payment-history?ownerMobile=${encodeURIComponent(selectedOwnerMobile)}`,
+    `http://localhost:8080/otp/payment-history?ownerMobile=${encodeURIComponent(selectedOwnerMobile)}`,
     { headers: { Authorization: `Bearer ${token}` } }
   );
 
@@ -205,7 +205,7 @@ async function loadPaymentHistory(filter = "all") {
   // Filter (all, rent, advance...)
   if (filter !== "all") list = list.filter(p => p.type === filter);
 
-  // 🔥 Sort by latest payment date (descending)
+  //  Sort by latest payment date (descending)
   list.sort((a, b) => {
     const dateA = a.paymentDate ? new Date(a.paymentDate) : new Date(0);
     const dateB = b.paymentDate ? new Date(b.paymentDate) : new Date(0);
@@ -302,7 +302,7 @@ filterButtons.forEach(btn => {
 // -------------------------------------------
 pgDropdown.addEventListener("change", async () => {
 
-    // ⭐ RESET PAYMENT TYPE WHEN OWNER CHANGES
+    //  RESET PAYMENT TYPE WHEN OWNER CHANGES
   paymentType.value = "";
 
   // Reset Step 2
@@ -383,7 +383,7 @@ paymentType.addEventListener("change", async () => {
 
   try {
     const url =
-      `https://pgmanagerbackend.onrender.com/otp/payment-method/by-mobile?ownerMobile=${encodeURIComponent(selectedOwnerMobile)}&paymentType=${encodeURIComponent(normalizedType)}`;
+      `http://localhost:8080/otp/payment-method/by-mobile?ownerMobile=${encodeURIComponent(selectedOwnerMobile)}&paymentType=${encodeURIComponent(normalizedType)}`;
 
     const res = await fetch(url, {
       headers: { Authorization: `Bearer ${token}` }
@@ -393,7 +393,7 @@ paymentType.addEventListener("change", async () => {
 
 
     // =====================================================
-    // 🔥 CASE 1 — GUEST REMOVED / REJECTED / PENDING / NO REQUEST
+    //  CASE 1 — GUEST REMOVED / REJECTED / PENDING / NO REQUEST
     // =====================================================
     if (data.status !== "ACCEPTED") {
 
@@ -407,7 +407,7 @@ paymentType.addEventListener("change", async () => {
       leftBlock.classList.add("hidden");
       qrBlock.classList.add("hidden");
 
-      // ❌ Disable STEP 3
+      //  Disable STEP 3
       amountInput.disabled = true;
       fileInput.disabled = true;
       submitBtn.disabled = true;
@@ -418,7 +418,7 @@ paymentType.addEventListener("change", async () => {
 
 
     // =====================================================
-    // 🔥 CASE 2 — ACCEPTED → SHOW ALL PAYMENT DETAILS
+    //  CASE 2 — ACCEPTED → SHOW ALL PAYMENT DETAILS
     // =====================================================
 
     payMobile.textContent = data.ownerMobile || "—";

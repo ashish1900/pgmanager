@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     list.innerHTML = `<p>Loading...</p>`;
 
     try {
-      const res = await fetch("https://pgmanagerbackend.onrender.com/otp/pending-acceptd-requests", {
+      const res = await fetch("http://localhost:8080/otp/pending-acceptd-requests", {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await res.json();
@@ -129,18 +129,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     list.appendChild(card);
 
-    // ✅ Auto load ID images (Cloudinary)
+    //  Auto load ID images (Cloudinary)
     loadGuestIdImage(req.requestId, "front", `idFront_${req.requestId}`);
     loadGuestIdImage(req.requestId, "back",  `idBack_${req.requestId}`);
 
 
-    // ⭐ Image zoom functionality
+    //  Image zoom functionality
     card.querySelectorAll(".zoomable").forEach(img => {
       img.addEventListener("click", () => openImageViewer(img.src));
     });
   }
 
-  // ⭐ Full screen image viewer
+  //  Full screen image viewer
   function openImageViewer(src) {
     const viewer = document.createElement("div");
     viewer.className = "image-viewer";
@@ -173,7 +173,7 @@ async function loadGuestIdImage(requestId, side, imgElementId) {
 
   try {
     const res = await fetch(
-      `https://pgmanagerbackend.onrender.com/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
+      `http://localhost:8080/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
       {
         headers: { Authorization: `Bearer ${token}` }
       }

@@ -5,7 +5,7 @@ body {
   font-family: Poppins, sans-serif;
   background: #ced6ea;
   margin: 0;
-  overflow: hidden; /* Desktop: prevent page scroll */
+  overflow: hidden; 
 }
 
 /* =====================================
@@ -137,8 +137,8 @@ body {
 
 .table-scroll {
   height: 100%;
-  overflow-y: auto;     /* vertical scroll only */
-  overflow-x: auto;     /* 🔥 allow horizontal if needed */
+  overflow-y: auto;    
+  overflow-x: auto;    
 }
 
 .payment-table {
@@ -172,10 +172,10 @@ body {
 
 
 
-/* ✅ FULL ROW HIGHLIGHT IF PAYMENT IS DONE */
+/*  FULL ROW HIGHLIGHT IF PAYMENT IS DONE */
 .payment-table tr:has(td.status-paid) {
-  background-color: #eaf8f0;   /* light green */
-  font-weight: 600;            /* 🔥 full row bold */
+  background-color: #eaf8f0;   
+  font-weight: 600;            
 }
 
 /* text color */
@@ -221,7 +221,6 @@ body {
   background: #fff;
 }
 
-/* ❌ CUT / CLOSE BUTTON */
 .zoom-close {
   position: absolute;
   top: 18px;
@@ -258,7 +257,7 @@ body {
   font-size: 15px;
 }
 
-/* 🟢 ACTIVE */
+/*  ACTIVE */
 .status-active {
   background: #eafaf1;
   color: #1f7a3f;
@@ -272,7 +271,7 @@ body {
   border-radius: 50%;
 }
 
-/* 🔴 CHECKED OUT */
+/*  CHECKED OUT */
 .status-removed {
   background: #fdecec;
   color: #b02a2a;
@@ -294,7 +293,7 @@ body {
 @media (max-width: 768px) {
 
   body {
-    overflow-y: auto;          /* page scroll allowed */
+    overflow-y: auto;          
   }
 
   .payment-page {
@@ -329,24 +328,24 @@ body {
     text-align: center;
   }
 
-  /* 🔥 MAIN FIX STARTS HERE */
+  /* MAIN FIX STARTS HERE */
 
   .table-wrapper {
     width: 100%;
-    max-height: 410px;         /* ✅ table height reduced */
+    max-height: 410px;        
     overflow: hidden;
     border-radius: 8px;
   }
 
   .table-scroll {
-    max-height: 410px;         /* ✅ rows scroll inside */
-    overflow-y: auto;          /* vertical scroll */
-    overflow-x: auto;          /* horizontal swipe */
+    max-height: 410px;        
+    overflow-y: auto;          
+    overflow-x: auto;         
     -webkit-overflow-scrolling: touch;
   }
 
   .payment-table {
-    min-width: 950px;          /* force horizontal swipe */
+    min-width: 950px;         
   }
 
 }

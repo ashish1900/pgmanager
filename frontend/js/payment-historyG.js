@@ -7,17 +7,17 @@ if (!token) {
 const historyBody = document.getElementById("historyBody");
 const filterButtons = document.querySelectorAll(".filter-btn");
 
-const BASE_URL = "https://pgmanagerbackend.onrender.com/otp";
+const BASE_URL = "http://localhost:8080/otp";
 
 function resolveUrl(url) {
   if (!url) return "/images/default.png";
 
-  // ✅ Cloudinary / full URL
+  //  Cloudinary / full URL
   if (url.startsWith("http")) {
     return url;
   }
 
-  // ✅ Local backend path
+  //  Local backend path
   return BASE_URL + url;
 }
 
@@ -29,7 +29,7 @@ async function loadAllPayments(filter = "all") {
   historyBody.innerHTML = "<tr><td colspan='8'>Loading...</td></tr>";
 
   try {
-    const res = await fetch("https://pgmanagerbackend.onrender.com/otp/payment-history", {
+    const res = await fetch("http://localhost:8080/otp/payment-history", {
       headers: { Authorization: `Bearer ${token}` }
     });
 

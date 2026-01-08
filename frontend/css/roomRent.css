@@ -104,7 +104,7 @@ body {
 
 
 /* ===============================
-   ⭐ PERFECT FILTER BUTTONS FIXED
+    PERFECT FILTER BUTTONS FIXED
 ================================ */
 .filter-buttons {
   display: flex;
@@ -140,12 +140,12 @@ body {
 }
 
 
-/* ===== Table Wrapper (scrollable, heading sticky) ===== */
+/* ===== Table Wrapper  ===== */
 .table-wrapper {
   margin-top: 10px;
   border-radius: 8px;
   border: 1px solid #ddd;
-  max-height: 480px;          /* ⭐ enough height so 5–8 rows dikhen */
+  max-height: 480px;          
   overflow-y: auto;
   background: #fff;
 }
@@ -163,7 +163,7 @@ body {
   text-align: center;
 }
 
-/* ⭐ Sticky header */
+/*  Sticky header */
 .payment-history thead th {
   position: sticky;
   top: 0;
@@ -173,7 +173,7 @@ body {
   z-index: 2;
 }
 
-/* ⭐ Numbering column */
+/*  Numbering column */
 .payment-history th:first-child,
 .payment-history td:first-child {
   width: 50px;
@@ -280,7 +280,7 @@ body {
 }
 
 /* ==========================
-   ✅ Guest Info Modal Styling
+    Guest Info Modal Styling
 ========================== */
 .modal-overlay {
   display: none;
@@ -424,7 +424,7 @@ body {
   font-weight: bold;
 }
 
-/* ⭐ Back Button Right Side */
+/*  Back Button Right Side */
 .back-btn {
   margin-left: auto;
   background: #ff4c4c;
@@ -442,7 +442,7 @@ body {
 }
 
 
-/* ⭐ Fixed Top Header */
+/*  Fixed Top Header */
 .fixed-header {
   position: fixed;
   top: 0;
@@ -464,12 +464,10 @@ body {
   color: #496de9;
 }
 
-/* ⭐ Page नीचे से शुरू होगी (fixed header के नीचे space) */
 .header-gap {
   height: 80px;
 }
 
-/* ⭐ Blue Back Button */
 .back-btn {
   background: #496de9 !important;
   color: #fff;
@@ -486,7 +484,6 @@ body {
   background: #314dcc !important;
 }
 
-/* ⭐ Mobile Friendly */
 @media (max-width: 600px) {
   .fixed-header h1 {
       font-size: 18px;
@@ -507,7 +504,7 @@ body {
 
 
 /* ============================================================
-   ⭐ MASTER LAYOUT (PC)
+    MASTER LAYOUT (PC)
    ============================================================ */
 @media (min-width: 900px) {
 
@@ -568,7 +565,7 @@ body {
 
   .qr-display {
     display: flex;
-    justify-content: center;    /* Center horizontally */
+    justify-content: center;    
     margin-top: 10px;
   }
 
@@ -606,5 +603,5 @@ body {
 
 
 table {
-  font-size: 14px;   /* PC font size */
+  font-size: 14px;  
 }

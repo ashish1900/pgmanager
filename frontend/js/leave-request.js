@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     acceptedList.innerHTML = "<p>Loading...</p>";
 
     try {
-      const res = await fetch("https://pgmanagerbackend.onrender.com/otp/pending-acceptd-requests", {
+      const res = await fetch("http://localhost:8080/otp/pending-acceptd-requests", {
         headers: { Authorization: `Bearer ${token}` }
       });
 
@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const res = await fetch(
-        `https://pgmanagerbackend.onrender.com/otp/send-leave-request?ownerMobile=${ownerMobile}`,
+        `http://localhost:8080/otp/send-leave-request?ownerMobile=${ownerMobile}`,
         {
           method: "POST",
           headers: {
@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const res = await fetch(
-        `https://pgmanagerbackend.onrender.com/otp/delete-leave-request?ownerMobile=${ownerMobile}`,
+        `http://localhost:8080/otp/delete-leave-request?ownerMobile=${ownerMobile}`,
         {
           method: "POST",
           headers: {

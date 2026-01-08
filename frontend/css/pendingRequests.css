@@ -4,7 +4,6 @@ body {
   font-family: Poppins, Arial, sans-serif;
   background: #eef1fb;
 
-  /* ❌ page scroll band */
   overflow: hidden;
 }
 
@@ -54,7 +53,6 @@ body {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 
-  /* ⭐ important */
   height: calc(100vh - 85px); /* topbar + gap */
   overflow: hidden;
 }
@@ -65,7 +63,7 @@ table {
   border-collapse: collapse;
 }
 
-/* ⭐ HEADER FIX */
+/*  HEADER FIX */
 thead {
   background: #f5f7ff;
   position: sticky;
@@ -76,14 +74,14 @@ thead {
   table-layout: fixed;
 }
 
-/* ⭐ ONLY ROWS SCROLL */
+/* ONLY ROWS SCROLL */
 tbody {
   display: block;
   height: calc(100vh - 130px);
   overflow-y: auto;
 }
 
-/* ⭐ keep alignment */
+/*  keep alignment */
 tbody tr {
   display: table;
   width: 100%;
@@ -275,7 +273,6 @@ td:first-child {
   box-shadow: 0 0 30px rgba(255,255,255,0.2);
 }
 
-/* ❌ Close (Cross) Button */
 .image-zoom-close {
   position: absolute;
   top: 20px;
@@ -357,12 +354,10 @@ td:first-child {
   font-weight: 600;
 }
 
-  /* ❌ Table heading hide */
   thead {
     display: none !important;
   }
 
-  /* ❌ horizontal borders remove */
   tbody tr td {
     border-bottom: none !important;
   }
@@ -375,7 +370,7 @@ td:first-child {
     background: #cfd9f0;
     border-radius: 12px;
     padding: 14px 10px;
-    margin-bottom: 14px; /* ✅ card gap */
+    margin-bottom: 14px; 
     width: 93%;
   }
 
@@ -388,7 +383,6 @@ td:first-child {
   border: 1px solid #ddd;
 }
 
-  /* ❌ serial number hide */
   tbody tr td:first-child {
     display: none;
   }
@@ -397,7 +391,7 @@ td:first-child {
   tbody tr td {
     position: relative;
     text-align: center;
-    padding-top: 18px;   /* label ke liye space */
+    padding-top: 18px;   
     font-size: 14px;
   }
 
@@ -439,7 +433,7 @@ td:first-child {
     content: "";
   }
 
-  /* ===== Request Date (LABEL FIXED ✅) ===== */
+  /* ===== Request Date  ===== */
   td:nth-child(4)::before {
     content: "Request Date";
   
@@ -498,7 +492,7 @@ td:first-child {
 @media (max-width: 768px) {
 
   .modal {
-    padding: 5px;          /* edges se thoda gap */
+    padding: 5px;          
   }
 
   .modal-content,
@@ -510,9 +504,9 @@ td:first-child {
   }
 
   .verify-content {
-    max-height: 90vh;       /* 👈 sirf vertical scroll */
+    max-height: 90vh;       
     overflow-y: auto;
-    overflow-x: hidden;     /* ❌ horizontal scroll band */
+    overflow-x: hidden;    
   }
 }
 @media (max-width: 768px) {

@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Load cities from backend
-  fetch("https://pgmanagerbackend.onrender.com/otp/cities")
+  fetch("http://localhost:8080/otp/cities")
     .then(res => res.json())
     .then(cities => {
       const datalist = document.getElementById("cityList");
@@ -99,7 +99,7 @@ document.getElementById("registerForm").addEventListener("submit", async functio
   const imageFormData = new FormData();
   imageFormData.append("file", imageFile);
 
-  const imageRes = await fetch("https://pgmanagerbackend.onrender.com/otp/upload-temp-image", {
+  const imageRes = await fetch("http://localhost:8080/otp/upload-temp-image", {
     method: "POST",
     body: imageFormData,
   });
@@ -111,7 +111,7 @@ document.getElementById("registerForm").addEventListener("submit", async functio
   const address = document.getElementById("address").value.trim();
   const moNumber = document.getElementById("moNumber").value.trim();
 
-  const otpRes = await fetch("https://pgmanagerbackend.onrender.com/otp/sendOtp", {
+  const otpRes = await fetch("http://localhost:8080/otp/sendOtp", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ mobileNumber: "+91" + moNumber }),

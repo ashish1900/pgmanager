@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  // ✅ Agar +91 nahi laga hua hai to laga do
   
   
   form.addEventListener("submit", async function (e) {
@@ -24,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const otp = document.getElementById("otp").value;
 
     try {
-      const response = await fetch("https://pgmanagerbackend.onrender.com/otp/verifyOtp", {
+      const response = await fetch("http://localhost:8080/otp/verifyOtp", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -41,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         messageDiv.textContent = "OTP Verified Successfully!";
         messageDiv.style.color = "green";
 
-        // ✅ Redirect to dashboard or registration based on login/registration flow
+        //  Redirect to dashboard or registration based on login/registration flow
         setTimeout(() => {
           window.location.href = "dashboard.html"; // replace with your dashboard or register page
         }, 1000);

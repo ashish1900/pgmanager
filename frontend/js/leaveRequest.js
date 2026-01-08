@@ -11,7 +11,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   fetchAcceptedGuests(token);
 
-  // Close button handler ✅
+  // Close button handler 
   document.getElementById("closeBtn").addEventListener("click", closeModal);
 
   // Outside click closes modal
@@ -43,7 +43,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 function fetchAcceptedGuests(token) {
-  fetch("https://pgmanagerbackend.onrender.com/otp/pending-leave-request", {
+  fetch("http://localhost:8080/otp/pending-leave-request", {
     headers: { "Authorization": `Bearer ${token}` }
   })
     .then(res => res.json())
@@ -67,19 +67,19 @@ function fetchAcceptedGuests(token) {
 
           const row = document.createElement("tr");
 
-          // ✅ Guest Photo
+          //  Guest Photo
           const imgCell = document.createElement("td");
           const profileImg = document.createElement("img");
           profileImg.className = "guest-profile";
           
           profileImg.src = "../images/default-avatar.png";
 
-          // ✅ Cloudinary image loader
+          //  Cloudinary image loader
           loadGuestProfileImage(profileImg, g.guestMobile);
 
           imgCell.appendChild(profileImg);
 
-          // ✅ Guest Name + See Button
+          //  Guest Name + See Button
           const nameCell = document.createElement("td");
           nameCell.classList.add("name-cell");
           nameCell.innerHTML = `
@@ -89,15 +89,15 @@ function fetchAcceptedGuests(token) {
             </button>
           `;
 
-          // ✅ Accepting Date
+          //  Accepting Date
           const dateCell = document.createElement("td");
           dateCell.innerHTML = `<span>${date}</span><br><span>${time}</span>`;
 
-          // ✅ Leave Request Date
+          //  Leave Request Date
           const leaveDateCell = document.createElement("td");
           leaveDateCell.innerHTML = `<span>${lDate}</span><br><span>${lTime}</span>`;
 
-          // ✅ Action Button
+          //  Action Button
           const actionCell = document.createElement("td");
           const acceptBtn = document.createElement("button");
           acceptBtn.className = "accept-btn";
@@ -166,20 +166,20 @@ function openInfoModal(index) {
    const modalPhoto = document.getElementById("modalPhoto");
    modalPhoto.src = "../images/default-avatar.png";
 
-    // ✅ Cloudinary auto-load
+    //  Cloudinary auto-load
     loadGuestProfileImage(modalPhoto, g.guestMobile);
 
     
-    // 1️⃣ Reset images
+    // 1 Reset images
   document.getElementById("idFrontImage").src = "";
   document.getElementById("idBackImage").src = "";
 
-  // 2️⃣ AUTO load ID images (Pending Request style)
+  // 2 AUTO load ID images (Pending Request style)
   loadGuestIdImage(g.requestId, "front", "idFrontImage");
   loadGuestIdImage(g.requestId, "back", "idBackImage");
 
 
-  fetch(`https://pgmanagerbackend.onrender.com/otp/room-assignments?guestMobile=${g.guestMobile}`, {
+  fetch(`http://localhost:8080/otp/room-assignments?guestMobile=${g.guestMobile}`, {
     headers: { "Authorization": `Bearer ${token}` }
   })
     .then(res => res.ok ? res.json() : Promise.reject())
@@ -240,7 +240,7 @@ function acceptLeaveRequest(guestMobile) {
 
   if (!confirm("Are you sure you want to accept this leave request?")) return;
 
-  fetch(`https://pgmanagerbackend.onrender.com/otp/leave-request/${guestMobile}`, {
+  fetch(`http://localhost:8080/otp/leave-request/${guestMobile}`, {
     method: "PUT",
     headers: {
       "Authorization": `Bearer ${token}`,
@@ -275,7 +275,7 @@ async function loadGuestIdImage(requestId, side, imgElementId) {
 
   try {
     const res = await fetch(
-      `https://pgmanagerbackend.onrender.com/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
+      `http://localhost:8080/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
       {
         headers: { Authorization: `Bearer ${token}` }
       }
@@ -299,7 +299,7 @@ async function loadGuestIdImage(requestId, side, imgElementId) {
 async function loadGuestProfileImage(imgElement, guestMobile) {
   try {
     const res = await fetch(
-      `https://pgmanagerbackend.onrender.com/otp/profileImageG?guestMobile=${guestMobile}`,
+      `http://localhost:8080/otp/profileImageG?guestMobile=${guestMobile}`,
       {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("jwtToken")

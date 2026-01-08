@@ -33,9 +33,6 @@ body {
 
 
 
-/* ===============================
-   PROFILE MODAL – PREMIUM LOOK
-================================ */
 
 .modal-overlay {
   position: fixed;
@@ -183,7 +180,7 @@ body {
 }
 
 
-/* ⭐ Mobile + City in one row */
+/*  Mobile + City in one row */
 .dual-row {
   display: flex;
   justify-content: space-between;
@@ -329,7 +326,7 @@ body {
 /* Logo */
 .logo {
   display: flex;
-  flex-direction: column; /* img upar, text neeche */
+  flex-direction: column; 
   align-items: center;
   justify-content: center;
   padding: 10px;
@@ -442,11 +439,11 @@ body {
 
 
 .topbar-left img{
-  width: 60px;         /* photo ki width */
-  height: 60px;        /* photo ki height */
-  border-radius: 50%;  /* gol profile photo */
-  object-fit: cover;   /* image crop ho kar fit hogi */
-  border: 2px solid #e0e0e0; /* white border (optional) */
+  width: 60px;         
+  height: 60px;       
+  border-radius: 50%;  
+  object-fit: cover;   
+  border: 2px solid #e0e0e0; 
 }
 
 
@@ -607,7 +604,7 @@ body {
 }
 
 .logout-btn {
-  margin-top: 20px;
+  margin-bottom: 10px;
   padding: 10px;
   background-color: crimson;
   color: white;
@@ -620,11 +617,11 @@ body {
 }
 
 #pendingRequestsCount {
-  font-size: 28px;       /* number bada ho jayega */
-  font-weight: bold;     /* bold number */
-  color: #80a2c4;        /* blue shade (aap change kar sakte ho) */
+  font-size: 28px;       
+  font-weight: bold;    
+  color: #80a2c4;        
   margin-top: 10px;
-  text-align: center;    /* center align */ /* orange highlight */
+  text-align: center;    
 }
 
 #pendingRequestsCard{
@@ -643,13 +640,12 @@ body {
   background: #e4eaf6;;
 }
 
-/* Total Guests ka number styling */
 #totalGuests {
-  font-size: 28px;       /* number bada ho jayega */
-  font-weight: bold;     /* bold number */
-  color: #80a2c4;        /* blue shade (aap change kar sakte ho) */
+  font-size: 28px;       
+  font-weight: bold;    
+  color: #80a2c4;       
   margin-top: 10px;
-  text-align: center;    /* center align */
+  text-align: center;    
 }
 
 
@@ -661,13 +657,12 @@ body {
   background: #e4eaf6;
 }
 
-/* Total Guests ka number styling */
 #activeGuests {
-  font-size: 28px;       /* number bada ho jayega */
-  font-weight: bold;     /* bold number */
-  color: #80a2c4;        /* blue shade (aap change kar sakte ho) */
+  font-size: 28px;      
+  font-weight: bold;    
+  color: #80a2c4;       
   margin-top: 10px;
-  text-align: center;    /* center align */
+  text-align: center;   
 }
 
 
@@ -681,13 +676,12 @@ body {
   background: #e4eaf6;;
 }
 
-/* Total Guests ka number styling */
 #pendingLeaveRequest {
-  font-size: 28px;       /* number bada ho jayega */
-  font-weight: bold;     /* bold number */
-  color: #80a2c4;        /* blue shade (aap change kar sakte ho) */
+  font-size: 28px;       
+  font-weight: bold;     
+  color: #80a2c4;       
   margin-top: 10px;
-  text-align: center;    /* center align */
+  text-align: center;   
 }
 
 /* Pointer effect */
@@ -698,13 +692,12 @@ body {
   background: #e4eaf6;;
 }
 
-/* Total Guests ka number styling */
 #paymentCount {
-  font-size: 28px;       /* number bada ho jayega */
-  font-weight: bold;     /* bold number */
-  color: #80a2c4;        /* blue shade (aap change kar sakte ho) */
+  font-size: 28px;      
+  font-weight: bold;     
+  color: #80a2c4;       
   margin-top: 1px;
-  text-align: center;    /* center align */
+  text-align: center;   
   margin-bottom: -13px;
 }
 
@@ -716,13 +709,12 @@ body {
   background: #e4eaf6;;
 }
 
-/* Total Guests ka number styling */
 #PendingPaymentCount {
-  font-size: 28px;       /* number bada ho jayega */
-  font-weight: bold;     /* bold number */
-  color: #80a2c4;        /* blue shade (aap change kar sakte ho) */
+  font-size: 28px;       
+  font-weight: bold;   
+  color: #80a2c4;       
   margin-top: 10px;
-  text-align: center;    /* center align */
+  text-align: center;    
 }
 
 
@@ -734,13 +726,12 @@ body {
   background: #e4eaf6;;
 }
 
-/* Total Guests ka number styling */
 #NoticeCount {
-  font-size: 28px;       /* number bada ho jayega */
-  font-weight: bold;     /* bold number */
-  color: #80a2c4;        /* blue shade (aap change kar sakte ho) */
+  font-size: 28px;      
+  font-weight: bold;    
+  color: #80a2c4;      
   margin-top: 10px;
-  text-align: center;    /* center align */
+  text-align: center;    
 }
 
 
@@ -760,30 +751,30 @@ body {
 }
 
 
-/* ⭐ Cards smaller + compact layout */
+/*  Cards smaller + compact layout */
 .cards {
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;          /* gap kam */
+  gap: 10px;         
   padding: 0 10px;
 }
 
 .card {
-  padding: 12px;      /* card ki height kam */
+  padding: 12px;      
 }
 
 .card h3 {
-  font-size: 14px;    /* heading small */
+  font-size: 14px;   
 }
 
 .card p {
-  font-size: 18px;    /* number smaller */
+  font-size: 18px;    
 }
 
 .card .big {
   font-size: 20px;
 }
 
-/* ⭐ Graph header with dropdown */
+/*  Graph header with dropdown */
 .graph-header {
   display: flex;
   justify-content: space-between;
@@ -798,7 +789,7 @@ body {
   font-size: 14px;
 }
 
-/* ⭐ Graph height fit on same page */
+/*  Graph height fit on same page */
 .payment-graph-section {
   height: 415px;
  
@@ -817,9 +808,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.3px;
 }
-/* ===========================================================
-     📱 FULL PAGE MOBILE RESPONSIVE (SIDEBAR VISIBLE VERSION)
-   =========================================================== */
+
 
 @media(max-width: 900px) {
 
@@ -839,7 +828,7 @@ body {
 
 @media(max-width: 700px) {
 
-  /* ⭐ Sidebar will remain visible but narrower  */
+  /*  Sidebar will remain visible but narrower  */
   .sidebar {
     width: 120px;
     opacity: 1;
@@ -895,7 +884,7 @@ body {
     font-size: 11px;
   }
 
-  /* Cards layout (2 per row) */
+ 
   .cards {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
@@ -970,11 +959,11 @@ body {
 @media(max-width: 768px) {
 
   .menu-toggle {
-    display: block;     /* hamburger visible */
+    display: block;     
   }
 
   .sidebar {
-    transform: translateX(-100%);    /* hidden */
+    transform: translateX(-100%);   
     transition: transform 0.35s ease;
     z-index: 999;
     width: 220px; /* mobile size */
@@ -996,10 +985,10 @@ body {
 
 
 /* ============================
-   ⭐ MOBILE BRAND STRIP
+    MOBILE BRAND STRIP
 ============================ */
 .mobile-brand-bar {
-  display: none; /* Desktop me hide */
+  display: none; 
   background: #ffffff;
   padding: 10px 15px;
   display: none;
@@ -1037,10 +1026,10 @@ body {
 }
 
 .mb-manager {
-  color: #4e87dd;      /* Color change */
-  font-size: 16px;     /* Size adjust */
-  font-weight: bold;     /* Boldness adjust */
-  margin-left: 2px;       /* थोड़़ा right gap */
+  color: #4e87dd;      
+  font-size: 16px;     
+  font-weight: bold;     
+  margin-left: 2px;       
 }
 
 .mb-sub {
@@ -1057,19 +1046,17 @@ body {
   color: black;
 }
 
-/* ⭐ SHOW ONLY IN MOBILE */
+/*  SHOW ONLY IN MOBILE */
 @media (max-width: 768px) {
   .mobile-brand-bar {
     display: flex;
     
   }
 
-  /* Topbar already shows menu button? then hide old one */
   .menu-toggle {
     display: none !important;
   }
 
-  /* Sidebar hidden default in mobile */
   .sidebar {
     transform: translateX(-100%);
   }
@@ -1079,20 +1066,20 @@ body {
 
 
 .mobile-brand-bar {
-    position: fixed;     /* scroll par bhi upar chipki rahegi */
-    top: 0;              /* bilkul top me */
-    left: 0;             /* left se shuru */
-    width: 100%;         /* poori screen ka width */
-    z-index: 2000;       /* sabke upar visible */
-    background: white;   /* background white (optional) */
-    padding: 10px 15px;  /* thoda spacing */
-    border-bottom: 1px solid #ddd; /* thoda shadow effect */
+    position: fixed;    
+    top: 0;             
+    left: 0;            
+    width: 100%;         
+    z-index: 2000;      
+    background: white;  
+    padding: 10px 15px;  
+    border-bottom: 1px solid #ddd; 
 }
 
 
 @media(max-width:768px){
   .main-content {
-     padding-top: 70px; /* jitni height strip ki hai */
+     padding-top: 70px; 
   }
 }
 
@@ -1105,20 +1092,19 @@ body {
 
 
 @media (max-width: 768px) {
-  /* Mobile strip always on top */
+  
   .mobile-brand-bar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* Highest priority */
+    z-index: 1000;
   }
 
-  /* Sidebar ko strip ke neeche shift karo */
   .sidebar {
-    top: 62px !important; /* strip ki height ke barabar */
+    top: 62px !important; 
     height: calc(100vh - 62px) !important;
-    z-index: 999; /* strip se neeche */
+    z-index: 999; 
   }
 
  

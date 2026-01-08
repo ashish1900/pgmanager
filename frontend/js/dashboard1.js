@@ -1,13 +1,13 @@
 window.addEventListener("DOMContentLoaded", () => {
   const token = localStorage.getItem("jwtToken");
   if (!token) {
-    alert("आप लॉगिन नहीं हैं। कृपया लॉगिन करें।");
+    alert("You are not login please first login");
     window.location.href = "login.html";
     return;
   }
 
   // Fetch Owner Dashboard Info
-  fetch("https://pgmanagerbackend.onrender.com/otp/current-user", {
+  fetch("http://localhost:8080/otp/current-user", {
     method: "GET",
     headers: { "Authorization": `Bearer ${token}` }
   })
@@ -26,7 +26,7 @@ window.addEventListener("DOMContentLoaded", () => {
       document.getElementById("address").textContent = user.address || "N/A";
 
       if (data.profileImageUrl) {
-        fetch(`https://pgmanagerbackend.onrender.com/otp${data.profileImageUrl}`, {
+        fetch(`http://localhost:8080/otp${data.profileImageUrl}`, {
           method: "GET",
           headers: { "Authorization": `Bearer ${token}` }
         })
@@ -57,7 +57,7 @@ window.addEventListener("DOMContentLoaded", () => {
         });
       }
 
-      // ✅ Fetch Guest Requests after user loaded
+      //  Fetch Guest Requests after user loaded
       fetchGuestRequests(token);
     })
     .catch(error => {
@@ -67,9 +67,9 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// ✅ Fetch Guest Requests
+// Fetch Guest Requests
 function fetchGuestRequests(token) {
-  fetch("https://pgmanagerbackend.onrender.com/otp/guest-requests", {
+  fetch("http://localhost:8080/otp/guest-requests", {
     method: "GET",
     headers: { "Authorization": `Bearer ${token}` }
   })
@@ -84,7 +84,7 @@ function fetchGuestRequests(token) {
           card.className = "request-card";
           card.innerHTML = `
            <div class="guest-info">
-    <img src="https://pgmanagerbackend.onrender.com/otp${req.profileImageUrl}"
+    <img src="http://localhost:8080/otp${req.profileImageUrl}"
     
          alt="Guest Profile" class="guest-profile"/>
     <div class="guest-details">
@@ -123,7 +123,7 @@ function submitAssignment() {
 
   const token = localStorage.getItem("jwtToken");
 
-  fetch(`https://pgmanagerbackend.onrender.com/otp/accept-and-assign/${requestId}`, {
+  fetch(`http://localhost:8080/otp/accept-and-assign/${requestId}`, {
     method: "POST",
     headers: {
       "Authorization": `Bearer ${token}`,

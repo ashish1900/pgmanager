@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function fetchGuestRequests() {
     try {
-      const res = await fetch("https://pgmanagerbackend.onrender.com/otp/pending-acceptd-requests", {
+      const res = await fetch("http://localhost:8080/otp/pending-acceptd-requests", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // ⭐ SHOW REQUEST CARD + CANCEL BUTTON FOR PENDING
+  //  SHOW REQUEST CARD + CANCEL BUTTON FOR PENDING
   function addRequestCard(req) {
 
     const cityName =
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const btnArea = card.querySelector(".btn-area");
 
-    // ⭐ CANCEL BUTTON only for PENDING
+    //  CANCEL BUTTON only for PENDING
     if (statusText === "PENDING") {
       const cancelBtn = document.createElement("button");
       cancelBtn.className = "delete-btn";
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
       btnArea.appendChild(cancelBtn);
     }
 
-    // ⭐ Image zoom on click (request cards)
+    //  Image zoom on click (request cards)
     // card.querySelectorAll(".id-images img").forEach(img => {
     //   img.addEventListener("click", () => openImageViewer(img.src));
     // });
@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
 card.querySelectorAll(".view-id-btn").forEach(btn => {
   btn.addEventListener("click", () => {
     const side = btn.dataset.side;
-    viewMyIdImages(req.requestId, side); // ✅ requestId
+    viewMyIdImages(req.requestId, side); //  requestId
   });
 });
 
@@ -134,7 +134,7 @@ card.querySelectorAll(".view-id-btn").forEach(btn => {
 
 
   
-  // ⭐ CANCEL REQUEST FUNCTION
+  //  CANCEL REQUEST FUNCTION
   async function cancelRequest(req, btn) {
 
     const ownerMobile = req.mobile || req.ownerMobile;
@@ -146,7 +146,7 @@ card.querySelectorAll(".view-id-btn").forEach(btn => {
 
     try {
       const res = await fetch(
-        `https://pgmanagerbackend.onrender.com/otp/delete-pg-request?ownerMobile=${ownerMobile}`,
+        `http://localhost:8080/otp/delete-pg-request?ownerMobile=${ownerMobile}`,
         {
           method: "POST",
           headers: { Authorization: `Bearer ${token}` }
@@ -188,7 +188,7 @@ card.querySelectorAll(".view-id-btn").forEach(btn => {
 
   async function loadCities() {
     try {
-      const res = await fetch("https://pgmanagerbackend.onrender.com/otp/cities");
+      const res = await fetch("http://localhost:8080/otp/cities");
       const data = await res.json();
 
       citySelect.innerHTML = `<option value="">--Select City--</option>`;
@@ -219,7 +219,7 @@ card.querySelectorAll(".view-id-btn").forEach(btn => {
 
     try {
       const res = await fetch(
-        `https://pgmanagerbackend.onrender.com/otp/pg-by-city?city=${encodeURIComponent(city)}`,
+        `http://localhost:8080/otp/pg-by-city?city=${encodeURIComponent(city)}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -334,7 +334,7 @@ card.querySelectorAll(".view-id-btn").forEach(btn => {
     formData.append("ownerId", selectedPgId);
 
     try {
-      const res = await fetch("https://pgmanagerbackend.onrender.com/otp/sendRequest-with-id", {
+      const res = await fetch("http://localhost:8080/otp/sendRequest-with-id", {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
         body: formData,
@@ -359,7 +359,7 @@ card.querySelectorAll(".view-id-btn").forEach(btn => {
 async function viewMyIdImages(requestId, side) {
   try {
     const res = await fetch(
-      `https://pgmanagerbackend.onrender.com/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
+      `http://localhost:8080/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
       {
         headers: {
           Authorization: `Bearer ${token}`
@@ -374,16 +374,6 @@ async function viewMyIdImages(requestId, side) {
     alert("Unable to load ID image");
   }
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

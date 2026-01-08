@@ -83,7 +83,7 @@ body {
 }
 
 .table-body-scroll table tr {
-  height: 38px;           /* ⭐ Perfect professional height */
+  height: 38px;          
 }
 
 
@@ -96,11 +96,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;    /* ⭐ row के बीच में vertical centering */
-  gap: 3px;                   /* ⭐ normal spacing */
-  height: 100%;               /* ⭐ full row height */
+  justify-content: center;    
+  gap: 3px;                   
+  height: 100%;               
   padding: 2px 0; 
-  margin-top: 35px;            /* थोड़ा आरामदायक spacing */
+  margin-top: 35px;            
 }
 
 .see-btn {
@@ -112,7 +112,7 @@ body {
   font-size: 13px;
   cursor: pointer;
   margin: 0;   
-  margin-bottom: 20px;               /* ⭐ margin हटाना आवश्यक */
+  margin-bottom: 20px;             
 }
 
 
@@ -144,7 +144,7 @@ body {
 
 
 .donut svg {
-  transform: rotate(-90deg);   /* Always start at TOP */
+  transform: rotate(-90deg);  
 }
 
 
@@ -227,7 +227,7 @@ body {
 }
 
 .right-filters {
-  display: none;   /* Default me hide */
+  display: none;  
 }
 
 .show-right {
@@ -265,7 +265,7 @@ body {
 
 .table-wrapper {
   width: 100%;
-  height: calc(100vh - 150px);   /* ⭐ खाली space 100% हट जाएगी */
+  height: calc(100vh - 150px);  
   display: flex;
   flex-direction: column;
 }
@@ -326,7 +326,7 @@ body {
 
 .stay-status {
   display: flex;
-  flex-direction: column;   /* 🔥 DOT NEECH */
+  flex-direction: column;   
   align-items: center;
   gap: 4px;
 }
@@ -610,15 +610,8 @@ body {
 
 
 
-/* =========================================
-   ✅ FINAL MOBILE – 1 GUEST = 1 FULL SCREEN
-   ✅ NO OVERLAP
-   ✅ FILTERS PERFECT
-   ✅ DESKTOP 100% SAFE
-========================================= */
 @media (max-width: 768px) {
 
-  /* ✅ TABLE HEADER HIDE */
   .head-table {
     display: none !important;
   }
@@ -633,7 +626,6 @@ body {
   width: 107%;
 }
 
-  /* ✅ REMOVE DESKTOP SCROLL LIMITS */
   .table-wrapper,
   .table-body-scroll {
     height: auto !important;
@@ -641,7 +633,6 @@ body {
     width: 100%;
   }
 
-  /* ✅ EACH ROW = FULL SCREEN CARD */
   .body-table tr {
     display: flex !important;
     flex-direction: column;
@@ -665,7 +656,6 @@ body {
     text-align: center;
   }
 
-  /* ✅ SERIAL NUMBER LEFT TOP */
   .body-table td:nth-child(1) {
     position: absolute;
     top: 10px;
@@ -676,20 +666,20 @@ body {
     display: none
   }
 
-  /* ✅ PHOTO CENTER */
+  /*  PHOTO CENTER */
 
   .body-table td:nth-child(2) {
     position: relative;
     display: flex;
-    justify-content: center;   /* photo center रहेगा */
+    justify-content: center;   
     align-items: center;
     margin-top: -13px;
 }
 
 .see-btn {
     position: absolute;
-    right: 22px;               /* right side की दूरी */
-    top: 10%;                  /* vertical center */
+    right: 22px;              
+    top: 10%;                  
     transform: translateY(-50%); 
     padding: 7px 16px;
     border-radius: 50px;
@@ -706,7 +696,7 @@ body {
     border: 3px solid #007bff;
   }
 
-  /* ✅ NAME + SEE */
+  /*  NAME + SEE */
   .name-cell {
     margin-top: 5px !important;
     align-items: center !important;
@@ -720,7 +710,7 @@ body {
 
 
    
-  /* ✅ DATA HEADINGS */
+  /*  DATA HEADINGS */
   .body-table td:nth-child(4)::before { content: "Status"; }
   .body-table td:nth-child(5)::before { content: "Joining Date"; }
   .body-table td:nth-child(6)::before { content: "Payment Cycle"; }
@@ -747,7 +737,7 @@ body {
     font-size: 13px;
   }
 
-  /* ✅ DONUT CENTER */
+  /* DONUT CENTER */
   .donut {
     width: 90px;
     height: 90px;
@@ -758,7 +748,7 @@ body {
     font-size: 13px;
   }
 
-  /* ✅ PAY BUTTON ALWAYS AT BOTTOM */
+  /*  PAY BUTTON ALWAYS AT BOTTOM */
   .see-pay {
     width: 100%;
     padding: 12px 0;
@@ -768,7 +758,7 @@ body {
   }
 
   /* =====================================
-     ✅ FILTER BAR PERFECT MOBILE STACK
+      FILTER BAR PERFECT MOBILE STACK
   ===================================== */
   .filter-bar {
     flex-direction: column;
@@ -784,12 +774,11 @@ body {
     flex-wrap: wrap;
   }
 
-  /* ✅ DEFAULT: HIDE CYCLE FILTERS */
+  /*  DEFAULT: HIDE CYCLE FILTERS */
   .right-filters {
     display: none !important;
   }
 
-  /* ✅ ONLY WHEN ACTIVE (JS ADDS show-right) */
   .right-filters.show-right {
     display: flex !important;
   }
@@ -857,7 +846,7 @@ body {
 
   .mobile-filters {
     position: fixed;
-    top: 40px;              /* Topbar height */
+    top: 40px;             
     left: 0;
     width: 100%;
     z-index: 9999;
@@ -865,7 +854,7 @@ body {
     justify-content: space-between;
     gap: 10px;
     padding: 10px;
-    background: white;   /* या white */
+    background: white;   
     border-bottom: 1px solid #e2e3ed;
   }
 

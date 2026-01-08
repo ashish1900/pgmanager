@@ -4,7 +4,7 @@ let ownerId = null;
 
 async function initOwnerId() {
   try {
-    const res = await fetch("https://pgmanagerbackend.onrender.com/otp/current-user", {
+    const res = await fetch("http://localhost:8080/otp/current-user", {
       headers: { Authorization: `Bearer ${token}` }
     });
 
@@ -18,12 +18,12 @@ async function initOwnerId() {
 
     ownerId = data.userData.id;
 
-    // 🔁 sync localStorage (future pages ke liye)
+    //  sync localStorage (future pages ke liye)
     localStorage.setItem("currentUser", JSON.stringify(data.userData));
 
   } catch (err) {
     alert("Session error. Please login again.");
-    logout();   // tumhara existing logout()
+    logout();   
   }
 }
 
@@ -41,7 +41,7 @@ if (currentUserData) {
 let paymentType = localStorage.getItem("selectedPaymentType");
 let paymentList = [];
 
-// ✅ Heading and browser title update
+//  Heading and browser title update
 document.addEventListener("DOMContentLoaded", () => {
   const pageTitle = document.querySelector("h1");
   const browserTitle = document.querySelector("title");
@@ -55,18 +55,18 @@ document.addEventListener("DOMContentLoaded", () => {
   browserTitle.textContent = `${displayType} Payment History`;
 });
 
-// ✅ Token check
+//  Token check
 if (!token) {
   alert("आप लॉगिन नहीं हैं। कृपया लॉगिन करें।");
   window.location.href = "login.html";
 }
 
 // =============================
-// ✅ DOM Events
+//  DOM Events
 // =============================
 document.addEventListener("DOMContentLoaded", async () => {
 
-  await initOwnerId();   // 🔥 MOST IMPORTANT
+  await initOwnerId();   //  MOST IMPORTANT
 
   document.getElementById("saveUpiBtn").addEventListener("click", uploadUPI);
   document.getElementById("updateUpiBtn").addEventListener("click", showUpiSetup);
@@ -78,24 +78,24 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 
-const BASE_URL = "https://pgmanagerbackend.onrender.com/otp";
+const BASE_URL = "http://localhost:8080/otp";
 
 function resolveUrl(url) {
   if (!url) return "/images/default.png";
 
-  // ✅ Cloudinary signed URL
+  //  Cloudinary signed URL
   if (url.startsWith("http")) {
     return url;
   }
 
-  // ✅ Local backend path
+  //  Local backend path
   return BASE_URL + url;
 }
 
 
 
 // =============================
-// ✅ Upload / Update UPI + QR
+//  Upload / Update UPI + QR
 // =============================
 function uploadUPI(e) {
   e.preventDefault();
@@ -108,7 +108,7 @@ function uploadUPI(e) {
   const upiId = document.getElementById("upiIdInput").value.trim();
   const qrFile = document.getElementById("qrUpload").files[0];
 
-    // ❌ Safety check again
+    //  Safety check again
   if (qrFile && qrFile.size > 1024 * 1024) {
     alert("QR image size must be less than 1 MB.");
     return;
@@ -125,7 +125,7 @@ function uploadUPI(e) {
   formData.append("upiId", upiId);
   if (qrFile) formData.append("qrFile", qrFile);
 
-  fetch(`https://pgmanagerbackend.onrender.com/otp/upload/${ownerId}/${paymentType}`, {
+  fetch(`http://localhost:8080/otp/upload/${ownerId}/${paymentType}`, {
     method: "POST",
     headers: { "Authorization": `Bearer ${token}` },
     body: formData
@@ -150,12 +150,12 @@ function uploadUPI(e) {
 
 
 // =============================
-// ✅ Load Existing UPI Data
+//  Load Existing UPI Data
 // =============================
 function loadUPI() {
   if (!ownerId) return;
 
-  fetch(`https://pgmanagerbackend.onrender.com/otp/payment-method/${ownerId}/${paymentType}`, {
+  fetch(`http://localhost:8080/otp/payment-method/${ownerId}/${paymentType}`, {
     headers: { "Authorization": `Bearer ${token}` }
   })
     .then(res => res.json())
@@ -180,7 +180,7 @@ function loadUPI() {
 }
 
 // =============================
-// ✅ Show setup section for update
+//  Show setup section for update
 // =============================
 function showUpiSetup() {
   document.getElementById("upiSetupSection").classList.remove("hidden");
@@ -188,10 +188,10 @@ function showUpiSetup() {
 }
 
 // =============================
-// ✅ Load Payment History
+//  Load Payment History
 // =============================
 function loadRoomRentPayments() {
-  fetch("https://pgmanagerbackend.onrender.com/otp/payment-historyO", {
+  fetch("http://localhost:8080/otp/payment-historyO", {
     headers: { "Authorization": `Bearer ${token}` }
   })
     .then(res => res.json())
@@ -216,7 +216,7 @@ function loadRoomRentPayments() {
 }
 
 // =============================
-// ✅ Render Table with Numbering
+//  Render Table with Numbering
 // =============================
 function renderTable(list) {
   const container = document.getElementById("paymentHistoryContainer");
@@ -251,7 +251,7 @@ function renderTable(list) {
   
 
 
-  // ⭐ First time count update
+  //  First time count update
 document.getElementById("countAll").textContent = paymentList.length;
 document.getElementById("countVerified").textContent =
   paymentList.filter(p => p.status === "Verified").length;
@@ -270,14 +270,14 @@ function formatStackDate(dateString) {
 
   const d = new Date(dateString);
 
-  //  ⭐ Day Month Year → 25 Nov 2025
+  //   Day Month Year → 25 Nov 2025
   const day = d.getDate();
   const month = d.toLocaleString("en-US", { month: "short" });
   const year = d.getFullYear();
 
   const datePart = `${day} ${month} ${year}`;
 
-  // ⭐ Time → 10:21 PM
+  //  Time → 10:21 PM
   const timePart = d.toLocaleString("en-US", {
     hour: "2-digit",
     minute: "2-digit",
@@ -293,7 +293,7 @@ function formatStackDate(dateString) {
 
 
 
-    // ⭐ original index in main paymentList – so modal sahi guest show kare
+    //  original index in main paymentList – so modal sahi guest show kare
     const originalIndex = paymentList.indexOf(p);
 
     html += `
@@ -347,7 +347,7 @@ function formatStackDate(dateString) {
 
 
 // =============================
-// ✅ Payment Filter Logic
+//  Payment Filter Logic
 // =============================
 function setupFilterButtons() {
   const filterButtons = document.querySelectorAll(".filter-btn");
@@ -383,7 +383,7 @@ function applyPaymentFilter(status) {
     );
   }
 
-  // ⭐ Sort latest verified date first
+  //  Sort latest verified date first
   filtered.sort((a, b) => {
     const t1 = a.verifiedDate ? new Date(a.verifiedDate).getTime() : 0;
     const t2 = b.verifiedDate ? new Date(b.verifiedDate).getTime() : 0;
@@ -399,7 +399,7 @@ function applyPaymentFilter(status) {
 
 
 // =============================
-// ✅ Guest Info Modal Logic
+//  Guest Info Modal Logic
 // =============================
 async function openInfoModal(index) {
   const g = paymentList[index];
@@ -419,7 +419,7 @@ async function openInfoModal(index) {
   const modalPhoto = document.getElementById("modalPhoto");
   modalPhoto.src = "../images/default-avatar.png";
 
-  // ✅ Cloudinary auto-load (same as other pages)
+  //  Cloudinary auto-load (same as other pages)
   loadGuestProfileImage(modalPhoto, g.guestMobile);
 
 
@@ -431,7 +431,7 @@ async function openInfoModal(index) {
 
     // auto load (Pending / Active Guest jaisa)
    
-// 🔥 resolve requestId using guestMobile
+//  resolve requestId using guestMobile
 const requestId = await fetchRequestIdByGuestMobile(g.guestMobile);
 
 if (requestId) {
@@ -445,7 +445,7 @@ if (requestId) {
 
 
 
-  fetch(`https://pgmanagerbackend.onrender.com/otp/room-assignments?guestMobile=${g.guestMobile}`, {
+  fetch(`http://localhost:8080/otp/room-assignments?guestMobile=${g.guestMobile}`, {
     headers: { "Authorization": `Bearer ${token}` }
   })
     .then(res => res.ok ? res.json() : Promise.reject())
@@ -467,7 +467,7 @@ if (requestId) {
 
 
 
-// ✅ Close Modal
+//  Close Modal
 document.getElementById("closeBtn").addEventListener("click", closeInfoModal);
 function closeInfoModal() {
   const modal = document.getElementById("infoModal");
@@ -476,7 +476,7 @@ function closeInfoModal() {
 }
 
 // =============================
-// ✅ Image Zoom
+//  Image Zoom
 // =============================
 function enableFullImageZoom(selector) {
   const zoomModal = document.getElementById("imageZoomModal");
@@ -504,7 +504,7 @@ function enableFullImageZoom(selector) {
   });
 }
 
-// ✅ Enable zoom on ID Front & Back when modal is open
+//  Enable zoom on ID Front & Back when modal is open
 document.addEventListener("DOMContentLoaded", () => {
   const observer = new MutationObserver(() => {
     const modal = document.getElementById("infoModal");
@@ -522,13 +522,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // =============================
-// ⭐ BACK BUTTON WORKING
+//  BACK BUTTON WORKING
 // =============================
 document.addEventListener("DOMContentLoaded", () => {
   const backBtn = document.getElementById("backBtn");
   if (backBtn) {
     backBtn.addEventListener("click", () => {
-      window.history.back();   // ← यहीं से back होगा
+      window.history.back();   
     });
   }
 });
@@ -557,14 +557,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!file) return;
 
-    // ❌ Size check (1 MB)
+    //  Size check (1 MB)
     if (file.size > 1024 * 1024) {
       qrError.textContent = "QR image size must be less than 1 MB.";
       qrInput.value = "";     // file remove
       return;
     }
 
-    // ✅ Preview show
+    //  Preview show
     const reader = new FileReader();
     reader.onload = () => {
       qrPreview.src = reader.result;
@@ -586,7 +586,7 @@ async function loadGuestIdImage(requestId, side, imgElementId) {
 
   try {
     const res = await fetch(
-      `https://pgmanagerbackend.onrender.com/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
+      `http://localhost:8080/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
       {
         headers: { Authorization: `Bearer ${token}` }
       }
@@ -607,7 +607,7 @@ async function loadGuestIdImage(requestId, side, imgElementId) {
 async function loadGuestProfileImage(imgElement, guestMobile) {
   try {
     const res = await fetch(
-      `https://pgmanagerbackend.onrender.com/otp/profileImageG?guestMobile=${guestMobile}`,
+      `http://localhost:8080/otp/profileImageG?guestMobile=${guestMobile}`,
       {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("jwtToken")
@@ -631,7 +631,7 @@ async function loadGuestProfileImage(imgElement, guestMobile) {
 async function fetchRequestIdByGuestMobile(guestMobile) {
   const token = localStorage.getItem("jwtToken");
 
-  const res = await fetch("https://pgmanagerbackend.onrender.com/otp/all-guest", {
+  const res = await fetch("http://localhost:8080/otp/all-guest", {
     headers: { Authorization: `Bearer ${token}` }
   });
 

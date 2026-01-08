@@ -8,10 +8,9 @@ body {
   background: #007bff;
   color: white;
 
-  height: 60px;              /* fixed height */
-  display: flex;
-  align-items: center;       /* ✅ vertical center */
-  justify-content: center;   /* horizontal center */
+  height: 60px;             
+  align-items: center;      
+  justify-content: center;  
 
   margin-bottom: 20px;
   position: relative;
@@ -67,7 +66,6 @@ body {
   object-fit: cover;
 }
 
-/* ✅ Smaller See Button below name */
 .name-cell {
   display: flex;
   flex-direction: column;
@@ -281,13 +279,9 @@ body {
 
 
 
-/* ===============================
-   FIXED HEADER + SCROLL BODY
-================================ */
-
 .guest-section {
   padding: 0 20px 20px;
-  height: calc(100vh - 70px); /* topbar height adjust */
+  height: calc(100vh - 70px); 
 }
 
 .guest-table {
@@ -304,7 +298,7 @@ body {
 
 .guest-table tbody {
   display: block;
-  height: calc(100vh - 140px); /* adjust if needed */
+  height: calc(100vh - 140px); 
   overflow-y: auto;
 }
 
@@ -339,7 +333,7 @@ body {
 
 
 /* =========================
-   📱 MOBILE CARD VIEW
+    MOBILE CARD VIEW
 ========================= */
 @media (max-width: 700px) {
 
@@ -378,7 +372,7 @@ body {
     
   }
 
-  /* ❌ Hide table header */
+  /*  Hide table header */
   .guest-table thead {
     display: none;
   }
@@ -397,7 +391,7 @@ body {
     overflow: visible;
   }
 
-  /* ✅ Each row becomes a CARD */
+  /*  Each row becomes a CARD */
   .guest-table tbody tr {
     background: #cfd9f0;
     padding: 16px;
@@ -426,7 +420,7 @@ body {
     font-size: 14px;
   }
 
-  /* ❌ Hide serial number in card */
+  /*  Hide serial number in card */
   .guest-table td:nth-child(1) {
     display: none;
     
@@ -496,7 +490,8 @@ body {
 @media (max-width: 768px) {
 
   .modal-overlay {
-    align-items: flex-start; /* top se start */
+    align-items: flex-start; 
+    
     padding: 10px;
   }
 
@@ -506,7 +501,8 @@ body {
     margin: 0 auto;
     max-height: 95vh;
     overflow-y: auto;
-    overflow-x: hidden;   /* ✅ MOST IMPORTANT */
+    overflow-x: hidden;   
+    
     padding: 16px;
     box-sizing: border-box;
   }
@@ -515,7 +511,8 @@ body {
 
 @media (max-width: 768px) {
   .info-grid {
-    flex-direction: column;   /* row ❌ → column ✅ */
+    flex-direction: column;   
+    
     gap: 15px;
   }
 

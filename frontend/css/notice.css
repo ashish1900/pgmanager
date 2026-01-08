@@ -22,12 +22,12 @@ body {
   padding: 0 14px;
   display: flex;
   align-items: center;
-  justify-content: center;   /* center reference */
+  justify-content: center;  
   z-index: 1000;
 }
 
 .topbar h2 {
-  position: absolute;       /* 👈 KEY FIX */
+  position: absolute;      
   left: 50%;
   transform: translateX(-50%);
   margin: 0;
@@ -35,7 +35,7 @@ body {
 }
 
 .topbar button {
-  position: absolute;       /* 👈 remove from flex flow */
+  position: absolute;       
   right: 14px;
   background: white;
   color: #4b6bff;

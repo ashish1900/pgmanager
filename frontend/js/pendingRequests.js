@@ -3,7 +3,7 @@ let currentRequestData = null;
 window.addEventListener("DOMContentLoaded", () => {
   const token = localStorage.getItem("jwtToken");
   if (!token) {
-    alert("आप लॉगिन नहीं हैं। कृपया लॉगिन करें।");
+    alert("You are not login please login first");
     window.location.href = "login.html";
     return;
   }
@@ -35,11 +35,11 @@ function formatDateTime(dateTimeStr) {
 
 
 
-// ✅ Fetch Pending Requests
+//  Fetch Pending Requests
 
 
 function fetchRequestsList(token) {
-  fetch("https://pgmanagerbackend.onrender.com/otp/guest-requests", {
+  fetch("http://localhost:8080/otp/guest-requests", {
     headers: { Authorization: `Bearer ${token}` }
   })
     .then(res => res.json())
@@ -49,7 +49,7 @@ function fetchRequestsList(token) {
 
       if (data.status === "success" && data.requests.length > 0) {
 
-        // ⭐ LATEST REQUEST FIRST
+        //  LATEST REQUEST FIRST
         data.requests.sort((a, b) =>
           new Date(b.requestDate) - new Date(a.requestDate)
         );
@@ -59,7 +59,6 @@ function fetchRequestsList(token) {
           const tr = document.createElement("tr");
           const { date, time } = formatDateTime(req.requestDate);
 
-          // ⛔ Image column yahan HTML me nahi likh rahe
           tr.innerHTML = `
             <td>${index + 1}</td>
             <td>${req.guestName}</td>
@@ -78,7 +77,7 @@ function fetchRequestsList(token) {
             </td>
           `;
 
-          // ✅ Guest Image Column (2nd column)
+          //  Guest Image Column (2nd column)
           const imgTd = document.createElement("td");
           const img = document.createElement("img");
 
@@ -110,7 +109,7 @@ function fetchRequestsList(token) {
 
 
 
-// ✅ Step 1: Open Verification Modal
+//  Step 1: Open Verification Modal
 // function openVerifyModal(req) {
 //   currentRequestData = req;
 //   document.getElementById("verifyModal").style.display = "flex";
@@ -122,25 +121,25 @@ function fetchRequestsList(token) {
 
 //   // ID images
 //   // document.getElementById("idFrontImage").src =
-//   //   `https://pgmanagerbackend.onrender.com/otp/request-id-image?fileName=${req.idFront}`;
+//   //   `http://localhost:8080/otp/request-id-image?fileName=${req.idFront}`;
 //   // document.getElementById("idBackImage").src =
-//   //   `https://pgmanagerbackend.onrender.com/otp/request-id-image?fileName=${req.idBack}`;
+//   //   `http://localhost:8080/otp/request-id-image?fileName=${req.idBack}`;
 
 // }
 
 function openVerifyModal(req) {
   currentRequestData = req;
 
-  // 1️⃣ Modal open
+  // 1 Modal open
   document.getElementById("verifyModal").style.display = "flex";
 
-  // 2️⃣ Guest details
+  // 2 Guest details
   document.getElementById("vGuestName").textContent = req.guestName;
   document.getElementById("vGuestMobile").textContent = req.guestMobile;
   document.getElementById("vGuestTAddress").textContent = req.taddress;
   document.getElementById("vGuestPAddress").textContent = req.paddress;
 
-  // 3️⃣ Reset images
+  // 3 Reset images
   const frontImg = document.getElementById("idFrontImage");
   const backImg  = document.getElementById("idBackImage");
 
@@ -150,23 +149,23 @@ function openVerifyModal(req) {
   frontImg.alt = "Loading ID Front...";
   backImg.alt  = "Loading ID Back...";
 
-  // 4️⃣ AUTO load ID images (NO extra click)
+  // 4 AUTO load ID images (NO extra click)
   loadOwnerIdImage(req.requestId, "front", "idFrontImage");
   loadOwnerIdImage(req.requestId, "back", "idBackImage");
 }
 
 
-// ✅ Accept → Open Assign Room Modal
+//  Accept → Open Assign Room Modal
 function verified() {
   closeVerifyModal();
   openAssignModal(currentRequestData);
 }
 
-// ❌ ID & Details Mismatch (Modal)
+//  ID & Details Mismatch (Modal)
 function idMismatch() {
   const token = localStorage.getItem("jwtToken");
 
-  fetch(`https://pgmanagerbackend.onrender.com/otp/mismatch-request/${currentRequestData.requestId}`, {
+  fetch(`http://localhost:8080/otp/mismatch-request/${currentRequestData.requestId}`, {
     method: 'PATCH',  // 
     headers: { 
       "Authorization": `Bearer ${token}`,
@@ -184,10 +183,10 @@ function idMismatch() {
 
 
 
-// ❌ Reject (Table button)
+//  Reject (Table button)
 function rejectRequest(requestId) {
   const token = localStorage.getItem("jwtToken");
-  fetch(`https://pgmanagerbackend.onrender.com/otp/reject-request/${requestId}`, {
+  fetch(`http://localhost:8080/otp/reject-request/${requestId}`, {
     method: 'DELETE',
     headers: { "Authorization": `Bearer ${token}` }
   })
@@ -204,7 +203,7 @@ function closeVerifyModal() {
   document.getElementById("verifyModal").style.display = "none";
 }
 
-// ✅ Open Assign Room Modal
+//  Open Assign Room Modal
 function openAssignModal(req) {
   if (!req) return;
 
@@ -213,11 +212,11 @@ function openAssignModal(req) {
   document.getElementById("currentRequestId").value = req.requestId;
   document.getElementById("currentGuestMobile").value = req.guestMobile;
 
-  // ✅ Assign header data
+  //  Assign header data
   document.getElementById("guestName").textContent = req.guestName;
 
   const img = document.getElementById("assignGuestImage");
-  img.src = `https://pgmanagerbackend.onrender.com/otp/profileImageG?guestMobile=${req.guestMobile}`;
+  img.src = `http://localhost:8080/otp/profileImageG?guestMobile=${req.guestMobile}`;
   img.onerror = () => img.src = "default-avatar.png";
 }
 
@@ -238,7 +237,7 @@ function validateForm() {
     !(roomNumber && floorNumber && buildingNumber && roomAddress);
 }
 
-// ✅ Submit Assign Room (Controller-based update)
+//  Submit Assign Room (Controller-based update)
 function submitAssignment() {
   const token = localStorage.getItem("jwtToken");
   const requestId = document.getElementById("currentRequestId").value;
@@ -250,7 +249,7 @@ function submitAssignment() {
     address: document.getElementById("roomAddress").value.trim()
   };
 
-  fetch(`https://pgmanagerbackend.onrender.com/otp/accept-and-assign/${requestId}`, {
+  fetch(`http://localhost:8080/otp/accept-and-assign/${requestId}`, {
     method: "POST",
     headers: {
       "Authorization": `Bearer ${token}`,
@@ -294,7 +293,7 @@ async function loadOwnerIdImage(requestId, side, imgElementId) {
 
   try {
     const res = await fetch(
-      `https://pgmanagerbackend.onrender.com/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
+      `http://localhost:8080/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
       {
         headers: {
           Authorization: `Bearer ${token}`
@@ -310,7 +309,7 @@ async function loadOwnerIdImage(requestId, side, imgElementId) {
     const data = await res.json();
     img.src = data.url;
 
-    // 🔍 Zoom support
+    //  Zoom support
     img.onclick = () => openImageZoom(data.url);
 
   } catch (err) {
@@ -333,7 +332,7 @@ function closeVerifyModal() {
 async function loadGuestProfileImage(imgElement, guestMobile) {
   try {
     const res = await fetch(
-      `https://pgmanagerbackend.onrender.com/otp/profileImageG?guestMobile=${guestMobile}`,
+      `http://localhost:8080/otp/profileImageG?guestMobile=${guestMobile}`,
       {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("jwtToken")
@@ -345,7 +344,7 @@ async function loadGuestProfileImage(imgElement, guestMobile) {
 
     const data = await res.json();
 
-    // 🛡️ SAFETY CHECK
+    //  SAFETY CHECK
     if (!data.imageUrl || !data.imageUrl.startsWith("http")) {
       throw new Error("Invalid image URL");
     }

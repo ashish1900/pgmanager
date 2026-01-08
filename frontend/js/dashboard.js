@@ -1,17 +1,15 @@
-// 🔥 BACK BUTTON = COMPLETE LOGOUT (JWT INCLUDED)
+//  BACK BUTTON = COMPLETE LOGOUT (JWT INCLUDED)
 (function forceLogoutOnBack() {
 
-  // history me dashboard ko lock karo
   window.history.pushState(null, "", window.location.href);
 
   window.addEventListener("popstate", function () {
 
-    // 🔐 CLEAR AUTH DATA (IMPORTANT)
-    localStorage.removeItem("jwtToken");     // ✅ JWT removed
-    localStorage.removeItem("currentUser");  // ✅ user data removed
-    sessionStorage.clear();                  // ✅ temp / OTP data
+    localStorage.removeItem("jwtToken");     //  JWT removed
+    localStorage.removeItem("currentUser");  //  user data removed
+    sessionStorage.clear();                  //  temp / OTP data
 
-    // 🔁 redirect safely (no back / no forward)
+    //  redirect safely (no back / no forward)
     window.location.replace("home.html");
   });
 
@@ -37,7 +35,7 @@ const pgDropdown = document.getElementById("pgDropdown");
 // Local state
 let currentGuest = null;
 let lastSelectedOwnerMobile = null;
-let lastSelectedOwnerId = null; // this is ownerId (Long) used for temp address API
+let lastSelectedOwnerId = null; 
 
 // --- UI handlers ---
 if (toggleBtn && guestModal && closeModal) {
@@ -74,13 +72,13 @@ if (toggleOwnerBtn && ownerModal && closeOwnerModal) {
 if (document.getElementById("logoutBtn")) {
   document.getElementById("logoutBtn").addEventListener("click", () => {
 
-    // 🔥 Clear ALL auth & user related data
+    //  Clear ALL auth & user related data
     localStorage.removeItem("jwtToken");
     localStorage.removeItem("currentUser");
 
     sessionStorage.clear(); // OTP / temp data
 
-    // 🔁 Redirect safely (no back)
+    //  Redirect safely (no back)
     window.location.replace("home.html");
   });
 }
@@ -135,7 +133,7 @@ async function safeFetchJson(url, opts = {}) {
 // --- Fetch current guest details (without tAddress) ---
 async function fetchGuestDetails(token) {
   try {
-    const data = await safeFetchJson("https://pgmanagerbackend.onrender.com/otp/current-guest", {
+    const data = await safeFetchJson("http://localhost:8080/otp/current-guest", {
       headers: { "Authorization": `Bearer ${token}` }
     });
 
@@ -173,7 +171,7 @@ async function fetchGuestTempAddress(guestId, ownerId, token) {
   }
 
   try {
-    const url = `https://pgmanagerbackend.onrender.com/otp/guest-temp-address?guestId=${guestId}&ownerId=${ownerId}`;
+    const url = `http://localhost:8080/otp/guest-temp-address?guestId=${guestId}&ownerId=${ownerId}`;
     const data = await safeFetchJson(url, {
       headers: { "Authorization": `Bearer ${token}` }
     });
@@ -194,7 +192,7 @@ async function fetchGuestTempAddress(guestId, ownerId, token) {
 // Important: we store ownerMobile in value (for fetchOwnerDetails endpoint) and ownerId in dataset.ownerId (for guest-temp-address endpoint)
 async function loadAcceptedPGs(token) {
   try {
-    const data = await safeFetchJson("https://pgmanagerbackend.onrender.com/otp/accepted-pgs", {
+    const data = await safeFetchJson("http://localhost:8080/otp/accepted-pgs", {
       headers: { "Authorization": `Bearer ${token}` }
     });
 
@@ -221,8 +219,7 @@ async function loadAcceptedPGs(token) {
       const opt = document.createElement("option");
       // keep value as ownerMobile for owner-details endpoint compatibility
       opt.value = pg.ownerMobile || "";
-      // store ownerId separately for temp-address API (USE THIS for fetchGuestTempAddress)
-      // your backend response should include ownerId (e.g., pg.ownerId or pg.owner.id)
+      // store ownerId separately for temp-address API 
       opt.dataset.ownerId = (pg.ownerId || (pg.owner && pg.owner.id) || "") ;
       opt.textContent = `${pg.pgName || "Unnamed PG"} (${pg.city || "N/A"})`;
       opt.dataset.pgName = pg.pgName || "";
@@ -274,7 +271,6 @@ async function loadAcceptedPGs(token) {
 }
 
 // --- Fetch owner details and then attempt to fetch temp address (ownerMobile is for owner-details endpoint,
-// ownerIdCandidate is optional ownerId to use for guest-temp-address) ---
 async function fetchOwnerDetailsAndMaybeTemp(token, ownerMobile, ownerIdCandidate) {
   try {
     await fetchOwnerDetails(token, ownerMobile);
@@ -314,7 +310,7 @@ async function fetchOwnerDetailsAndMaybeTemp(token, ownerMobile, ownerIdCandidat
 async function fetchOwnerDetails(token, ownerMobile) {
   if (!ownerMobile) return;
   try {
-    const url = `https://pgmanagerbackend.onrender.com/otp/owner-details?ownerMobile=${encodeURIComponent(ownerMobile)}`;
+    const url = `http://localhost:8080/otp/owner-details?ownerMobile=${encodeURIComponent(ownerMobile)}`;
     const data = await safeFetchJson(url, {
       headers: { "Authorization": `Bearer ${token}` }
     });
@@ -351,7 +347,7 @@ async function fetchOwnerDetails(token, ownerMobile) {
     // owner image
     if (o.moNumber) {
       try {
-        const profileImageUrl = `https://pgmanagerbackend.onrender.com/otp/profileImage?ownerMobile=${encodeURIComponent(o.moNumber)}`;
+        const profileImageUrl = `http://localhost:8080/otp/profileImage?ownerMobile=${encodeURIComponent(o.moNumber)}`;
         const imgRes = await fetch(profileImageUrl, {
           headers: { "Authorization": `Bearer ${token}` }
         });
@@ -398,7 +394,7 @@ updateProfileBtn?.addEventListener("click", async () => {
   }
 
   try {
-    const res = await fetch("https://pgmanagerbackend.onrender.com/otp/check-update-eligibility", {
+    const res = await fetch("http://localhost:8080/otp/check-update-eligibility", {
       headers: { "Authorization": `Bearer ${token}` }
     });
     const data = await res.json();
@@ -452,7 +448,7 @@ updateGuestForm?.addEventListener("submit", async (e) => {
   if (profileImage) formData.append("profileImage", profileImage);
 
   try {
-    const res = await fetch("https://pgmanagerbackend.onrender.com/otp/update-details", {
+    const res = await fetch("http://localhost:8080/otp/update-details", {
       method: "PUT",
       headers: { "Authorization": `Bearer ${token}` },
       body: formData
@@ -570,7 +566,7 @@ async function loadGuestNoticesForSelectedPG() {
 
   const ownerMobile = pgDropdown.value;
 
-  // ❌ No PG selected
+  //  No PG selected
   if (!ownerMobile) {
     list.innerHTML = "<li>Select a PG to see notices</li>";
     return;
@@ -578,7 +574,7 @@ async function loadGuestNoticesForSelectedPG() {
 
   try {
     const res = await fetch(
-      `https://pgmanagerbackend.onrender.com/otp/guest/notices?ownerMobile=${encodeURIComponent(ownerMobile)}`,
+      `http://localhost:8080/otp/guest/notices?ownerMobile=${encodeURIComponent(ownerMobile)}`,
       {
         headers: {
           Authorization: "Bearer " + token
@@ -589,13 +585,13 @@ async function loadGuestNoticesForSelectedPG() {
     const notices = await res.json();
     list.innerHTML = "";
 
-    // ❌ No notices OR not accepted guest
+    //  No notices OR not accepted guest
     if (!Array.isArray(notices) || notices.length === 0) {
       list.innerHTML = "<li>No notices available</li>";
       return;
     }
 
-    // ✅ Render notices
+    //  Render notices
     notices.forEach(n => {
       const li = document.createElement("li");
       li.innerHTML = `

@@ -467,7 +467,7 @@ aside img {
 
   body {
     height: 100vh;
-    overflow: hidden;   /* ❌ page scroll band */
+    overflow: hidden;   /*  page scroll band */
   }
 
   main {

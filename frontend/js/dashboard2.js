@@ -1,9 +1,9 @@
-// 🔒 PREVENT BACK NAVIGATION — FORCE LOGOUT ON BACK
+// PREVENT BACK NAVIGATION — FORCE LOGOUT ON BACK
 (function () {
   history.pushState(null, "", location.href);
 
   window.addEventListener("popstate", function () {
-    logout();   // 👈 back press = logout
+    logout();   //  back press = logout
   });
 })();
 
@@ -11,7 +11,7 @@
 window.addEventListener("DOMContentLoaded", () => {
   const token = localStorage.getItem("jwtToken");
     if (!token) {
-        alert("आप लॉगिन नहीं हैं। कृपया लॉगिन करें।");
+        alert("You are not login please login first");
         window.location.href = "home.html";
         return;
     }
@@ -78,7 +78,7 @@ window.addEventListener("DOMContentLoaded", () => {
    USER INFO LOAD
 ============================================================ */
 function loadDashboardInfo(token) {
-    fetch("https://pgmanagerbackend.onrender.com/otp/current-user", {
+    fetch("http://localhost:8080/otp/current-user", {
         headers: { "Authorization": `Bearer ${token}` }
     })
         .then(r => r.json())
@@ -106,7 +106,7 @@ function loadDashboardInfo(token) {
    CARD COUNTS
 ============================================================ */
 function fetchRequestsCountOnly(token) {
-    fetch("https://pgmanagerbackend.onrender.com/otp/guest-requests", {
+    fetch("http://localhost:8080/otp/guest-requests", {
         headers: { "Authorization": `Bearer ${token}` }
     })
         .then(r => r.json())
@@ -117,7 +117,7 @@ function fetchRequestsCountOnly(token) {
 }
 
 function fetchTotalGuestsCount(token) {
-    fetch("https://pgmanagerbackend.onrender.com/otp/all-guest", {
+    fetch("http://localhost:8080/otp/all-guest", {
         headers: { "Authorization": `Bearer ${token}` }
     })
         .then(r => r.json())
@@ -128,7 +128,7 @@ function fetchTotalGuestsCount(token) {
 }
 
 function fetchActiveGuestsCount(token) {
-    fetch("https://pgmanagerbackend.onrender.com/otp/all-guest", {
+    fetch("http://localhost:8080/otp/all-guest", {
         headers: { Authorization: `Bearer ${token}` }
     })
     .then(res => res.json())
@@ -136,7 +136,7 @@ function fetchActiveGuestsCount(token) {
 
         const list = data.requests || [];
 
-        // ✅ ONLY Accepted / Active Guests
+        // ONLY Accepted / Active Guests
         const acceptedCount = list.filter(g => g.status === "ACCEPTED").length;
 
         document.getElementById("activeGuests").textContent = acceptedCount;
@@ -145,7 +145,7 @@ function fetchActiveGuestsCount(token) {
 
 
 function fetchLeaveRequestCount(token) {
-    fetch("https://pgmanagerbackend.onrender.com/otp/pending-leave-request", {
+    fetch("http://localhost:8080/otp/pending-leave-request", {
         headers: { "Authorization": `Bearer ${token}` }
     })
         .then(r => r.json())
@@ -156,7 +156,7 @@ function fetchLeaveRequestCount(token) {
 }
 
 function fetchPendingPaymentCount(token) {
-    fetch("https://pgmanagerbackend.onrender.com/otp/pending-payments", {
+    fetch("http://localhost:8080/otp/pending-payments", {
         headers: { "Authorization": `Bearer ${token}` }
     })
         .then(r => r.json())
@@ -170,7 +170,7 @@ function fetchPendingPaymentCount(token) {
 
 
 function fetchNoticeCount(token) {
-    fetch("https://pgmanagerbackend.onrender.com/otp/notices", {
+    fetch("http://localhost:8080/otp/notices", {
         headers: { "Authorization": `Bearer ${token}` }
     })
     .then(res => res.json())
@@ -187,10 +187,10 @@ function fetchNoticeCount(token) {
 
 
 /* ============================================================
-   ⭐ PAYMENT CARD — CURRENT MONTH ONLY
+    PAYMENT CARD — CURRENT MONTH ONLY
 ============================================================ */
 function fetchCurrentMonthPayment(token) {
-    fetch("https://pgmanagerbackend.onrender.com/otp/payment-historyO", {
+    fetch("http://localhost:8080/otp/payment-historyO", {
         headers: { "Authorization": `Bearer ${token}` }
     })
         .then(r => r.json())
@@ -247,7 +247,7 @@ let paymentChart = null;
 function loadMonthWiseGraph(token) {
     const selectedYear = Number(document.getElementById("yearSelect").value);
 
-    fetch("https://pgmanagerbackend.onrender.com/otp/payment-historyO", {
+    fetch("http://localhost:8080/otp/payment-historyO", {
         headers: { "Authorization": `Bearer ${token}` }
     })
         .then(r => r.json())
@@ -331,7 +331,7 @@ document.querySelectorAll(".sidebar .menu li").forEach(item => {
 
 function logout() {
   try {
-    // ✅ Clear auth + user data
+    //  Clear auth + user data
     localStorage.removeItem("jwtToken");
     localStorage.removeItem("currentUser");
 
@@ -341,7 +341,7 @@ function logout() {
     console.error("Logout error:", e);
   }
 
-  // ✅ HARD redirect (no back possible)
+  //  HARD redirect (no back possible)
   window.location.replace("home.html");
 }
 
@@ -443,7 +443,7 @@ changePhotoBtn.addEventListener("click", () => {
 
     if (!file) return;
 
-    // ❌ 1 MB size check
+    //  1 MB size check
     if (file.size > 1024 * 1024) {
       imageError.textContent = "Image size must be less than 1 MB.";
       imageError.style.display = "block";
@@ -451,7 +451,7 @@ changePhotoBtn.addEventListener("click", () => {
       return;
     }
 
-    // ❌ type safety
+    //  type safety
     if (!file.type.startsWith("image/")) {
       imageError.textContent = "Please select a valid image file.";
       imageError.style.display = "block";
@@ -459,7 +459,7 @@ changePhotoBtn.addEventListener("click", () => {
       return;
     }
 
-    // ✅ preview
+    //  preview
     const reader = new FileReader();
     reader.onload = e => {
       previewImg.src = e.target.result;
@@ -484,7 +484,7 @@ changePhotoBtn.addEventListener("click", () => {
 
   function openProfileModal() {
 
-    fetch("https://pgmanagerbackend.onrender.com/otp/current-user", {
+    fetch("http://localhost:8080/otp/current-user", {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => res.json())
@@ -510,7 +510,7 @@ changePhotoBtn.addEventListener("click", () => {
 
   function openUpdateProfileModal() {
 
-    fetch("https://pgmanagerbackend.onrender.com/otp/current-user", {
+    fetch("http://localhost:8080/otp/current-user", {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => res.json())
@@ -550,7 +550,7 @@ if (img) {
   formData.append("profileImage", img);
 }
 
-    fetch("https://pgmanagerbackend.onrender.com/otp/update-owner-profile", {
+    fetch("http://localhost:8080/otp/update-owner-profile", {
       method: "PUT",
       headers: { Authorization: `Bearer ${token}` },
       body: formData

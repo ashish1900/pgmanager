@@ -1,4 +1,3 @@
-/* totalGuest.js - FULL FINAL VERSION (WITH ALL FIXES)  */
 
 //  CLEAR STATE ON HARD REFRESH
 if (performance.getEntriesByType("navigation")[0]?.type === "reload") {
@@ -19,9 +18,7 @@ let cycleFilter = "ALL_CYCLE";
 let currentIndex = 0;
 let globalPaymentsMap = new Map();
 
-/* -------------------------
-   UTILITIES
-------------------------- */
+
 function addMonthsSafe(origDate, months) {
   const d = new Date(origDate.getTime());
   const originalDay = d.getDate();
@@ -223,7 +220,7 @@ function updateRightFiltersVisibility() {
 
 
 
-// ✅ ACTIVE par Leave Columns Hide / Show
+
 function toggleLeaveColumnsSimple(show) {
   const display = show ? "" : "none";
 
@@ -236,7 +233,7 @@ function toggleLeaveColumnsSimple(show) {
 }
 
 
-// ✅ CHECK-OUT par Cycle column hide / baaki sab show
+
 function toggleCycleColumnByFilter() {
   const showCycle = filterType !== "REMOVED";   // REMOVED → hide
 
@@ -265,10 +262,10 @@ function setCycleActive(id) {
 ------------------------- */
 window.addEventListener("DOMContentLoaded", () => {
 
-  updateRightFiltersVisibility();   // ⭐ ADD THIS AT TOP
+  updateRightFiltersVisibility();  
 
 
-  // 🌟 Sync Mobile Filter UI on first load
+  //  Sync Mobile Filter UI on first load
 if (window.innerWidth <= 768) {
   if (filterType === "ACTIVE") {
     document.getElementById("cycleFilterMobile").style.display = "block";
@@ -299,7 +296,7 @@ if (window.innerWidth <= 768) {
     updateRightFiltersVisibility();
     renderTable(globalPaymentsMap);
 
-    toggleLeaveColumnsSimple(true);   // ✅ show
+    toggleLeaveColumnsSimple(true);   //  show
     toggleCycleColumnByFilter();
 
 
@@ -309,8 +306,8 @@ if (window.innerWidth <= 768) {
     filterType = "ACTIVE";
     setActiveButton("btnActive");
 
-    cycleFilter = "ALL_CYCLE";          // ⭐ NEW
-    setCycleActive("cycleAll");         // ⭐ NEW
+    cycleFilter = "ALL_CYCLE";          
+    setCycleActive("cycleAll");         
 
 
     applyFilter();
@@ -327,8 +324,8 @@ if (window.innerWidth <= 768) {
     setActiveButton("btnRemoved");
 
 
-    cycleFilter = "ALL_CYCLE";          // ⭐ NEW
-    setCycleActive("cycleAll");         // ⭐ NEW
+    cycleFilter = "ALL_CYCLE";          
+    setCycleActive("cycleAll");         
 
 
     applyFilter();
@@ -418,7 +415,7 @@ if (window.innerWidth <= 768) {
 ------------------------- */
 async function fetchPaymentHistory(token) {
   try {
-    const res = await fetch("https://pgmanagerbackend.onrender.com/otp/payment-historyO", {
+    const res = await fetch("http://localhost:8080/otp/payment-historyO", {
       headers: { Authorization: `Bearer ${token}` }
     });
     const data = await res.json();
@@ -439,7 +436,7 @@ async function fetchPaymentHistory(token) {
    FETCH GUEST LIST
 ------------------------- */
 function fetchAcceptedGuests(token, paymentsMap) {
-  fetch("https://pgmanagerbackend.onrender.com/otp/all-guest", {
+  fetch("http://localhost:8080/otp/all-guest", {
     headers: { Authorization: `Bearer ${token}` }
   })
     .then(res => res.json())
@@ -557,7 +554,7 @@ const profileImg = document.createElement("img");
 profileImg.className = "guest-profile";
 profileImg.src = "../images/default-avatar.png"; // fallback first
 
-// ✅ Cloudinary image loader
+//  Cloudinary image loader
 loadGuestProfileImage(profileImg, g.guestMobile);
 
     
@@ -658,10 +655,10 @@ statusCell.innerHTML = `
     tbody.appendChild(row);
   });
 
-    // ✅ ✅ ACTIVE state ke hisab se columns dubara sync karo
+    
   toggleLeaveColumnsSimple(filterType !== "ACTIVE");
 
-  toggleCycleColumnByFilter();   // ✅ NEW
+  toggleCycleColumnByFilter();  
 
 
 }
@@ -670,7 +667,7 @@ statusCell.innerHTML = `
 
 
 // ===============================
-// 🔁 RESTORE TOTAL GUEST STATE
+//  RESTORE TOTAL GUEST STATE
 // ===============================
 const savedFilter = sessionStorage.getItem("TG_FILTER");
 const savedCycle = sessionStorage.getItem("TG_CYCLE_FILTER");
@@ -696,7 +693,7 @@ applyFilter();
 updateRightFiltersVisibility();
 renderTable(globalPaymentsMap);
 
-// ✅ restore scroll (IMPORTANT delay)
+//  restore scroll (IMPORTANT delay)
 if (savedScroll) {
   setTimeout(() => {
     document.querySelector(".table-body-scroll").scrollTop = Number(savedScroll);
@@ -737,7 +734,7 @@ function openInfoModal(index) {
 
   currentIndex = index;
 
-  // ⭐ FIX — filteredList से डेटा लो
+  
   const g = filteredList[index];
 
   const token = localStorage.getItem("jwtToken");
@@ -751,11 +748,11 @@ function openInfoModal(index) {
   document.getElementById("modalPAddress").innerText = g.paddress || "";
   document.getElementById("modalMobile").innerText = g.guestMobile || "";
 
-  // 1️⃣ Reset ID images
+  // 1 Reset ID images
 document.getElementById("idFrontImage").src = "";
 document.getElementById("idBackImage").src = "";
 
-// 2️⃣ AUTO load ID images (Pending Request style)
+// 2 AUTO load ID images (Pending Request style)
 loadGuestIdImage(g.requestId, "front", "idFrontImage");
 loadGuestIdImage(g.requestId, "back", "idBackImage");
 
@@ -763,9 +760,9 @@ loadGuestIdImage(g.requestId, "back", "idBackImage");
   const modalPhoto = document.getElementById("modalPhoto");
 modalPhoto.src = "../images/default-avatar.png";
 
-// ✅ Cloudinary auto-load
+//  Cloudinary auto-load
 loadGuestProfileImage(modalPhoto, g.guestMobile);
-  fetch(`https://pgmanagerbackend.onrender.com/otp/room-assignments?guestMobile=${g.guestMobile}`, {
+  fetch(`http://localhost:8080/otp/room-assignments?guestMobile=${g.guestMobile}`, {
     headers: { Authorization: `Bearer ${token}` }
   })
     .then(res => res.ok ? res.json() : Promise.reject())
@@ -820,7 +817,7 @@ function setupZoomableImages() {
 async function loadGuestProfileImage(imgElement, guestMobile) {
   try {
     const res = await fetch(
-      `https://pgmanagerbackend.onrender.com/otp/profileImageG?guestMobile=${guestMobile}`,
+      `http://localhost:8080/otp/profileImageG?guestMobile=${guestMobile}`,
       {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("jwtToken")
@@ -853,7 +850,7 @@ async function loadGuestIdImage(requestId, side, imgElementId) {
 
   try {
     const res = await fetch(
-      `https://pgmanagerbackend.onrender.com/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
+      `http://localhost:8080/otp/stay-request/id-image?requestId=${requestId}&side=${side}`,
       {
         headers: { Authorization: `Bearer ${token}` }
       }
@@ -865,7 +862,7 @@ async function loadGuestIdImage(requestId, side, imgElementId) {
 
     img.src = data.url;
 
-    // ✅✅ ADD THESE TWO LINES
+    //  ADD THESE TWO LINES
     img.classList.add("zoomable");
     img.style.cursor = "zoom-in";
 

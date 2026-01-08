@@ -1,14 +1,3 @@
-/* totalGuest.js - cycle indicator + guest table
-   - Paid (green) → clockwise
-   - Due (red)  → anti-clockwise (we flip the filled arc)
-*/
-
-/* -------------------------
-   Utilities: safe month add & cycle calc
-   ------------------------- */
-
- 
-
      
 function addMonthsSafe(origDate, months) {
   const d = new Date(origDate.getTime());
@@ -43,10 +32,6 @@ function percentBetween(start, end, at = new Date()) {
   return ((a - s) / (e - s)) * 100;
 }
 
-/* -------------------------
-   Donut SVG helper (with direction flip)
-   - direction: "normal" (clockwise) or "reverse" (anti-clockwise)
-   ------------------------- */
 
 
 
@@ -181,7 +166,7 @@ document.getElementById("btnRemoved").addEventListener("click", () => {
 /* Fetch full payment history and return Map(guestMobile => [payments]) */
 async function fetchPaymentHistory(token) {
   try {
-    const res = await fetch("https://pgmanagerbackend.onrender.com/otp/payment-historyO", {
+    const res = await fetch("http://localhost:8080/otp/payment-historyO", {
       headers: { Authorization: `Bearer ${token}` }
     });
     if (!res.ok) throw new Error("payment history fetch failed");
@@ -201,7 +186,7 @@ async function fetchPaymentHistory(token) {
 }
 
 function fetchAcceptedGuests(token, paymentsMap = new Map()) {
-  fetch("https://pgmanagerbackend.onrender.com/otp/all-guest", {
+  fetch("http://localhost:8080/otp/all-guest", {
     headers: { "Authorization": `Bearer ${token}` }
   })
     .then(res => res.json())
@@ -232,7 +217,7 @@ function fetchAcceptedGuests(token, paymentsMap = new Map()) {
           const imgCell = document.createElement("td");
           const profileImg = document.createElement("img");
           profileImg.className = "guest-profile";
-          fetch(`https://pgmanagerbackend.onrender.com/otp/profileImageG?guestMobile=${g.guestMobile}`, {
+          fetch(`http://localhost:8080/otp/profileImageG?guestMobile=${g.guestMobile}`, {
             headers: { "Authorization": `Bearer ${token}` }
           })
             .then(res => res.ok ? res.blob() : Promise.reject())
@@ -379,14 +364,14 @@ function openInfoModal(index) {
   document.getElementById("modalMobile").innerText = g.guestMobile || "";
 
   const modalPhoto = document.getElementById("modalPhoto");
-  fetch(`https://pgmanagerbackend.onrender.com/otp/profileImageG?guestMobile=${g.guestMobile}`, {
+  fetch(`http://localhost:8080/otp/profileImageG?guestMobile=${g.guestMobile}`, {
     headers: { "Authorization": `Bearer ${token}` }
   })
     .then(res => res.ok ? res.blob() : Promise.reject())
     .then(blob => modalPhoto.src = URL.createObjectURL(blob))
     .catch(() => modalPhoto.src = "default-avatar.png");
 
-  fetch(`https://pgmanagerbackend.onrender.com/otp/room-assignments?guestMobile=${g.guestMobile}`, {
+  fetch(`http://localhost:8080/otp/room-assignments?guestMobile=${g.guestMobile}`, {
     headers: { "Authorization": `Bearer ${token}` }
   })
     .then(res => res.ok ? res.json() : Promise.reject())
@@ -412,7 +397,7 @@ function openInfoModal(index) {
 function loadIDImage(fileName, elementId, token) {
   const img = document.getElementById(elementId);
   if (fileName) {
-    fetch(`https://pgmanagerbackend.onrender.com/otp/request-id-image?fileName=${fileName}`, {
+    fetch(`http://localhost:8080/otp/request-id-image?fileName=${fileName}`, {
       headers: { "Authorization": `Bearer ${token}` }
     })
       .then(res => res.ok ? res.blob() : Promise.reject())

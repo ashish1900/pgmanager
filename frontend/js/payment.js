@@ -75,7 +75,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     const photoEl = document.getElementById("guestPhoto");
 photoEl.src = "../images/default-avatar.png"; // fallback first
 
-// ✅ Cloudinary image loader (same as other pages)
+//  Cloudinary image loader (same as other pages)
 loadGuestProfileImage(photoEl, guestMobile);
 
     await loadGuestDetails(guestMobile, token);
@@ -94,7 +94,7 @@ loadGuestProfileImage(photoEl, guestMobile);
  * LOAD GUEST DETAILS
  *************************/
 async function loadGuestDetails(mobile, token) {
-  const res = await fetch("https://pgmanagerbackend.onrender.com/otp/all-guest", {
+  const res = await fetch("http://localhost:8080/otp/all-guest", {
     headers: { Authorization: `Bearer ${token}` }
   });
 
@@ -183,7 +183,7 @@ function generateCyclesSafe(joinDateStr) {
   while (start <= endLimit) {
     const end = addMonthsSafe(start, 1);
 
-    // 🔥 DISPLAY END = end - 1 day
+    //  DISPLAY END = end - 1 day
     const displayEnd = new Date(end);
     displayEnd.setDate(displayEnd.getDate() - 1);
 
@@ -217,7 +217,7 @@ async function loadPaymentsWithCycles(guestMobile, token) {
     return;
   }
 
-  const res = await fetch("https://pgmanagerbackend.onrender.com/otp/payment-historyO", {
+  const res = await fetch("http://localhost:8080/otp/payment-historyO", {
     headers: { Authorization: `Bearer ${token}` }
   });
 
@@ -266,13 +266,13 @@ cyclePayments.forEach(p => {
   const type = (p.type || "UNKNOWN").toUpperCase();
 
   if (status === "VERIFIED") {
-    (grouped[type] ||= []).push(p);   // ✅ only VERIFIED grouped
+    (grouped[type] ||= []).push(p);   //  only VERIFIED grouped
   } else {
-    nonVerified.push(p);              // ❌ keep separate
+    nonVerified.push(p);              //  keep separate
   }
 });
 
-// 🔴 STEP 3: NON-VERIFIED payments (PENDING / REJECTED)
+//  STEP 3: NON-VERIFIED payments (PENDING / REJECTED)
 nonVerified.forEach(p => {
   rows.push(`
     <tr>
@@ -376,7 +376,7 @@ function enableFullImageZoom(selector) {
 async function loadGuestProfileImage(imgElement, guestMobile) {
   try {
     const res = await fetch(
-      `https://pgmanagerbackend.onrender.com/otp/profileImageG?guestMobile=${guestMobile}`,
+      `http://localhost:8080/otp/profileImageG?guestMobile=${guestMobile}`,
       {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("jwtToken")
@@ -402,17 +402,17 @@ async function loadGuestProfileImage(imgElement, guestMobile) {
 
 
 
-const BASE_URL = "https://pgmanagerbackend.onrender.com/otp";
+const BASE_URL = "http://localhost:8080/otp";
 
 function resolveReceiptUrl(url) {
   if (!url) return "";
 
-  // ✅ Cloudinary / public URL
+  //  Cloudinary / public URL
   if (url.startsWith("http")) {
     return url;
   }
 
-  // ✅ backend relative path
+  //  backend relative path
   return BASE_URL + url;
 }
 

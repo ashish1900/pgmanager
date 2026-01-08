@@ -16,7 +16,7 @@ document.getElementById("verifyOtpForm").addEventListener("submit", async functi
     const mobileNumber = "+91" + rawMobileNumber;
 
     try {
-        const res = await fetch("https://pgmanagerbackend.onrender.com/otp/verify-and-login", {
+        const res = await fetch("http://localhost:8080/otp/verify-and-login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ mobileNumber, otp })
@@ -29,11 +29,11 @@ document.getElementById("verifyOtpForm").addEventListener("submit", async functi
     message.style.color = "green";
     message.textContent = result.message;
 
-    // 🔑 FINAL LOGIN STATE
+    //  FINAL LOGIN STATE
     localStorage.setItem("jwtToken", result.token);
     localStorage.setItem("currentUser", JSON.stringify(result.user));
 
-    // 🔐 AUTH FLAG (SESSION BASED)
+    //  AUTH FLAG (SESSION BASED)
     sessionStorage.setItem("AUTH_VERIFIED", "true");
 
     // cleanup

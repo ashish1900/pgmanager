@@ -1,6 +1,3 @@
-// ===============================
-// NOTICE.JS (FINAL ROLE-FREE VERSION)
-// ===============================
 function formatNoticeDateTime(dateStr) {
   const date = new Date(dateStr);
 
@@ -26,12 +23,12 @@ console.log("✅ notice.js loaded");
 
 const token = localStorage.getItem("jwtToken");
 
-// 🔒 Auth guard
+//  Auth guard
 if (!token) {
   window.location.replace("home.html");
 }
 
-// 🔙 Back button
+//  Back button
 function goBack() {
   window.location.href = "dashboard2.html";
 }
@@ -43,7 +40,7 @@ loadNotices();
 
 function loadNotices() {
 
-  fetch("https://pgmanagerbackend.onrender.com/otp/notices", {
+  fetch("http://localhost:8080/otp/notices", {
     headers: {
       Authorization: "Bearer " + token
     }
@@ -59,15 +56,15 @@ function loadNotices() {
 
     list.innerHTML = "";
 
-    // 🔔 No notices
+    //  No notices
     if (!data || data.length === 0) {
       list.innerHTML = `<p style="color:gray">No notices available</p>`;
     }
 
-    // 🔒 Max 5 notice UX (backend final authority)
+    //  Max 5 notice UX (backend final authority)
     if (data.length >= 5) {
   addBtn.disabled = false;
-  info.textContent = "";   // ❌ yahan message nahi
+  info.textContent = "";   //  yahan message nahi
 } else {
   addBtn.disabled = false;
   info.textContent = "";
@@ -120,7 +117,7 @@ document.getElementById("addBtn")?.addEventListener("click", () => {
     return;
   }
 
-  // ✅ UX FIX: 6th notice try par message dikhao
+  //  UX FIX: 6th notice try par message dikhao
   if (document.querySelectorAll(".notice-card").length >= 5) {
     info.textContent = "The maximum limit of 5 notices has been reached. Please update or delete an existing notice to add a new one.";
     return;
@@ -128,7 +125,7 @@ document.getElementById("addBtn")?.addEventListener("click", () => {
 
   info.textContent = "";
 
-  fetch("https://pgmanagerbackend.onrender.com/otp/owner/add-notice", {
+  fetch("http://localhost:8080/otp/owner/add-notice", {
     method: "POST",
     headers: {
       Authorization: "Bearer " + token,
@@ -164,7 +161,7 @@ function updateNotice(id) {
   const msg = prompt("Update notice");
   if (!msg) return;
 
-  fetch("https://pgmanagerbackend.onrender.com/otp/owner/update-notice", {
+  fetch("http://localhost:8080/otp/owner/update-notice", {
     method: "PUT",
     headers: {
       Authorization: "Bearer " + token,
@@ -197,7 +194,7 @@ function deleteNotice(id) {
 
   if (!confirm("Delete this notice?")) return;
 
-  fetch(`https://pgmanagerbackend.onrender.com/otp/owner/delete-notice?noticeId=${id}`, {
+  fetch(`http://localhost:8080/otp/owner/delete-notice?noticeId=${id}`, {
     method: "DELETE",
     headers: {
       Authorization: "Bearer " + token

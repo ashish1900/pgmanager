@@ -1,13 +1,11 @@
-/* ================================
-   ✅ Pending Payment Page Styling
-   ================================ */
+
 
 /* --- Page Layout --- */
 body {
   font-family: "Poppins", sans-serif;
   background-color: hsl(210, 15%, 89%);
   margin: 0;
-  overflow: hidden;   /* ✅ page scroll band */
+  overflow: hidden;   
 }
 
 
@@ -53,7 +51,7 @@ header h1 {
 
 main {
   padding: 20px;
-  margin-top: 60px;   /* ✅ header height ke barabar */
+  margin-top: 60px;   
   height: calc(100vh - 60px);
 }
 
@@ -78,7 +76,7 @@ main {
 }
 .history-table tbody {
   display: block;
-  height: calc(100vh - 135px);  /* adjust if needed */
+  height: calc(100vh - 135px);  
   overflow-y: auto;
 }
 
@@ -365,8 +363,9 @@ main {
 
 /* Make table more interactive */
 .table-wrapper {
-  height: calc(100vh - 95px); /* header + padding */
-  overflow: hidden;            /* ❌ outer scroll band */
+  height: calc(100vh - 95px); 
+  overflow: hidden;            
+  
   border-radius: 10px;
   width: 100%;
 }
@@ -477,7 +476,7 @@ main {
 }
 
 
-/* 🔍 Fullscreen Zoom Image Modal */
+/*  Fullscreen Zoom Image Modal */
 .zoom-overlay {
   display: none;
   position: fixed;
@@ -551,7 +550,7 @@ main {
 
 
 /* =========================
-   📱 MOBILE CARD – FINAL FIX
+    MOBILE CARD – FINAL FIX
 ========================= */
 @media (max-width: 768px) {
 
@@ -604,9 +603,9 @@ main {
 
     text-align: center;
 
-    width: 98%;          /* ✅ full width */
-    max-width: 420px;     /* ✅ nice mobile width */
-    margin-left: auto;    /* ✅ perfect center */
+    width: 98%;         
+    max-width: 420px;    
+    margin-left: auto;    
     margin-right: auto;
   }
 
@@ -623,7 +622,7 @@ main {
     font-size: 14px;
   }
 
-  /* ❌ Hide serial number */
+  /*  Hide serial number */
   .history-table td:nth-child(1) {
     display: none;
   }
@@ -747,7 +746,7 @@ main {
     margin: 0 auto;
     max-height: 95vh;
     overflow-y: auto;
-    overflow-x: hidden;   /* ✅ MOST IMPORTANT */
+    overflow-x: hidden;  
     padding: 16px;
     box-sizing: border-box;
   }
@@ -756,7 +755,7 @@ main {
 
 @media (max-width: 768px) {
   .info-grid {
-    flex-direction: column;   /* row ❌ → column ✅ */
+    flex-direction: column;   
     gap: 15px;
   }
 

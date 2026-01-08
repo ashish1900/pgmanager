@@ -4,14 +4,7 @@ body {
   background: #f3f4f6;
 }
 
-/* header {
-  background: #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  padding: 15px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-} */
+
 
 header {
   background: #fff;
@@ -21,7 +14,7 @@ header {
   justify-content: space-between;
   align-items: center;
 
-  position: fixed;     /* ⭐ MAKE IT FULLY FIXED */
+  position: fixed;     
   top: 0;
   left: 0;
   width: 98%;
@@ -39,19 +32,13 @@ header .right { display: flex; align-items: center; gap: 10px; }
 
 
 main {
-  margin-top: 80px;   /* ⭐ Adjust height according to header size */
+  margin-top: 80px;   
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 20px;
   padding: 20px;
 }
 
-/* main {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 20px;
-  padding: 20px;
-} */
 
 aside {
   background: linear-gradient(135deg, #eff6ff, #dbeafe);
@@ -282,16 +269,16 @@ aside {
 }
 
 
-/* 🟦 Scrollable history table */
+/*  Scrollable history table */
 .table-wrapper {
-  max-height: 400px;      /* 🔥 jitna scroll chahiye utna adjust kar lo */
+  max-height: 400px;      
   overflow-y: auto;
   overflow-x: hidden;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
 }
 
-/* 🔥 Sticky header */
+
 .table-wrapper table thead th {
   position: sticky;
   top: 0;
@@ -300,7 +287,6 @@ aside {
   z-index: 10;
 }
 
-/* Optional: Smooth Scroll */
 .table-wrapper::-webkit-scrollbar {
   width: 8px;
 }
@@ -314,7 +300,6 @@ aside {
 
 
 
-/* 🌟 CLEAN MODERN OWNER SIDEBAR */
 .owner-sidebar-new {
   background: #ffffff;
   border-radius: 18px;
@@ -430,12 +415,11 @@ aside {
 
 
 
-/* ⭐ CENTER THE MOBILE / CITY / ADDRESS BLOCK */
 .owner-detail-list {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;     /* 🔥 PURE CENTER */
+  align-items: center;    
   justify-content: center;
   background: #f8fafc;
   border: 1px solid #e2e8f0;
@@ -443,13 +427,13 @@ aside {
   padding: 14px;
 }
 
-/* ⭐ EACH ROW CENTERED */
+/*  EACH ROW CENTERED */
 .owner-row {
   width: 100%;
-  max-width: 260px;        /* 🔥 PERFECT CENTER WIDTH */
+  max-width: 260px;        
   display: flex;
   align-items: center;
-  justify-content: center; /* 🔥 CENTER ALL ITEMS */
+  justify-content: center; 
   gap: 10px;
   padding: 6px 0;
   font-size: 15px;
@@ -464,7 +448,7 @@ aside {
 
 /* LABEL */
 .owner-row .label {
-  min-width: 70px;         /* Same label width */
+  min-width: 70px;         
   text-align: right;
 }
 
@@ -475,10 +459,9 @@ aside {
 }
 
 
-/* ⭐ STEP 2 TWO-COLUMN LAYOUT */
 .payment-info-grid {
   display: grid;
-  grid-template-columns: 1fr 150px; /* Left = text | Right = QR */
+  grid-template-columns: 1fr 150px;
   align-items: center;
   gap: 20px;
 }
@@ -508,10 +491,10 @@ aside {
 
 
 
-/* ⭐ STEP-3 GRID LAYOUT */
+/*  STEP-3 GRID LAYOUT */
 .step3-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;  /* Amount | File | Submit Button */
+  grid-template-columns: 1.2fr 1fr 1fr;  
   align-items: center;
   gap: 12px;
 }
@@ -550,7 +533,7 @@ aside {
 }
 
 
-/* ⭐ TOP RIGHT PAYMENT HISTORY BUTTON */
+/*  TOP RIGHT PAYMENT HISTORY BUTTON */
 .history-top-btn {
   position: absolute;
   top: 15px;
@@ -573,7 +556,7 @@ aside {
 }
 
 
-/* 🌟 Message box for Step 2 default state */
+/*  Message box for Step 2 default state */
 .no-type-msg {
   grid-column: 1 / -1;
   text-align: center;
@@ -587,7 +570,7 @@ aside {
 
 
 /* ============================================
-   📱 FULL RESPONSIVE DESIGN FOR MOBILE
+    FULL RESPONSIVE DESIGN FOR MOBILE
    Applies when width < 768px
 ===============================================*/
 
@@ -685,65 +668,56 @@ aside {
 }
 
 
-/* 📌 FIX — Table should NEVER break layout */
+/*  Table should NEVER break layout */
 .table-wrapper {
   width: 100%;
   overflow-x: auto;
   display: block;
 }
 
-/* 📌 FIX — Table min width so layout stable */
 .history-table {
-  min-width: 750px;  /* jitna chaho rakh sakte ho */
+  min-width: 750px;  
 }
 
-/* 📌 Mobile table adjustments */
 @media (max-width: 768px) {
 
-  /* Table scroll-only, no layout break */
   .table-wrapper {
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
   }
 
-  /* Prevent table resizing page width */
   .history-table {
     min-width: 800px;
-    width: 800px;    /* stable width */
+    width: 800px;   
   }
 
-  /* Make sure main container width stays 100% */
   .payment-section,
   .owner-sidebar-new,
   main {
     width: 100%;
-    overflow: hidden; /* prevents page stretching */
+    overflow: hidden; 
   }
 }
 
 
 
-/* ⭐ FIX 1 — NO SIDE SCROLL ANYWHERE (except table) */
 body, html {
   overflow-x: hidden;
   width: 100%;
 }
 
-/* ⭐ FIX 2 — HEADER FULL WIDTH */
 header {
   width: 98% !important;
   left: 0;
   right: 0;
 }
 
-/* ⭐ FIX 3 — MAIN SECTION SAFE WIDTH */
 main {
   width: 100%;
   overflow-x: hidden;
   box-sizing: border-box;
 }
 
-/* ⭐ FIX 4 — MOBILE LAYOUT ALWAYS FULL WIDTH */
 @media (max-width: 768px) {
   .owner-sidebar-new,
   .payment-section {

@@ -18,12 +18,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const mobileNumber = "+91" + rawMobileNumber;
 
-      const response = await fetch("https://pgmanagerbackend.onrender.com/otp/check-and-send-otp", {
+      const response = await fetch("http://localhost:8080/otp/check-and-send-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
           mobileNummber: mobileNumber,
-          userType: "GUEST"  // ✅ Guest type fixed
+          userType: "GUEST"  //  Guest type fixed
         })
       });
 

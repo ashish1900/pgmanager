@@ -1,6 +1,6 @@
 const token = localStorage.getItem("jwtToken");
 if (!token) {
-  alert("आप लॉगिन नहीं हैं। कृपया लॉगिन करें।");
+  alert("You are not login please login first");
   window.location.href = "login.html";
 }
 
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* ======================= FETCH ======================= */
 function fetchPayments() {
-  fetch("https://pgmanagerbackend.onrender.com/otp/payment-historyO", {
+  fetch("http://localhost:8080/otp/payment-historyO", {
     headers: { "Authorization": `Bearer ${token}` }
   })
     .then(r => r.json())
@@ -45,7 +45,7 @@ function setYearDropdown() {
     y.appendChild(opt);
   });
 
-  y.value = 2025;
+  y.value = 2026;
 
   y.addEventListener("change", () => {
     changeGraph(currentActiveType);
@@ -106,7 +106,7 @@ function updateCard(id, val) {
     "₹" + (val || 0).toLocaleString("en-IN");
 }
 
-/* ======================= GRAPH CHANGE ======================= */
+/* ======================= GRAPH CHANGE ======================== */
 
 let currentActiveType = "ROOM_RENT";
 
@@ -130,7 +130,7 @@ function changeGraph(type) {
 
   yearlyChart = new Chart(ctx, {
     type: "bar",
-    plugins: [ChartDataLabels],  // ⭐ IMPORTANT
+    plugins: [ChartDataLabels],  //  IMPORTANT
     data: {
       labels: MONTHS,
       datasets: [{
