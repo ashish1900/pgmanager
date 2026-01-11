@@ -77,7 +77,7 @@ window.addEventListener("DOMContentLoaded", () => {
    USER INFO LOAD
 ============================================================ */
 function loadDashboardInfo(token) {
-    fetch("http://localhost:8080/otp/current-user", {
+    fetch("http:https://pgmanagerbackend.onrender.com/otp/current-user", {
         headers: { "Authorization": `Bearer ${token}` }
     })
         .then(r => r.json())
@@ -105,7 +105,7 @@ function loadDashboardInfo(token) {
    CARD COUNTS
 ============================================================ */
 function fetchRequestsCountOnly(token) {
-    fetch("http://localhost:8080/otp/guest-requests", {
+    fetch("http:https://pgmanagerbackend.onrender.com/otp/guest-requests", {
         headers: { "Authorization": `Bearer ${token}` }
     })
         .then(r => r.json())
@@ -116,7 +116,7 @@ function fetchRequestsCountOnly(token) {
 }
 
 function fetchTotalGuestsCount(token) {
-    fetch("http://localhost:8080/otp/all-guest", {
+    fetch("http:https://pgmanagerbackend.onrender.com/otp/all-guest", {
         headers: { "Authorization": `Bearer ${token}` }
     })
         .then(r => r.json())
@@ -127,7 +127,7 @@ function fetchTotalGuestsCount(token) {
 }
 
 function fetchActiveGuestsCount(token) {
-    fetch("http://localhost:8080/otp/all-guest", {
+    fetch("http:https://pgmanagerbackend.onrender.com/otp/all-guest", {
         headers: { Authorization: `Bearer ${token}` }
     })
     .then(res => res.json())
@@ -144,7 +144,7 @@ function fetchActiveGuestsCount(token) {
 
 
 function fetchLeaveRequestCount(token) {
-    fetch("http://localhost:8080/otp/pending-leave-request", {
+    fetch("http:https://pgmanagerbackend.onrender.com/otp/pending-leave-request", {
         headers: { "Authorization": `Bearer ${token}` }
     })
         .then(r => r.json())
@@ -155,7 +155,7 @@ function fetchLeaveRequestCount(token) {
 }
 
 function fetchPendingPaymentCount(token) {
-    fetch("http://localhost:8080/otp/pending-payments", {
+    fetch("http:https://pgmanagerbackend.onrender.com/otp/pending-payments", {
         headers: { "Authorization": `Bearer ${token}` }
     })
         .then(r => r.json())
@@ -169,7 +169,7 @@ function fetchPendingPaymentCount(token) {
 
 
 function fetchNoticeCount(token) {
-    fetch("http://localhost:8080/otp/notices", {
+    fetch("http:https://pgmanagerbackend.onrender.com/otp/notices", {
         headers: { "Authorization": `Bearer ${token}` }
     })
     .then(res => res.json())
@@ -189,7 +189,7 @@ function fetchNoticeCount(token) {
     PAYMENT CARD — CURRENT MONTH ONLY
 ============================================================ */
 function fetchCurrentMonthPayment(token) {
-    fetch("http://localhost:8080/otp/payment-historyO", {
+    fetch("http:https://pgmanagerbackend.onrender.com/otp/payment-historyO", {
         headers: { "Authorization": `Bearer ${token}` }
     })
         .then(r => r.json())
@@ -246,7 +246,7 @@ let paymentChart = null;
 function loadMonthWiseGraph(token) {
     const selectedYear = Number(document.getElementById("yearSelect").value);
 
-    fetch("http://localhost:8080/otp/payment-historyO", {
+    fetch("http:https://pgmanagerbackend.onrender.com/otp/payment-historyO", {
         headers: { "Authorization": `Bearer ${token}` }
     })
         .then(r => r.json())
@@ -483,7 +483,7 @@ changePhotoBtn.addEventListener("click", () => {
 
   function openProfileModal() {
 
-    fetch("http://localhost:8080/otp/current-user", {
+    fetch("http:https://pgmanagerbackend.onrender.com/otp/current-user", {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => res.json())
@@ -509,7 +509,7 @@ changePhotoBtn.addEventListener("click", () => {
 
   function openUpdateProfileModal() {
 
-    fetch("http://localhost:8080/otp/current-user", {
+    fetch("http:https://pgmanagerbackend.onrender.com/otp/current-user", {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => res.json())
@@ -549,7 +549,7 @@ if (img) {
   formData.append("profileImage", img);
 }
 
-    fetch("http://localhost:8080/otp/update-owner-profile", {
+    fetch("http:https://pgmanagerbackend.onrender.com/otp/update-owner-profile", {
       method: "PUT",
       headers: { Authorization: `Bearer ${token}` },
       body: formData
