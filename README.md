@@ -34,3 +34,22 @@ their respective login and dashboard flow, ensuring a
 clear and role-based user experience from the beginning.
 <img width="1920" height="1019" alt="Screenshot (775)" src="https://github.com/user-attachments/assets/8a06a98f-126a-4c76-b7d5-8ed1a167a50c" />
 
+
+🔐 Owner Login via Mobile OTP
+
+This screen appears when a user selects PG Owner on the welcome page.
+It allows PG owners to log in securely using their mobile number and OTP.
+
+The owner enters a registered mobile number.
+
+On clicking Next, the system checks whether the owner already exists.
+
+Existing owners are redirected to OTP verification.
+
+New owners are redirected to the registration flow.
+
+This OTP-based login removes the need for passwords and provides a
+simple and secure authentication experience for PG owners.
+<img width="1920" height="973" alt="Screenshot (777)" src="https://github.com/user-attachments/assets/4da1e763-ae4e-423c-87e5-e36d91fea950" />
+
+
