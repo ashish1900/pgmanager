@@ -9,3 +9,15 @@ registration, dashboard access, guest management,
 ID verification, notices, and payment workflows,
 providing a clean, secure, and role-based experience.
 
+##  Demo Login (Quick Project Review)
+
+To make evaluation easy, demo credentials are provided directly
+on the login pages.
+
+### Owner Demo Login
+- Mobile: 9999999999
+- OTP: 123456
+
+### Guest Demo Login
+- Mobile: 8888888888
+- OTP: 123456
