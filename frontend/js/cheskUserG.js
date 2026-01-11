@@ -1,6 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+  //  GUEST DEMO CONFIG
+  const DEMO_MOBILE = "6491548154";
+  const DEMO_OTP = "123456";
+
+  // Show demo credentials
+  document.getElementById("demoMobile").innerText = DEMO_MOBILE;
+  document.getElementById("demoOtp").innerText = DEMO_OTP;
+
   const form = document.getElementById("sendOtpForm");
   const message = document.getElementById("message");
+  const serverMessage = document.getElementById("serverMessage");
 
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
@@ -13,12 +23,14 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+    serverMessage.style.display = "block";
+
     try {
       sessionStorage.setItem("enterdMoNumber", JSON.stringify({ rawMobileNumber }));
 
       const mobileNumber = "+91" + rawMobileNumber;
 
-      const response = await fetch("https://pgmanagerbackend.onrender.com/otp/check-and-send-otp", {
+      const response = await fetch("//localhost:8080/otp/check-and-send-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
