@@ -23,7 +23,7 @@ https://ashish1900.github.io/pgmanager/
 - OTP: 123456
 
 ##  Features
-### 🏠 Welcome Screen – Role-Based Entry
+###  Welcome Screen – Role-Based Entry
 
 This is the initial landing page of the PG Manager application.
 Users begin by selecting their role as **PG Owner** or **Guest**.
