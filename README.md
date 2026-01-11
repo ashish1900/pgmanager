@@ -13,7 +13,7 @@ providing a clean, secure, and role-based experience.
 
 To make evaluation easy, demo credentials are provided directly
 on the login pages.
-
+https://ashish1900.github.io/pgmanager/
 ### Owner Demo Login
 - Mobile: 9999999999
 - OTP: 123456
