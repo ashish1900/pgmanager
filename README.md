@@ -1,8 +1,9 @@
 # PG Manager – Smart PG Management System
 
-PG Manager is a full-stack web application designed to simplify
-PG (Paying Guest) management for owners and guests using
-mobile OTP-based authentication.
+This project is built to replace traditional paper-based PG management.
+It enables PG owners to digitally handle guest records, payments,
+notices, and verification tasks in a simple and organized way.
+
 
 The system handles owner and guest login, verification,
 registration, dashboard access, guest management,
