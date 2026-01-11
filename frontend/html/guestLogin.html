@@ -3,21 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <title>Mobile OTP Login</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/login.css" />
+
   <script defer src="../js/cheskUserG.js"></script>
 </head>
 <body>
 
 <div class="container">
-  <h2>Login via Mobile OTP</h2>
+
+  <h2>Demo Login via Mobile OTP</h2>
+
+  <!--  DEMO INFO BOX -->
+  <div class="demo-box">
+    <strong>Demo Login for Project Review</strong><br>
+    Mobile: <b id="demoMobile"></b><br>
+    OTP: <b id="demoOtp"></b>
+  </div>
+
+  <!--  SERVER SLEEP MESSAGE -->
+  <div id="serverMessage" class="server-msg" style="display:none;">
+    <strong>⏳ Server starting…</strong><br>
+    Backend runs on a <b>free server</b>, so the first request may take
+    <b>30 seconds to 2 minutes</b>. Please wait.
+  </div>
 
   <form id="sendOtpForm">
-    <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="Enter Mobile Number" maxlength="10" pattern="[0-9]{10}" required />
+    <input
+      type="tel"
+      id="mobileNumber"
+      name="mobileNumber"
+      placeholder="Enter Mobile Number"
+      maxlength="10"
+      pattern="[0-9]{10}"
+      required
+    />
     <button type="submit">Next</button>
   </form>
 
   <div class="message" id="message"></div>
+
 </div>
 
 </body>
