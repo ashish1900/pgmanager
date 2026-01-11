@@ -21,3 +21,13 @@ https://ashish1900.github.io/pgmanager/
 ### Guest Demo Login
 - Mobile: 8888888888
 - OTP: 123456
+
+## 🚀 Features
+
+- Mobile number based OTP login
+- Separate Owner & Guest login flows
+- Demo login for quick evaluation
+- Secure registration and verification flow
+- Role-based redirection (Owner / Guest)
+- Clean and user-friendly UI
+- Backend built with REST APIs
