@@ -63,3 +63,24 @@ button:hover {
   font-size: 14px;
   color: #ffd700;
 }
+
+
+
+.demo-box {
+  background: #119632;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-left: 4px solid #4a6cf7;
+  font-size: 13px;
+}
+
+
+.server-msg {
+  margin-bottom: 12px;
+  padding: 10px;
+  background: #fffbe6;
+  border-left: 4px solid #f5a623;
+  font-size: 13px;
+  color: #333;
+}
+
