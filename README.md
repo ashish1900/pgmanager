@@ -23,11 +23,12 @@ https://ashish1900.github.io/pgmanager/
 - OTP: 123456
 
 ##  Features
+### 🏠 Welcome Screen – Role-Based Entry
 
-- Mobile number based OTP login
-- Separate Owner & Guest login flows
-- Demo login for quick evaluation
-- Secure registration and verification flow
-- Role-based redirection (Owner / Guest)
-- Clean and user-friendly UI
-- Backend built with REST APIs
+This is the initial landing page of the PG Manager application.
+Users begin by selecting their role as **PG Owner** or **Guest**.
+
+Based on the selected role, the system redirects users to
+their respective login and dashboard flow, ensuring a
+clear and role-based user experience from the beginning.
+
