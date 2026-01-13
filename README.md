@@ -65,3 +65,58 @@ This registration process ensures that PG owner details are captured
 in a structured and digital format, replacing traditional paper-based records.
 <img width="1920" height="1015" alt="Screenshot (778)" src="https://github.com/user-attachments/assets/a3ed6c63-5a6d-4cc4-91cf-098046bab2a5" />
 
+
+##  Owner Dashboard (After OTP Verification)
+
+After successful **Owner Registration and OTP Verification**, the PG Owner is automatically redirected to the **Owner Dashboard**.  
+This dashboard acts as the **central control panel** for managing PG operations efficiently.
+
+
+###  Owner Information Section
+- Displays owner profile image
+- Owner name and role (Owner)
+- PG name and address
+- Contact details (mobile number)
+
+---
+
+###  Dashboard Overview Cards
+The dashboard provides quick insights through summary cards:
+
+- **Active Guests** – Number of currently staying guests  
+- **Total Guests** – Total registered guests  
+- **Stay Requests** – Pending stay requests  
+- **Checkout Requests** – Pending checkout approvals  
+- **Monthly Payment** – Total rent collected for the selected month  
+- **Payment Verification** – Pending payment verification requests  
+- **Notices** – Active notices shared with guests  
+- **Help & Support** – Support requests raised
+
+---
+
+###  Monthly Payment Trends
+- Displays a monthly bar chart of rent collection
+- Year-wise filter (e.g., 2026 by default)
+- Helps track:
+  - Monthly revenue
+  - Payment consistency
+  - Business performance
+
+---
+
+###  Sidebar Navigation
+- My Profile (View and update Owner profile)
+- Police Verification
+- ID Verification (Aadhaar / PAN)
+- Subscription
+- Settings
+- Help
+
+---
+
+### 🚪 Logout & Security
+- Secure logout option
+- Session/JWT-based authentication
+- Unauthorized users cannot access the dashboard directly
+
+<img width="1920" height="1019" alt="Screenshot (782)" src="https://github.com/user-attachments/assets/0255694d-708b-459c-a073-91d0431696af" />
