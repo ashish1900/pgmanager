@@ -56,7 +56,6 @@ simple and secure authentication experience for PG owners.
 This screen is displayed when a mobile number is not found during the owner login process.  
 It allows a new **PG Owner** to register their details in the system.
 
-<img width="1920" height="1019" alt="Screenshot (782)" src="https://github.com/user-attachments/assets/d6a6fc72-eef4-4af7-9b34-047da2b1ba82" />
 
 
 - The mobile number is pre-filled from the login step.
@@ -73,6 +72,7 @@ in a structured and digital format, replacing traditional paper-based records.
 
 After successful **Owner Registration and OTP Verification**, the PG Owner is automatically redirected to the **Owner Dashboard**.  
 This dashboard acts as the **central control panel** for managing PG operations efficiently.
+<img width="1920" height="1019" alt="Screenshot (782)" src="https://github.com/user-attachments/assets/8f35bf74-8947-4772-9da9-4c6a256b2433" />
 
 
 ###  Owner Information Section
