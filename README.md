@@ -173,4 +173,9 @@ Each row in the table represents a guest and includes the following details:
 
 ---
 
+###  Guest Details View (See Button)
+On the **Active Guests** page, clicking the **“See”** button opens a detailed **Guest Details modal**.  
+This modal provides a complete overview of the selected guest without navigating away from the page.
+
+<img width="1920" height="1024" alt="Screenshot (784)" src="https://github.com/user-attachments/assets/6a7a7cfc-baf5-4631-88fc-716604c33100" />
 
