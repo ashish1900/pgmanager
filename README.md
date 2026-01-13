@@ -117,8 +117,60 @@ The dashboard provides quick insights through summary cards:
 
 ---
 
-### 🚪 Logout & Security
+###  Logout & Security
 - Secure logout option
 - Session/JWT-based authentication
 - Unauthorized users cannot access the dashboard directly
+
+
+##  Active Guests Management
+
+From the **Owner Dashboard**, clicking on the **Active Guests** card redirects the owner to the **Active Guests page**.  
+This page displays a detailed list of all guests who are currently staying in the PG.
+
+---
+
+<img width="1920" height="1010" alt="Screenshot (783)" src="https://github.com/user-attachments/assets/e0f54dcb-a9d0-4a83-bb43-ed1c51b4cd2b" />
+
+---
+
+###  Active Guests List Features
+Each row in the table represents a guest and includes the following details:
+
+- **Guest Photo** – Profile image of the guest  
+- **Guest Name** – Full name with quick view option  
+- **Stay Status** – Current stay status (Active)  
+- **Joining Date** – Date and time when the guest joined the PG  
+- **Month Cycle Indicator** – Visual indicator showing remaining days in the current billing cycle  
+- **Payment History** – Button to view complete payment records of the guest  
+
+---
+
+### 📊 Payment Cycle Indicator
+- Circular progress indicator shows:
+  - Remaining days in the billing cycle
+  - Late payments highlighted in red
+- Helps owner quickly identify:
+  - Guests nearing payment due date
+  - Overdue payments
+
+---
+
+###  Filter & Quick Actions
+- **All** – Shows all active guests  
+- **Paid** – Filters guests with completed payments  
+- **Due** – Filters guests with pending or overdue payments  
+
+---
+
+
+
+###  Use Case Benefits
+- Quick overview of active residents
+- Easy payment tracking per guest
+- Reduced manual follow-ups
+- Better financial control for PG owners
+
+---
+
 
