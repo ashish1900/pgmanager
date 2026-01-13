@@ -56,6 +56,9 @@ simple and secure authentication experience for PG owners.
 This screen is displayed when a mobile number is not found during the owner login process.  
 It allows a new **PG Owner** to register their details in the system.
 
+<img width="1920" height="1019" alt="Screenshot (782)" src="https://github.com/user-attachments/assets/d6a6fc72-eef4-4af7-9b34-047da2b1ba82" />
+
+
 - The mobile number is pre-filled from the login step.
 - The owner provides basic information such as **full name, city, PG name, and address**.
 - A document or image can be uploaded for initial verification.
@@ -119,4 +122,3 @@ The dashboard provides quick insights through summary cards:
 - Session/JWT-based authentication
 - Unauthorized users cannot access the dashboard directly
 
-<img width="1920" height="1019" alt="Screenshot (782)" src="https://github.com/user-attachments/assets/0255694d-708b-459c-a073-91d0431696af" />
