@@ -189,14 +189,17 @@ This modal provides a complete overview of the selected guest without navigating
 
 This screen shows complete payment history of an individual guest in a clear and structured manner.
 
-<img width="1920" height="1016" alt="Screenshot (790)" src="https://github.com/user-attachments/assets/c9751928-c8cf-417a-b40f-27fabd512636" />
 
 
 ####  How it works:
 - From **Active Guest List**, clicking on the **Payment History** button opens the guest-specific payment page.
 - All payments are displayed **month-wise** with a defined **billing cycle**.
 
-####  Installment Handling (Key Feature):
+- <img width="1920" height="1016" alt="Screenshot (790)" src="https://github.com/user-attachments/assets/c9751928-c8cf-417a-b40f-27fabd512636" />
+
+## Key Feature
+
+####  Installment Handling :
 - A guest can pay rent in **multiple installments within the same month**.
 - Each installment is recorded separately with:
   - Paid Amount
@@ -206,7 +209,7 @@ This screen shows complete payment history of an individual guest in a clear and
   - Uploaded Receipt
 - The system automatically maintains the **total monthly rent** and tracks **partial vs completed payments**.
 
-#### 🗂️ Smart Filters:
+####  Smart Filters:
 - Payments can be filtered by type:
   - Room Rent
   - Electricity Bill
@@ -220,7 +223,7 @@ This screen shows complete payment history of an individual guest in a clear and
 - Once verified by the owner/admin, the status is updated to **Verified**.
 - Ensures transparency and prevents payment disputes.
 
-#### 👤 Guest Overview Panel:
+####  Guest Overview Panel:
 - Displays guest profile photo
 - Mobile number
 - Stay status (Active)
