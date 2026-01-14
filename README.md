@@ -229,3 +229,27 @@ This screen shows complete payment history of an individual guest in a clear and
 - Stay status (Active)
 - Joining date and time
 
+
+
+
+
+
+### 👥 All Guests Overview
+<img width="1920" height="1020" alt="Screenshot (791)" src="https://github.com/user-attachments/assets/8cf70e6d-be2c-4469-b2a8-e772f316638e" />
+
+This screen provides a consolidated view of **all guests** in the PG, including **Active** and **Checked-out** guests.
+
+#### Key Highlights:
+- Displays total guests with quick filters:
+  - Total Guests
+  - Active Guests
+  - Check-out Guests
+- Shows real-time **stay status** (Active / Checked Out).
+- Visual **month cycle indicator** highlights:
+  - Remaining days for active guests
+  - Late payment cycles for overdue guests
+- Check-out request and acceptance timestamps are clearly visible.
+- Each guest has quick access to **guest profile** and **payment history**.
+
+This view helps PG owners efficiently track guest status, stay duration, and payment cycles from a single dashboard.
+
