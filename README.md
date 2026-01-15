@@ -136,7 +136,7 @@ Each card is clickable, and its detailed functionality is explained in the secti
 
 <br>
 
-## 4.1 Active Guests Management
+## 5. Active Guests Management
 
 From the **Owner Dashboard**, clicking on the **Active Guests** card redirects the owner to the **Active Guests page**.  
 This page displays a detailed list of all guests who are currently staying in the PG.
@@ -175,7 +175,7 @@ Each row in the table represents a guest and includes the following details:
 ---
 <br>
 
-## 4.1.1 Guest Details View (See Button)
+## 5.1 Guest Details View (See Button)
 On the **Active Guests** page, clicking the **“See”** button opens a detailed **Guest Details modal**.  
 This modal provides a complete overview of the selected guest without navigating away from the page.
 
@@ -188,7 +188,7 @@ This modal provides a complete overview of the selected guest without navigating
 
 
 
-## 4.1.2 Guest-wise Payment History
+## 5.2 Guest-wise Payment History
 
 This screen shows complete payment history of an individual guest in a clear and structured manner. From **Active Guest List**, clicking on the **Payment History** button opens the guest-specific payment page  All payments are displayed **month-wise** with a defined **billing cycle**.
 
@@ -232,7 +232,7 @@ This screen shows complete payment history of an individual guest in a clear and
 <br>
 
 
-## 5.  All Guests Overview
+## 6.  All Guests Overview
 
 <img width="1920" height="1020" alt="Screenshot (791)" src="https://github.com/user-attachments/assets/8cf70e6d-be2c-4469-b2a8-e772f316638e" />
 
@@ -261,7 +261,7 @@ This view helps PG owners efficiently track guest status, stay duration, and pay
 
 
 
-## 6.  Guest Stay Requests & Verification
+## 7.  Guest Stay Requests & Verification
 
 Before joining the PG, a **guest first submits a stay request** through the system. This screen allows the **PG owner/admin to review and approve those requests**. 
 
@@ -276,7 +276,7 @@ Before joining the PG, a **guest first submits a stay request** through the syst
   - Request date and time
 <br>
 
-### 6.1  Verification & Approval Flow:
+### 7.1  Verification & Approval Flow:
 
 <img width="1920" height="1017" alt="Screenshot (794)" src="https://github.com/user-attachments/assets/81fa27ab-a19c-43ee-bc60-17fdcd5133a3" />
 
@@ -299,7 +299,7 @@ Before joining the PG, a **guest first submits a stay request** through the syst
 
 
 
-## 7.  Guest Check-out Requests
+## 8.  Guest Check-out Requests
 
 When a guest decides to **leave the PG**, they send a **check-out request** from their side.
 This screen allows the **PG owner to review, verify, and approve those requests**.
@@ -320,14 +320,14 @@ This screen allows the **PG owner to review, verify, and approve those requests*
   - Personal and contact information
 - This helps the owner review all necessary details before approval.
 
-#### ✅ Approval Flow:
+####  Approval Flow:
 - After reviewing the details, the owner clicks **Accept**.
 - Once accepted:
   - Guest status is updated to **Checked Out**
   - Guest is removed from the active guest list
   - All records remain available for future reference and payment history
 
-#### 🔐 Control & Record Management:
+####  Control & Record Management:
 - Ensures guests cannot leave without owner acknowledgment.
 - Maintains accurate occupancy, stay duration, and exit records.
 - Provides full control to the PG owner during the check-out process.
@@ -339,7 +339,7 @@ This screen allows the **PG owner to review, verify, and approve those requests*
 
 
 
-## 8.  Owner Payment Dashboard & Analytics
+## 9.  Owner Payment Dashboard & Analytics
 
 This screen provides a **complete payment overview** for the PG owner.
 It opens when the owner clicks on the **Payment** card from the dashboard.
@@ -381,7 +381,7 @@ It opens when the owner clicks on the **Payment** card from the dashboard.
 
 
 
-## 8.1  Room Rent Payment History & UPI / QR Management
+## 9.1  Room Rent Payment History & UPI / QR Management
 
 This screen opens when the owner clicks on **Room Rent** from the payment dashboard.
 It provides complete control over **room rent payments, verification, and UPI management**.
@@ -439,7 +439,7 @@ It provides complete control over **room rent payments, verification, and UPI ma
 
 
 
-## 9.  Payment Verification (Owner Panel)
+## 10.  Payment Verification (Owner Panel)
 
 This screen opens when the owner clicks on **Payment Verification** from the dashboard.
 It allows the owner to **review, verify, or reject payments** submitted by guests.
@@ -463,7 +463,7 @@ It allows the owner to **review, verify, or reject payments** submitted by guest
     <br>
 
 
-#### 9.2  Receipt Verification:
+#### 10.1  Receipt Verification:
 - Clicking **View & Verify** opens the uploaded receipt in a modal.
 - The owner can carefully match:
   - Amount
@@ -487,7 +487,7 @@ It allows the owner to **review, verify, or reject payments** submitted by guest
 
 
 
-## 10. Notices & Announcements
+## 11. Notices & Announcements
 
 This screen opens when the owner clicks on the **Notice** card from the dashboard.
 It allows the PG owner to **send important notices and announcements to all guests** from a single place.
@@ -518,12 +518,14 @@ It allows the PG owner to **send important notices and announcements to all gues
 
 
 
-## 11.  Guest Dashboard
-<img width="1920" height="1033" alt="Screenshot (804)" src="https://github.com/user-attachments/assets/957b93e7-899a-4699-bba9-26d529975256" />
+## 12.  Guest Dashboard
+
 
 This dashboard opens when a user starts the application from the **Welcome / Home page**
 by selecting the **“As a Guest”** option and successfully completes **registration or login**.
 (The welcome page provides separate entry options for **Guest** and **Owner**.)
+
+<img width="1920" height="1033" alt="Screenshot (804)" src="https://github.com/user-attachments/assets/957b93e7-899a-4699-bba9-26d529975256" />
 
 This is the **main control panel for guests**, giving them full visibility over their stay,
 payments, and communication with the PG owner.
@@ -573,7 +575,8 @@ It helps guests find a suitable PG and securely send a stay request to the owner
 - Guest selects the PG where they want to stay.
 - On clicking **Send Request**, the system asks the guest to complete **ID verification** before proceeding.
 
-#### 3 ID Upload & Address Verification
+### 12.3 ID Upload & Address Verification
+
 <img width="1920" height="1028" alt="Screenshot (807)" src="https://github.com/user-attachments/assets/c4e54733-589b-4cf4-92d3-7a628ccbc91a" />
 
 - Guest must:
@@ -582,11 +585,11 @@ It helps guests find a suitable PG and securely send a stay request to the owner
   - Enter **temporary address**
 - This ensures security and proper verification before joining the PG.
 
-#### 4 Request Submission
+### 12.4  Request Submission
 - After submitting ID details, the **stay request is sent to the PG owner**.
 - The request status is shown as **PENDING**.
 
-#### 5 Pending Approval State
+### 12.5 Pending Approval State
 <img width="1920" height="1019" alt="Screenshot (811)" src="https://github.com/user-attachments/assets/5e559ff0-fe0f-4094-bd05-d5cc5b07edf1" />
 
 - Until the owner reviews and accepts the request:
@@ -594,7 +597,7 @@ It helps guests find a suitable PG and securely send a stay request to the owner
   - Guest can view uploaded ID details
   - Guest can also **cancel the request** if needed
 
-#### 6 Owner Approval
+### 12.6 Owner Approval
 <img width="1920" height="1022" alt="Screenshot (812)" src="https://github.com/user-attachments/assets/ede79b16-173f-460c-bd98-1e7c177773c9" />
 
 - Once the owner **accepts the request**, the guest is officially allowed to join the PG.
@@ -607,11 +610,11 @@ It helps guests find a suitable PG and securely send a stay request to the owner
 
 
 
+---
+<br>
 
 
-
-
-- **Make Payment**  
+ ## 13. Make Payment
 
 This screen opens when a guest clicks on **Make Payment** from the **Guest Dashboard**.
 It allows guests to easily submit payments and upload receipts for owner verification.
@@ -633,9 +636,10 @@ It allows guests to easily submit payments and upload receipts for owner verific
 - Prevents payment confusion by showing correct UPI/QR per payment type.
 - Ensures every payment is recorded with proof.
 
+---
+<br>
 
-
-###  Payment History (Guest Side)
+## 14.  Payment History (Guest Side)
 
 This screen opens when a guest clicks on **Payment History** from the **Guest Dashboard**.
 It shows a complete record of all payments made by the guest across PGs.
@@ -670,11 +674,13 @@ It shows a complete record of all payments made by the guest across PGs.
 - Easy tracking of verified and pending payments
 - No confusion regarding dues or completed payments
 
+---
+<br>
 
 
 
 
-###  My Stay History (Guest Side)
+## 15.  My Stay History (Guest Side)
 
 This screen opens when a guest clicks on **My Stay History** from the **Guest Dashboard**.
 It provides a clear **timeline view of the guest’s stay** in a PG.
@@ -699,10 +705,12 @@ It provides a clear **timeline view of the guest’s stay** in a PG.
 
 
 
+---
+<br>
 
 
 
-### 🚪 Send Check-out Request (Guest Side)
+## 16. Send Check-out Request (Guest Side)
 
 This screen opens when a guest clicks on **Send Check-out Request** from the **Guest Dashboard**.
 It allows guests to formally request leaving the PG.
@@ -722,38 +730,46 @@ It allows guests to formally request leaving the PG.
   - Guest status is updated to **Checked Out**
   - The stay timeline is updated in **My Stay History**
 
-#### 🎯 Guest Benefits:
+####  Guest Benefits:
 - Simple and transparent check-out process
 - No manual coordination required
 - Clear visibility of request and approval status
 
+<br>
 
 - **Help & Support**  
   - Provides assistance or support-related information.
+<br>
 
 ####  Recent Notices:
 - Displays the latest notices posted by the PG owner.
 - Keeps guests informed about important updates such as maintenance, timings, or rules.
 
+---
+<br>
 
 
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - Frontend: HTML, CSS, JavaScript
 - Backend: Java, Spring Boot (REST API)
 - Database: MySQL
 - Authentication: OTP based login
 - Deployment: GitHub Pages (Frontend), Railway / Docker (Backend)
+---
+<br>
 
 
-## 🔮 Future Enhancements
+##  Future Enhancements
 
 - Mobile app (Android / iOS)
 - Online payment gateway integration
 - Admin panel for multi-PG management
 - Subscription plans for PG owners
 - Police verification API integration
+---
+<br>
 
 
   ##  Demo Login (Quick Project Review)
