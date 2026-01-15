@@ -483,15 +483,82 @@ It allows the PG owner to **send important notices and announcements to all gues
 - The notice is instantly visible to all guests.
 - Each notice is saved with its **date and time** for reference.
 
-#### 📝 Notice Management:
+####  Notice Management:
 - The owner can:
   - **Add** new notices
   - **Update** existing notices
   - **Delete** outdated or incorrect notices
 - Helps keep communication clear and up to date.
 
-#### 🎯 Owner & Guest Benefits:
+####  Owner & Guest Benefits:
 - Centralized communication for the entire PG
 - No need for WhatsApp or manual messages
 - Guests always stay informed about important updates
+
+
+
+
+
+
+
+###  Guest Dashboard
+<img width="1920" height="1080" alt="Screenshot (804)" src="https://github.com/user-attachments/assets/0a8048d9-0a07-40b1-8195-6a88c59b1b5a" />
+
+This dashboard opens when a user starts the application from the **Welcome / Home page**
+by selecting the **“As a Guest”** option and successfully completes **registration or login**.
+(The welcome page provides separate entry options for **Guest** and **Owner**.)
+
+This is the **main control panel for guests**, giving them full visibility over their stay,
+payments, and communication with the PG owner.
+
+#### 👤 Guest Profile Section:
+- Displays guest profile photo and name.
+- Options to:
+  - **See More** → View complete guest details
+  - **Update Profile** → Update personal information
+- Shows assigned PG name and location.
+- **See Owner** button allows guests to view PG owner details.
+
+#### 🏠 Room Details:
+- Displays assigned room information:
+  - Room number
+  - Floor number
+  - Building number
+  - Room address
+- Helps guests clearly understand their accommodation allocation.
+
+#### 🧾 Action Cards:
+- **Request to Join PG**  
+  - Guests can send a **stay request** to the PG owner.
+  - Joining is possible only after owner approval.
+
+- **Make Payment**  
+  - Guests can make payments using the provided **UPI / QR code**.
+  - Supports multiple payment types such as room rent and advance.
+
+- **Payment History**  
+  - Shows complete payment records including:
+    - Amount
+    - Date
+    - Status (Pending / Verified / Rejected)
+    - Uploaded receipts
+
+- **My Stay History**  
+  - Displays current and previous stay records for the guest.
+
+- **Send Check-out Request**  
+  - Allows guests to request leaving the PG.
+  - Final check-out is approved by the owner.
+
+- **Help & Support**  
+  - Provides assistance or support-related information.
+
+#### 📢 Recent Notices:
+- Displays the latest notices posted by the PG owner.
+- Keeps guests informed about important updates such as maintenance, timings, or rules.
+
+#### 🔐 Guest Experience & Control:
+- Guests can manage their stay independently through the dashboard.
+- All critical actions (join request, payments, check-out) are **owner-controlled and verified**.
+- Ensures transparency, security, and smooth communication.
 
