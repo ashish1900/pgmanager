@@ -651,12 +651,62 @@ It shows a complete record of all payments made by the guest across PGs.
 - No confusion regarding dues or completed payments
 
 
-- **My Stay History**  
-  - Displays current and previous stay records for the guest.
 
-- **Send Check-out Request**  
-  - Allows guests to request leaving the PG.
-  - Final check-out is approved by the owner.
+
+
+###  My Stay History (Guest Side)
+
+This screen opens when a guest clicks on **My Stay History** from the **Guest Dashboard**.
+It provides a clear **timeline view of the guest’s stay** in a PG.
+<img width="1914" height="1020" alt="Screenshot 2026-01-15 123637" src="https://github.com/user-attachments/assets/6923b127-c600-42d7-a689-36cb1c0d5ab8" />
+
+#### What it shows:
+- PG name and city
+- Owner details and contact number
+- Current stay status (Active / Checked Out)
+- **Check-in date and time**
+- **Check-out request date** (if initiated)
+- **Check-out approval date** (after owner confirmation)
+
+####  ID & Verification Details:
+- Displays the **ID type** submitted during the join request
+- Shows uploaded **ID proof images** for reference
+
+####  Guest Benefits:
+- Transparent record of the entire stay lifecycle
+- Easy tracking of check-in and check-out status
+- Quick access to verification details at any time
+
+
+
+
+
+
+### 🚪 Send Check-out Request (Guest Side)
+
+This screen opens when a guest clicks on **Send Check-out Request** from the **Guest Dashboard**.
+It allows guests to formally request leaving the PG.
+<img width="1919" height="1021" alt="Screenshot 2026-01-15 124241" src="https://github.com/user-attachments/assets/b9344141-c1aa-4708-82d9-fc5d879cde34" />
+
+
+#### How it works:
+- Guest clicks on **Send Leave Request**.
+- A check-out request is sent to the PG owner.
+- Until the owner reviews and accepts the request:
+  - The request remains in **Pending** state
+  - The guest continues to appear as an active guest
+
+#### Approval Flow:
+- The owner reviews the request from their dashboard.
+- Once approved:
+  - Guest status is updated to **Checked Out**
+  - The stay timeline is updated in **My Stay History**
+
+#### 🎯 Guest Benefits:
+- Simple and transparent check-out process
+- No manual coordination required
+- Clear visibility of request and approval status
+
 
 - **Help & Support**  
   - Provides assistance or support-related information.
