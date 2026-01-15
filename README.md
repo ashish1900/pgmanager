@@ -72,8 +72,8 @@ This registration process ensures that PG owner details are captured in a struct
 
 ##  4. Owner Dashboard (After OTP Verification)
 
-After successful **Owner Registration and OTP Verification**, the PG Owner is automatically redirected to the **Owner Dashboard**.  
-This dashboard acts as the **central control panel** for managing PG operations efficiently.
+After successful **Owner Registration and OTP Verification**, the PG Owner is automatically redirected to the **Owner Dashboard**. This dashboard acts as the **central control panel** for managing PG operations efficiently.
+
 <img width="1920" height="1019" alt="Screenshot (782)" src="https://github.com/user-attachments/assets/8f35bf74-8947-4772-9da9-4c6a256b2433" />
 
 This section appears at the top of the Owner Dashboard and provides a quick overview of the logged-in PG owner.
