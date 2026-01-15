@@ -10,6 +10,8 @@ registration, dashboard access, guest management,
 ID verification, notices, and payment workflows,
 providing a clean, secure, and role-based experience.
 
+-------
+
 ##  Demo Login (Quick Project Review)
 
 To make evaluation easy, demo credentials are provided directly
