@@ -173,6 +173,7 @@ Each row in the table represents a guest and includes the following details:
 - Better financial control for PG owners
 
 ---
+<br>
 
 ## 4.1.1 Guest Details View (See Button)
 On the **Active Guests** page, clicking the **“See”** button opens a detailed **Guest Details modal**.  
@@ -183,6 +184,7 @@ This modal provides a complete overview of the selected guest without navigating
 
 
 ---
+<br>
 
 
 
@@ -227,6 +229,7 @@ This screen shows complete payment history of an individual guest in a clear and
 
 ---
 
+<br>
 
 
 ## 5. 👥 All Guests Overview
