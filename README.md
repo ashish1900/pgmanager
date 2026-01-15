@@ -595,6 +595,7 @@ It helps guests find a suitable PG and securely send a stay request to the owner
 
 This screen opens when a guest clicks on **Make Payment** from the **Guest Dashboard**.
 It allows guests to easily submit payments and upload receipts for owner verification.
+<img width="1920" height="1026" alt="Screenshot (813)" src="https://github.com/user-attachments/assets/624c740c-361e-421b-92a2-1253def650f6" />
 
 #### How it works:
 - Guest selects the **payment type** (Room Rent, Advance, Electricity, etc.).
@@ -612,13 +613,13 @@ It allows guests to easily submit payments and upload receipts for owner verific
 - Prevents payment confusion by showing correct UPI/QR per payment type.
 - Ensures every payment is recorded with proof.
 
-<img width="1920" height="1026" alt="Screenshot (813)" src="https://github.com/user-attachments/assets/624c740c-361e-421b-92a2-1253def650f6" />
 
 
 ###  Payment History (Guest Side)
 
 This screen opens when a guest clicks on **Payment History** from the **Guest Dashboard**.
 It shows a complete record of all payments made by the guest across PGs.
+<img width="1920" height="1024" alt="Screenshot (814)" src="https://github.com/user-attachments/assets/7281e5be-818e-4a7f-8551-8e860abf50b3" />
 
 #### Key Details Displayed:
 - PG name for which the payment was made
