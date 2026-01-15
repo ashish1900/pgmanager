@@ -96,18 +96,21 @@ This section is displayed at the top of the **Owner Dashboard** and provides a q
 - Settings
 - Help
 
----
-
+<br>
 
 ###  Monthly Payment Trends
-- Displays a monthly bar chart of rent collection
-- Year-wise filter (e.g., 2026 by default)
-- Helps track:
-  - Monthly revenue
-  - Payment consistency
-  - Business performance
 
----
+Displays a **month-wise bar chart** of rent collection for the selected year
+(e.g., 2026 by default). The owner can switch between years to analyze
+payment data over time.
+
+This section helps the owner quickly understand **monthly revenue flow**,
+identify **payment consistency or delays**, and evaluate the **overall
+business performance** of the PG without manual calculations.
+
+
+<br>
+
 
 ###  Logout & Security
 - Secure logout option
