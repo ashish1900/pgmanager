@@ -30,7 +30,6 @@ https://ashish1900.github.io/pgmanager/
 
 This is the initial landing page of the PG Manager application.
 Users begin by selecting their role as **PG Owner** or **Guest**.
-
 Based on the selected role, the system redirects users to
 their respective login and dashboard flow, ensuring a
 clear and role-based user experience from the beginning.
