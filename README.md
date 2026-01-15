@@ -33,9 +33,9 @@ Based on the selected role, the system redirects users to
 their respective login and dashboard flow, ensuring a
 clear and role-based user experience from the beginning.
 <img width="1920" height="1019" alt="Screenshot (775)" src="https://github.com/user-attachments/assets/8a06a98f-126a-4c76-b7d5-8ed1a167a50c" />
+=====
 
-
-###  Owner Login via Mobile OTP
+##  Owner Login via Mobile OTP
 
 This screen appears when a user selects **PG Owner** on the welcome page.  
 It allows PG owners to log in securely using their **mobile number and OTP**.
