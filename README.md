@@ -12,7 +12,7 @@ providing a clean, secure, and role-based experience.
 
 -------
 
-##  * Demo Login (Quick Project Review)
+##  *Demo Login (Quick Project Review)
 
 To make evaluation easy, demo credentials are provided directly
 on the login pages.
