@@ -511,7 +511,7 @@ by selecting the **“As a Guest”** option and successfully completes **regist
 This is the **main control panel for guests**, giving them full visibility over their stay,
 payments, and communication with the PG owner.
 
-#### 👤 Guest Profile Section:
+####  Guest Profile Section:
 - Displays guest profile photo and name.
 - Options to:
   - **See More** → View complete guest details
@@ -519,7 +519,7 @@ payments, and communication with the PG owner.
 - Shows assigned PG name and location.
 - **See Owner** button allows guests to view PG owner details.
 
-#### 🏠 Room Details:
+####  Room Details:
 - Displays assigned room information:
   - Room number
   - Floor number
@@ -527,10 +527,61 @@ payments, and communication with the PG owner.
   - Room address
 - Helps guests clearly understand their accommodation allocation.
 
-#### 🧾 Action Cards:
+####  Action Cards:
 - **Request to Join PG**  
   - Guests can send a **stay request** to the PG owner.
   - Joining is possible only after owner approval.
+<img width="1920" height="1080" alt="Screenshot (808)" src="https://github.com/user-attachments/assets/a3c7576b-d930-4e18-a169-4bb613271afd" />
+
+This flow starts when a guest clicks on **“Request to Join PG”** from the **Guest Dashboard**.
+It helps guests find a suitable PG and securely send a stay request to the owner.
+
+#### Step-by-Step Flow:
+
+#### 1 Select City
+- Guest clicks on **Select City**.
+- After choosing a city, all available PGs in that city are listed.
+- Each PG card shows:
+  - PG name
+  - Address
+  - Owner name
+<img width="1920" height="1033" alt="Screenshot (806)" src="https://github.com/user-attachments/assets/c2ddfa67-c50d-4cf8-81e5-5a67005b61fb" />
+
+#### 2 Choose PG & Send Request
+- Guest selects the PG where they want to stay.
+- On clicking **Send Request**, the system asks the guest to complete **ID verification** before proceeding.
+
+#### 3 ID Upload & Address Verification
+<img width="1920" height="1028" alt="Screenshot (807)" src="https://github.com/user-attachments/assets/c4e54733-589b-4cf4-92d3-7a628ccbc91a" />
+
+- Guest must:
+  - Select **ID type** (Aadhaar, PAN, Driving License, Voter ID, Passport, etc.)
+  - Upload **front and back images** of the ID
+  - Enter **temporary address**
+- This ensures security and proper verification before joining the PG.
+
+#### 4 Request Submission
+- After submitting ID details, the **stay request is sent to the PG owner**.
+- The request status is shown as **PENDING**.
+
+#### 5 Pending Approval State
+<img width="1920" height="1019" alt="Screenshot (811)" src="https://github.com/user-attachments/assets/5e559ff0-fe0f-4094-bd05-d5cc5b07edf1" />
+
+- Until the owner reviews and accepts the request:
+  - The request remains in **Pending** status
+  - Guest can view uploaded ID details
+  - Guest can also **cancel the request** if needed
+
+#### 6 Owner Approval
+<img width="1920" height="1022" alt="Screenshot (812)" src="https://github.com/user-attachments/assets/ede79b16-173f-460c-bd98-1e7c177773c9" />
+
+- Once the owner **accepts the request**, the guest is officially allowed to join the PG.
+- The guest then appears in the owner’s active guest list.
+
+####  Security & Transparency:
+- Guests cannot join any PG directly without owner approval.
+- Mandatory ID verification ensures safety and compliance.
+- Both guest and owner can track the request status at every step.
 
 - **Make Payment**  
   - Guests can make payments using the provided **UPI / QR code**.
@@ -553,11 +604,11 @@ payments, and communication with the PG owner.
 - **Help & Support**  
   - Provides assistance or support-related information.
 
-#### 📢 Recent Notices:
+####  Recent Notices:
 - Displays the latest notices posted by the PG owner.
 - Keeps guests informed about important updates such as maintenance, timings, or rules.
 
-#### 🔐 Guest Experience & Control:
+####  Guest Experience & Control:
 - Guests can manage their stay independently through the dashboard.
 - All critical actions (join request, payments, check-out) are **owner-controlled and verified**.
 - Ensures transparency, security, and smooth communication.
