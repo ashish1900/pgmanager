@@ -502,7 +502,7 @@ It allows the PG owner to **send important notices and announcements to all gues
 
 
 ###  Guest Dashboard
-<img width="1920" height="1080" alt="Screenshot (804)" src="https://github.com/user-attachments/assets/0a8048d9-0a07-40b1-8195-6a88c59b1b5a" />
+<img width="1920" height="1033" alt="Screenshot (804)" src="https://github.com/user-attachments/assets/957b93e7-899a-4699-bba9-26d529975256" />
 
 This dashboard opens when a user starts the application from the **Welcome / Home page**
 by selecting the **“As a Guest”** option and successfully completes **registration or login**.
@@ -531,7 +531,7 @@ payments, and communication with the PG owner.
 - **Request to Join PG**  
   - Guests can send a **stay request** to the PG owner.
   - Joining is possible only after owner approval.
-<img width="1920" height="1080" alt="Screenshot (808)" src="https://github.com/user-attachments/assets/a3c7576b-d930-4e18-a169-4bb613271afd" />
+<img width="1920" height="1020" alt="Screenshot (808)" src="https://github.com/user-attachments/assets/3bb24187-51af-4488-9ec6-e401af689780" />
 
 This flow starts when a guest clicks on **“Request to Join PG”** from the **Guest Dashboard**.
 It helps guests find a suitable PG and securely send a stay request to the owner.
