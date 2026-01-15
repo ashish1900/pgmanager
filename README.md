@@ -73,8 +73,6 @@ This registration process ensures that PG owner details are captured
 in a structured and digital format, replacing traditional paper-based records.
 
 ----
------
-
 
 
 
