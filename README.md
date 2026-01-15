@@ -38,8 +38,6 @@ clear and role-based user experience from the beginning.
 
 --- 
 <br>
-
-
 ## 2. Owner Login via Mobile OTP
 
 This screen appears when a user selects **PG Owner** on the welcome page.  
