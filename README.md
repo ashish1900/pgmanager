@@ -134,6 +134,8 @@ Each card is clickable, and its detailed functionality is explained in the secti
 
 ---
 
+<br>
+
 ##  Active Guests Management
 
 From the **Owner Dashboard**, clicking on the **Active Guests** card redirects the owner to the **Active Guests page**.  
