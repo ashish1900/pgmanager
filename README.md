@@ -56,11 +56,12 @@ simple and secure authentication experience for PG owners.
 ----
 
 
-###  PG Owner Registration
+## 3. PG Owner Registration
 
 This screen is displayed when a mobile number is not found during the owner login process.  
 It allows a new **PG Owner** to register their details in the system.
 
+<img width="1920" height="1015" alt="Screenshot (778)" src="https://github.com/user-attachments/assets/a3ed6c63-5a6d-4cc4-91cf-098046bab2a5" />
 
 
 - The mobile number is pre-filled from the login step.
@@ -70,10 +71,13 @@ It allows a new **PG Owner** to register their details in the system.
 
 This registration process ensures that PG owner details are captured  
 in a structured and digital format, replacing traditional paper-based records.
-<img width="1920" height="1015" alt="Screenshot (778)" src="https://github.com/user-attachments/assets/a3ed6c63-5a6d-4cc4-91cf-098046bab2a5" />
+
+----
 
 
-##  Owner Dashboard (After OTP Verification)
+
+
+##  4. Owner Dashboard (After OTP Verification)
 
 After successful **Owner Registration and OTP Verification**, the PG Owner is automatically redirected to the **Owner Dashboard**.  
 This dashboard acts as the **central control panel** for managing PG operations efficiently.
