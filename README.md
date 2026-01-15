@@ -512,6 +512,8 @@ It allows the PG owner to **send important notices and announcements to all gues
 
 
 
+---
+<br>
 
 
 
@@ -544,8 +546,9 @@ payments, and communication with the PG owner.
 
 ####  Action Cards:
 
+<br>
 
-- **Request to Join PG**  
+## 12. Request to Join PG**  
   - Guests can send a **stay request** to the PG owner.
   - Joining is possible only after owner approval.
 <img width="1920" height="1020" alt="Screenshot (808)" src="https://github.com/user-attachments/assets/3bb24187-51af-4488-9ec6-e401af689780" />
@@ -553,9 +556,11 @@ payments, and communication with the PG owner.
 This flow starts when a guest clicks on **“Request to Join PG”** from the **Guest Dashboard**.
 It helps guests find a suitable PG and securely send a stay request to the owner.
 
+<br>
+
 #### Step-by-Step Flow:
 
-#### 1 Select City
+### 12.1 Select City
 - Guest clicks on **Select City**.
 - After choosing a city, all available PGs in that city are listed.
 - Each PG card shows:
@@ -564,7 +569,7 @@ It helps guests find a suitable PG and securely send a stay request to the owner
   - Owner name
 <img width="1920" height="1033" alt="Screenshot (806)" src="https://github.com/user-attachments/assets/c2ddfa67-c50d-4cf8-81e5-5a67005b61fb" />
 
-#### 2 Choose PG & Send Request
+### 12.2 Choose PG & Send Request
 - Guest selects the PG where they want to stay.
 - On clicking **Send Request**, the system asks the guest to complete **ID verification** before proceeding.
 
