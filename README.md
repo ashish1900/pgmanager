@@ -120,7 +120,7 @@ business performance** of the PG without manual calculations.
 <br>
 
 ###  Dashboard Overview Cards
-The dashboard provides quick insights through summary cards:
+The dashboard provides quick insights through summary cards that show important PG-related information at a glance. It helps the owner understand current activities without going through multiple pages.
 
 - **Active Guests** – Number of currently staying guests  
 - **Total Guests** – Total registered guests  
@@ -130,6 +130,7 @@ The dashboard provides quick insights through summary cards:
 - **Payment Verification** – Pending payment verification requests  
 - **Notices** – Active notices shared with guests  
 - **Help & Support** – Support requests raised
+Each card is clickable, and its detailed functionality is explained in the sections below.
 
 ---
 
