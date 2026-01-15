@@ -715,8 +715,38 @@ It allows guests to formally request leaving the PG.
 - Displays the latest notices posted by the PG owner.
 - Keeps guests informed about important updates such as maintenance, timings, or rules.
 
-####  Guest Experience & Control:
-- Guests can manage their stay independently through the dashboard.
-- All critical actions (join request, payments, check-out) are **owner-controlled and verified**.
-- Ensures transparency, security, and smooth communication.
+
+
+
+## 🛠️ Tech Stack
+
+- Frontend: HTML, CSS, JavaScript
+- Backend: Java, Spring Boot (REST API)
+- Database: MySQL
+- Authentication: OTP based login
+- Deployment: GitHub Pages (Frontend), Railway / Docker (Backend)
+
+
+## 🔮 Future Enhancements
+
+- Mobile app (Android / iOS)
+- Online payment gateway integration
+- Admin panel for multi-PG management
+- Subscription plans for PG owners
+- Police verification API integration
+
+
+  ##  Demo Login (Quick Project Review)
+
+To make evaluation easy, demo credentials are provided directly
+on the login pages.
+https://ashish1900.github.io/pgmanager/
+### Owner Demo Login
+- Mobile: 9999999999
+- OTP: 123456
+
+### Guest Demo Login
+- Mobile: 8888888888
+- OTP: 123456
+
 
