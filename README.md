@@ -117,7 +117,7 @@ business performance** of the PG without manual calculations.
 - Session/JWT-based authentication
 - Unauthorized users cannot access the dashboard directly
   
----
+<br>
 
 ###  Dashboard Overview Cards
 The dashboard provides quick insights through summary cards:
