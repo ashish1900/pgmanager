@@ -53,7 +53,7 @@ This screen appears when a user selects **PG Owner** on the welcome page. It all
 simple and secure authentication experience for PG owners.
 
 ----
-
+<br>
 
 ## 3. PG Owner Registration
 
