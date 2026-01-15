@@ -54,8 +54,7 @@ simple and secure authentication experience for PG owners.
 
 ## 3. PG Owner Registration
 
-This screen is displayed when a mobile number is not found during the owner login process.  
-It allows a new **PG Owner** to register their details in the system. <br>
+This screen is displayed when a mobile number is not found during the owner login process. It allows a new **PG Owner** to register their details in the system. <br>
 
 <img width="1920" height="1015" alt="Screenshot (778)" src="https://github.com/user-attachments/assets/a3ed6c63-5a6d-4cc4-91cf-098046bab2a5" />
 
