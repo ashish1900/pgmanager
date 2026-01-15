@@ -328,3 +328,40 @@ This screen allows the **PG owner to review, verify, and approve those requests*
 - Ensures guests cannot leave without owner acknowledgment.
 - Maintains accurate occupancy, stay duration, and exit records.
 - Provides full control to the PG owner during the check-out process.
+
+
+
+
+
+
+###  Owner Payment Dashboard & Analytics
+
+This screen provides a **complete payment overview** for the PG owner.
+It opens when the owner clicks on the **Payment** card from the dashboard.
+
+<img width="1920" height="1022" alt="Screenshot (798)" src="https://github.com/user-attachments/assets/bd3c9a02-05f9-496f-9794-1b6c7009ed51" />
+
+
+#### Key Highlights:
+- Displays **current month’s total collection** for each payment type:
+  - Room Rent
+  - Advance
+  - Electricity
+  - Water
+  - Security
+- Each payment type is shown as a quick summary card for instant insights.
+
+####  Yearly Payment Trends:
+- Shows a **month-wise graph** for the selected year.
+- Helps the owner analyze **total collection trends across the entire year**.
+- Useful for understanding seasonal patterns and revenue flow.
+
+####  Interactive Payment Filters:
+- The owner can click on any payment type (Room Rent, Advance, etc.).
+- The graph dynamically updates to show data **only for the selected payment category**.
+- Makes it easy to review and compare different types of income.
+
+####  Owner Benefits:
+- Quick visibility of monthly and yearly collections.
+- Better financial planning and tracking.
+- Centralized view of all PG-related payments in one place.
