@@ -41,8 +41,7 @@ clear and role-based user experience from the beginning.
 
 ## 2. Owner Login via Mobile OTP
 
-This screen appears when a user selects **PG Owner** on the welcome page.  
-It allows PG owners to log in securely using their **mobile number and OTP**.
+This screen appears when a user selects **PG Owner** on the welcome page. It allows PG owners to log in securely using their **mobile number and OTP**.
 
 <img width="1920" height="973" alt="Screenshot (777)" src="https://github.com/user-attachments/assets/4da1e763-ae4e-423c-87e5-e36d91fea950" />
 
