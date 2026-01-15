@@ -29,10 +29,7 @@ https://ashish1900.github.io/pgmanager/
 ## 1.  Welcome Screen – Role-Based Entry
 
 This is the initial landing page of the PG Manager application.
-Users begin by selecting their role as **PG Owner** or **Guest**.
-Based on the selected role, the system redirects users to
-their respective login and dashboard flow, ensuring a
-clear and role-based user experience from the beginning.
+Users begin by selecting their role as **PG Owner** or **Guest**. Based on the selected role, the system redirects users to their respective login and dashboard flow, ensuring a clear and role-based user experience from the beginning.
 
 <img width="1920" height="1019" alt="Screenshot (775)" src="https://github.com/user-attachments/assets/8a06a98f-126a-4c76-b7d5-8ed1a167a50c" />
 
