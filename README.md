@@ -232,8 +232,10 @@ This screen shows complete payment history of an individual guest in a clear and
 <br>
 
 
-## 5. 👥 All Guests Overview
+## 5.  All Guests Overview
+
 <img width="1920" height="1020" alt="Screenshot (791)" src="https://github.com/user-attachments/assets/8cf70e6d-be2c-4469-b2a8-e772f316638e" />
+
 
 This screen provides a consolidated view of **all guests** in the PG, including **Active** and **Checked-out** guests.
 
@@ -253,15 +255,16 @@ This view helps PG owners efficiently track guest status, stay duration, and pay
 
 
 
+----
 
-
+<br>
 
 
 
 ## 6.  Guest Stay Requests & Verification
 
-Before joining the PG, a **guest first submits a stay request** through the system.
-This screen allows the **PG owner/admin to review and approve those requests**.
+Before joining the PG, a **guest first submits a stay request** through the system. This screen allows the **PG owner/admin to review and approve those requests**. 
+
 <img width="1920" height="1013" alt="Screenshot (793)" src="https://github.com/user-attachments/assets/1ea59ab1-8671-4152-a52c-c58308e840e4" />
 
 #### How it works:
@@ -271,8 +274,9 @@ This screen allows the **PG owner/admin to review and approve those requests**.
   - Guest name and mobile number
   - Temporary and permanent address
   - Request date and time
+<br>
 
-####  Verification & Approval Flow:
+### 6.1  Verification & Approval Flow:
 
 <img width="1920" height="1017" alt="Screenshot (794)" src="https://github.com/user-attachments/assets/81fa27ab-a19c-43ee-bc60-17fdcd5133a3" />
 
@@ -289,12 +293,12 @@ This screen allows the **PG owner/admin to review and approve those requests**.
 
 
 
+---
 
 
 
 
-
-### 🚪 Guest Check-out Requests
+## 7.  Guest Check-out Requests
 
 When a guest decides to **leave the PG**, they send a **check-out request** from their side.
 This screen allows the **PG owner to review, verify, and approve those requests**.
