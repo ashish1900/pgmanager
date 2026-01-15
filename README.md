@@ -468,3 +468,30 @@ It allows the owner to **review, verify, or reject payments** submitted by guest
 - Prevents fake or duplicate payment entries.
 - Ensures only verified payments are counted in revenue and analytics.
 - Maintains a clear audit trail for every transaction.
+
+
+
+
+### 📢 Notices & Announcements
+
+This screen opens when the owner clicks on the **Notice** card from the dashboard.
+It allows the PG owner to **send important notices and announcements to all guests** from a single place.
+<img width="1920" height="1022" alt="Screenshot (802)" src="https://github.com/user-attachments/assets/22a86181-6e24-4408-9bff-7d0b5dc29e1d" />
+
+#### How it works:
+- The owner can write a notice in the text area and click **Add Notice**.
+- The notice is instantly visible to all guests.
+- Each notice is saved with its **date and time** for reference.
+
+#### 📝 Notice Management:
+- The owner can:
+  - **Add** new notices
+  - **Update** existing notices
+  - **Delete** outdated or incorrect notices
+- Helps keep communication clear and up to date.
+
+#### 🎯 Owner & Guest Benefits:
+- Centralized communication for the entire PG
+- No need for WhatsApp or manual messages
+- Guests always stay informed about important updates
+
