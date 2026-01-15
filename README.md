@@ -64,12 +64,11 @@ This screen is displayed when a mobile number is not found during the owner logi
 - A document or image can be uploaded for initial verification.
 - On submitting the form, an OTP is sent to verify the registration.
 
-This registration process ensures that PG owner details are captured  
-in a structured and digital format, replacing traditional paper-based records.
+This registration process ensures that PG owner details are captured in a structured and digital format, replacing traditional paper-based records.
 
 ----
 
-
+<br>
 
 ##  4. Owner Dashboard (After OTP Verification)
 
