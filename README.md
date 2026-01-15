@@ -294,6 +294,7 @@ Before joining the PG, a **guest first submits a stay request** through the syst
 
 
 ---
+<br>
 
 
 
@@ -312,7 +313,7 @@ This screen allows the **PG owner to review, verify, and approve those requests*
   - Check-out request date and time
   - Original joining date
 
-#### 🔍 View Guest Details:
+####  View Guest Details:
 - The owner can click the **See** button to view **complete guest details**, including:
   - Room and stay information
   - ID and verification details
@@ -333,10 +334,12 @@ This screen allows the **PG owner to review, verify, and approve those requests*
 
 
 
+----
+<br>
 
 
 
-###  Owner Payment Dashboard & Analytics
+## 8.  Owner Payment Dashboard & Analytics
 
 This screen provides a **complete payment overview** for the PG owner.
 It opens when the owner clicks on the **Payment** card from the dashboard.
@@ -371,12 +374,14 @@ It opens when the owner clicks on the **Payment** card from the dashboard.
 
 
 
+----
+<br>
 
 
 
 
 
-###  Room Rent Payment History & UPI / QR Management
+## 8.1  Room Rent Payment History & UPI / QR Management
 
 This screen opens when the owner clicks on **Room Rent** from the payment dashboard.
 It provides complete control over **room rent payments, verification, and UPI management**.
@@ -428,11 +433,13 @@ It provides complete control over **room rent payments, verification, and UPI ma
 
 
 
+----
+<br>
 
 
 
 
-###  Payment Verification (Owner Panel)
+## 9.  Payment Verification (Owner Panel)
 
 This screen opens when the owner clicks on **Payment Verification** from the dashboard.
 It allows the owner to **review, verify, or reject payments** submitted by guests.
@@ -453,12 +460,16 @@ It allows the owner to **review, verify, or reject payments** submitted by guest
   - Payment date and time
   - Current status (Pending)
 
-####  Receipt Verification:
+    <br>
+
+
+#### 9.2  Receipt Verification:
 - Clicking **View & Verify** opens the uploaded receipt in a modal.
 - The owner can carefully match:
   - Amount
   - Payment type
   - Date and transaction details
+    
 <img width="1920" height="1029" alt="Screenshot (801)" src="https://github.com/user-attachments/assets/05da2513-43f6-427a-926f-8b9f5c4e7011" />
 
 ####  Verification Actions:
@@ -471,10 +482,12 @@ It allows the owner to **review, verify, or reject payments** submitted by guest
 - Ensures only verified payments are counted in revenue and analytics.
 - Maintains a clear audit trail for every transaction.
 
+---
+<br>
 
 
 
-### 📢 Notices & Announcements
+## 10. Notices & Announcements
 
 This screen opens when the owner clicks on the **Notice** card from the dashboard.
 It allows the PG owner to **send important notices and announcements to all guests** from a single place.
@@ -503,7 +516,7 @@ It allows the PG owner to **send important notices and announcements to all gues
 
 
 
-###  Guest Dashboard
+## 11.  Guest Dashboard
 <img width="1920" height="1033" alt="Screenshot (804)" src="https://github.com/user-attachments/assets/957b93e7-899a-4699-bba9-26d529975256" />
 
 This dashboard opens when a user starts the application from the **Welcome / Home page**
