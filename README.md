@@ -136,16 +136,16 @@ Each card is clickable, and its detailed functionality is explained in the secti
 
 <br>
 
-##  Active Guests Management
+## 4.1 Active Guests Management
 
 From the **Owner Dashboard**, clicking on the **Active Guests** card redirects the owner to the **Active Guests page**.  
 This page displays a detailed list of all guests who are currently staying in the PG.
 
----
+
 
 <img width="1920" height="1010" alt="Screenshot (783)" src="https://github.com/user-attachments/assets/e0f54dcb-a9d0-4a83-bb43-ed1c51b4cd2b" />
 
----
+
 
 ###  Active Guests List Features
 Each row in the table represents a guest and includes the following details:
@@ -157,7 +157,7 @@ Each row in the table represents a guest and includes the following details:
 - **Month Cycle Indicator** – Visual indicator showing remaining days in the current billing cycle  
 - **Payment History** – Button to view complete payment records of the guest  
 
----
+
 
 ### 📊 Payment Cycle Indicator
 - Circular progress indicator shows:
@@ -167,14 +167,14 @@ Each row in the table represents a guest and includes the following details:
   - Guests nearing payment due date
   - Overdue payments
 
----
+
 
 ###  Filter & Quick Actions
 - **All** – Shows all active guests  
 - **Paid** – Filters guests with completed payments  
 - **Due** – Filters guests with pending or overdue payments  
 
----
+
 
 
 
@@ -186,7 +186,7 @@ Each row in the table represents a guest and includes the following details:
 
 ---
 
-###  Guest Details View (See Button)
+## 4.2 Guest Details View (See Button)
 On the **Active Guests** page, clicking the **“See”** button opens a detailed **Guest Details modal**.  
 This modal provides a complete overview of the selected guest without navigating away from the page.
 
@@ -194,11 +194,11 @@ This modal provides a complete overview of the selected guest without navigating
 
 
 
+---
 
 
 
-
-###  Guest-wise Payment History
+## 4.3 Guest-wise Payment History
 
 This screen shows complete payment history of an individual guest in a clear and structured manner.
 
@@ -247,7 +247,7 @@ This screen shows complete payment history of an individual guest in a clear and
 
 
 
-### 👥 All Guests Overview
+## 5. 👥 All Guests Overview
 <img width="1920" height="1020" alt="Screenshot (791)" src="https://github.com/user-attachments/assets/8cf70e6d-be2c-4469-b2a8-e772f316638e" />
 
 This screen provides a consolidated view of **all guests** in the PG, including **Active** and **Checked-out** guests.
