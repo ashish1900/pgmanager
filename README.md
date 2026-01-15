@@ -77,12 +77,40 @@ After successful **Owner Registration and OTP Verification**, the PG Owner is au
 <img width="1920" height="1019" alt="Screenshot (782)" src="https://github.com/user-attachments/assets/8f35bf74-8947-4772-9da9-4c6a256b2433" />
 
 This section appears at the top of the Owner Dashboard and provides a quick overview of the logged-in PG owner.
-###  Owner Information Section
 - Displays owner profile image
 - Owner name and role (Owner)
 - PG name and address
 - Contact details (mobile number)
 
+<br>
+
+
+###  Sidebar Navigation
+- My Profile (View and update Owner profile)
+- Police Verification
+- ID Verification (Aadhaar / PAN)
+- Subscription
+- Settings
+- Help
+
+---
+
+
+###  Monthly Payment Trends
+- Displays a monthly bar chart of rent collection
+- Year-wise filter (e.g., 2026 by default)
+- Helps track:
+  - Monthly revenue
+  - Payment consistency
+  - Business performance
+
+---
+
+###  Logout & Security
+- Secure logout option
+- Session/JWT-based authentication
+- Unauthorized users cannot access the dashboard directly
+  
 ---
 
 ###  Dashboard Overview Cards
@@ -98,32 +126,6 @@ The dashboard provides quick insights through summary cards:
 - **Help & Support** – Support requests raised
 
 ---
-
-###  Monthly Payment Trends
-- Displays a monthly bar chart of rent collection
-- Year-wise filter (e.g., 2026 by default)
-- Helps track:
-  - Monthly revenue
-  - Payment consistency
-  - Business performance
-
----
-
-###  Sidebar Navigation
-- My Profile (View and update Owner profile)
-- Police Verification
-- ID Verification (Aadhaar / PAN)
-- Subscription
-- Settings
-- Help
-
----
-
-###  Logout & Security
-- Secure logout option
-- Session/JWT-based authentication
-- Unauthorized users cannot access the dashboard directly
-
 
 ##  Active Guests Management
 
