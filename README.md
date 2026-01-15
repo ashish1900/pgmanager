@@ -159,22 +159,10 @@ Each row in the table represents a guest and includes the following details:
 
 
 
-### 📊 Payment Cycle Indicator
-- Circular progress indicator shows:
-  - Remaining days in the billing cycle
-  - Late payments highlighted in red
-- Helps owner quickly identify:
-  - Guests nearing payment due date
-  - Overdue payments
-
-
-
 ###  Filter & Quick Actions
 - **All** – Shows all active guests  
 - **Paid** – Filters guests with completed payments  
 - **Due** – Filters guests with pending or overdue payments  
-
-
 
 
 
@@ -186,7 +174,7 @@ Each row in the table represents a guest and includes the following details:
 
 ---
 
-## 4.2 Guest Details View (See Button)
+## 4.1.1 Guest Details View (See Button)
 On the **Active Guests** page, clicking the **“See”** button opens a detailed **Guest Details modal**.  
 This modal provides a complete overview of the selected guest without navigating away from the page.
 
@@ -198,17 +186,11 @@ This modal provides a complete overview of the selected guest without navigating
 
 
 
-## 4.3 Guest-wise Payment History
+## 4.1.2 Guest-wise Payment History
 
-This screen shows complete payment history of an individual guest in a clear and structured manner.
+This screen shows complete payment history of an individual guest in a clear and structured manner. From **Active Guest List**, clicking on the **Payment History** button opens the guest-specific payment page  All payments are displayed **month-wise** with a defined **billing cycle**.
 
-
-
-####  How it works:
-- From **Active Guest List**, clicking on the **Payment History** button opens the guest-specific payment page.
-- All payments are displayed **month-wise** with a defined **billing cycle**.
-
-- <img width="1920" height="1016" alt="Screenshot (790)" src="https://github.com/user-attachments/assets/c9751928-c8cf-417a-b40f-27fabd512636" />
+ <img width="1920" height="1016" alt="Screenshot (790)" src="https://github.com/user-attachments/assets/c9751928-c8cf-417a-b40f-27fabd512636" />
 
 ## Key Feature
 
@@ -243,7 +225,7 @@ This screen shows complete payment history of an individual guest in a clear and
 - Joining date and time
 
 
-
+---
 
 
 
@@ -273,7 +255,7 @@ This view helps PG owners efficiently track guest status, stay duration, and pay
 
 
 
-###  Guest Stay Requests & Verification
+## 6.  Guest Stay Requests & Verification
 
 Before joining the PG, a **guest first submits a stay request** through the system.
 This screen allows the **PG owner/admin to review and approve those requests**.
