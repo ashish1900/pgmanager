@@ -615,12 +615,40 @@ It allows guests to easily submit payments and upload receipts for owner verific
 <img width="1920" height="1026" alt="Screenshot (813)" src="https://github.com/user-attachments/assets/624c740c-361e-421b-92a2-1253def650f6" />
 
 
-- **Payment History**  
-  - Shows complete payment records including:
-    - Amount
-    - Date
-    - Status (Pending / Verified / Rejected)
-    - Uploaded receipts
+###  Payment History (Guest Side)
+
+This screen opens when a guest clicks on **Payment History** from the **Guest Dashboard**.
+It shows a complete record of all payments made by the guest across PGs.
+
+#### Key Details Displayed:
+- PG name for which the payment was made
+- Payment type (Room Rent, Advance Money, Electricity, Water, Security)
+- Amount paid
+- Payment date and time
+- Verification date
+- Current payment status:
+  - **Pending** – waiting for owner verification
+  - **Verified** – approved by the owner
+
+####  Smart Filters:
+- Guests can filter payment records by type:
+  - All
+  - Room Rent
+  - Advance Money
+  - Electricity Bill
+  - Water Bill
+  - Security Money
+- Helps guests quickly find specific payments.
+
+####  Receipt Access:
+- Each payment includes a **View** button to see the uploaded receipt.
+- Ensures transparency and proof of payment.
+
+####  Guest Benefits:
+- Clear visibility of payment status
+- Easy tracking of verified and pending payments
+- No confusion regarding dues or completed payments
+
 
 - **My Stay History**  
   - Displays current and previous stay records for the guest.
