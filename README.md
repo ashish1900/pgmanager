@@ -423,3 +423,48 @@ It provides complete control over **room rent payments, verification, and UPI ma
 - Flexible UPI/QR configuration per payment category
 - Clear visibility and control over all guest payments
 
+
+
+
+
+
+
+
+###  Payment Verification (Owner Panel)
+
+This screen opens when the owner clicks on **Payment Verification** from the dashboard.
+It allows the owner to **review, verify, or reject payments** submitted by guests.
+
+<img width="1920" height="1011" alt="Screenshot (800)" src="https://github.com/user-attachments/assets/b61900ad-4ff7-4e1a-947a-cdfe096ac17e" />
+
+
+#### How it works:
+- Guests make payments using the provided **UPI / QR code**.
+- After payment, guests upload the **payment receipt**.
+- These payments appear here with **PENDING** status.
+
+####  Pending Payments List:
+- Displays all unverified payments with:
+  - Guest name (with **See** button to view full guest details)
+  - Payment type (Room Rent, Advance, etc.)
+  - Amount paid
+  - Payment date and time
+  - Current status (Pending)
+
+####  Receipt Verification:
+- Clicking **View & Verify** opens the uploaded receipt in a modal.
+- The owner can carefully match:
+  - Amount
+  - Payment type
+  - Date and transaction details
+<img width="1920" height="1029" alt="Screenshot (801)" src="https://github.com/user-attachments/assets/05da2513-43f6-427a-926f-8b9f5c4e7011" />
+
+####  Verification Actions:
+- **Verify** → Marks the payment as verified and updates all related records.
+- **Reject** → Rejects the payment in case of mismatch or invalid receipt.
+- Status changes are reflected instantly across payment history and dashboards.
+
+####  Security & Transparency:
+- Prevents fake or duplicate payment entries.
+- Ensures only verified payments are counted in revenue and analytics.
+- Maintains a clear audit trail for every transaction.
