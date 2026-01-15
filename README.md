@@ -365,3 +365,61 @@ It opens when the owner clicks on the **Payment** card from the dashboard.
 - Quick visibility of monthly and yearly collections.
 - Better financial planning and tracking.
 - Centralized view of all PG-related payments in one place.
+
+
+
+
+
+
+
+
+
+###  Room Rent Payment History & UPI / QR Management
+
+This screen opens when the owner clicks on **Room Rent** from the payment dashboard.
+It provides complete control over **room rent payments, verification, and UPI management**.
+
+<img width="1920" height="1022" alt="Screenshot (799)" src="https://github.com/user-attachments/assets/84aba0dd-e514-4bb5-923a-80a332bd36a5" />
+
+
+
+####  UPI ID & QR Code Management:
+- Displays the **currently active UPI ID and QR code** for room rent payments.
+- The owner can **update the UPI ID or QR code directly from this page**.
+- Each payment type (Room Rent, Electricity, Water, Advance, Security) can have a **separate UPI ID / QR code**.
+- This enables **payment-type-wise tracking and settlement**.
+
+####  Room Rent Payment History Table:
+- Lists all room rent payments submitted by guests.
+- Each entry includes:
+  - Guest name (with **See** button to view full guest details)
+  - Amount paid
+  - Payment date and time
+  - Verification date
+  - Payment status (Verified / Rejected)
+  - Uploaded receipt for verification
+
+####  Filters & Status Tabs:
+- Quick filters are available:
+  - **All Payments**
+  - **Verified Payments**
+  - **Rejected Payments**
+- Helps the owner quickly review specific payment statuses.
+
+####  Verification Workflow:
+- The owner verifies payments by reviewing the uploaded receipt.
+- Based on verification, payments are marked as **Verified** or **Rejected**.
+- All records are preserved for auditing and reference.
+
+####  Other Payment Types:
+- **Electricity, Water, Advance, and Security** payment screens follow the **same structure and workflow**.
+- Each payment type has:
+  - Its own UPI / QR code
+  - Dedicated payment history
+  - Independent verification and filtering
+
+####  Owner Benefits:
+- Centralized and organized payment management
+- Flexible UPI/QR configuration per payment category
+- Clear visibility and control over all guest payments
+
