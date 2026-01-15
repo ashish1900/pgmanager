@@ -253,3 +253,38 @@ This screen provides a consolidated view of **all guests** in the PG, including 
 
 This view helps PG owners efficiently track guest status, stay duration, and payment cycles from a single dashboard.
 
+
+
+
+
+
+
+
+###  Guest Stay Requests & Verification
+
+Before joining the PG, a **guest first submits a stay request** through the system.
+This screen allows the **PG owner/admin to review and approve those requests**.
+<img width="1920" height="1013" alt="Screenshot (793)" src="https://github.com/user-attachments/assets/1ea59ab1-8671-4152-a52c-c58308e840e4" />
+
+#### How it works:
+- A guest submits a **stay request** along with basic details and ID proof.
+- From the **Dashboard**, clicking on the **Stay Request** card opens this pending requests page.
+- Each request displays:
+  - Guest name and mobile number
+  - Temporary and permanent address
+  - Request date and time
+
+####  Verification & Approval Flow:
+
+<img width="1920" height="1017" alt="Screenshot (794)" src="https://github.com/user-attachments/assets/81fa27ab-a19c-43ee-bc60-17fdcd5133a3" />
+
+- Clicking **View & Verify** opens a verification modal.
+- The owner/admin reviews the uploaded **government ID proof**.
+- Based on verification:
+  - **Accept & Verify** → Guest is approved and moved to the **Active Guest list**.
+  - **ID Mismatch** → Request is rejected to prevent unauthorized stays.
+
+####  Security & Onboarding Control:
+- Guests cannot directly join the PG without approval.
+- Ensures only **verified guests** are allowed to stay.
+- Provides full control to the PG owner over guest onboarding and security.
