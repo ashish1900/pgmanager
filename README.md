@@ -528,6 +528,8 @@ payments, and communication with the PG owner.
 - Helps guests clearly understand their accommodation allocation.
 
 ####  Action Cards:
+
+
 - **Request to Join PG**  
   - Guests can send a **stay request** to the PG owner.
   - Joining is possible only after owner approval.
@@ -583,9 +585,35 @@ It helps guests find a suitable PG and securely send a stay request to the owner
 - Mandatory ID verification ensures safety and compliance.
 - Both guest and owner can track the request status at every step.
 
+
+
+
+
+
+
 - **Make Payment**  
-  - Guests can make payments using the provided **UPI / QR code**.
-  - Supports multiple payment types such as room rent and advance.
+
+This screen opens when a guest clicks on **Make Payment** from the **Guest Dashboard**.
+It allows guests to easily submit payments and upload receipts for owner verification.
+
+#### How it works:
+- Guest selects the **payment type** (Room Rent, Advance, Electricity, etc.).
+- The system displays the **owner’s UPI ID and QR code** for the selected payment type.
+- Guest enters the **payment amount** and uploads the **payment screenshot/receipt**.
+- Clicking **Upload & Submit** sends the payment for owner verification.
+
+#### Key Features:
+- Supports multiple payment types.
+- Payment is securely linked to the selected PG.
+- All submitted payments remain **Pending** until verified by the owner.
+- Guests can view verification status later from **Payment History**.
+
+#### Transparency & Control:
+- Prevents payment confusion by showing correct UPI/QR per payment type.
+- Ensures every payment is recorded with proof.
+
+<img width="1920" height="1026" alt="Screenshot (813)" src="https://github.com/user-attachments/assets/624c740c-361e-421b-92a2-1253def650f6" />
+
 
 - **Payment History**  
   - Shows complete payment records including:
