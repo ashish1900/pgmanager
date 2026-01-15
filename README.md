@@ -288,3 +288,43 @@ This screen allows the **PG owner/admin to review and approve those requests**.
 - Guests cannot directly join the PG without approval.
 - Ensures only **verified guests** are allowed to stay.
 - Provides full control to the PG owner over guest onboarding and security.
+
+
+
+
+
+
+
+
+### 🚪 Guest Check-out Requests
+
+When a guest decides to **leave the PG**, they send a **check-out request** from their side.
+This screen allows the **PG owner to review, verify, and approve those requests**.
+<img width="1920" height="1004" alt="Screenshot (797)" src="https://github.com/user-attachments/assets/5db11b15-feb7-4d29-b31c-0b863476e236" />
+
+#### How it works:
+- A guest submits a **check-out (leave) request**.
+- From the **Dashboard**, clicking on the **Check-out Requests** card opens this page.
+- Each request displays:
+  - Guest name and profile photo
+  - Check-out request date and time
+  - Original joining date
+
+#### 🔍 View Guest Details:
+- The owner can click the **See** button to view **complete guest details**, including:
+  - Room and stay information
+  - ID and verification details
+  - Personal and contact information
+- This helps the owner review all necessary details before approval.
+
+#### ✅ Approval Flow:
+- After reviewing the details, the owner clicks **Accept**.
+- Once accepted:
+  - Guest status is updated to **Checked Out**
+  - Guest is removed from the active guest list
+  - All records remain available for future reference and payment history
+
+#### 🔐 Control & Record Management:
+- Ensures guests cannot leave without owner acknowledgment.
+- Maintains accurate occupancy, stay duration, and exit records.
+- Provides full control to the PG owner during the check-out process.
