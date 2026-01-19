@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
   //  GUEST DEMO CONFIG
-  const DEMO_MOBILE = "6491548154";
+  const DEMO_MOBILE = "3495661800";
   const DEMO_OTP = "123456";
 
   // Show demo credentials
