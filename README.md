@@ -18,11 +18,11 @@ To make evaluation easy, demo credentials are provided directly
 on the login pages.
 https://ashish1900.github.io/pgmanager/
 ### Owner Demo Login
-- Mobile: 9999999999
+- Mobile: 5552085825
 - OTP: 123456
 
 ### Guest Demo Login
-- Mobile: 8888888888
+- Mobile: 3495661800
 - OTP: 123456
 ----
 ##  Features
