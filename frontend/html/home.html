@@ -2,24 +2,132 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Welcome to PG Manager</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  <title>PG Manager | Smart PG Management SaaS</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="../css/home-style.css" />
 </head>
+
 <body>
 
-  <div class="title">
+<header class="header">
+  <div class="brand">
     <i class="fas fa-house-user"></i>
-    Welcome to PG Manager 
+    <span class="brand-name">PG Manager</span>
+    <span class="brand-tag">Smart PG SaaS</span>
   </div>
 
-  <div class="glass-box">
-    <h2>Get Started As</h2>
-    <button class="button admin" onclick="location.href='ownerLogin.html'">PG Owner</button>
-    <div class="or-text">or</div>
-    <button class="button candidate" onclick="location.href='guestLogin.html'">Guest</button>
+  <div class="header-actions">
+    <button class="button owner-btn" onclick="location.href='ownerLogin.html'">
+      <i class="fas fa-building"></i> PG Owner Login
+    </button>
+    <button class="button guest-btn" onclick="location.href='guestLogin.html'">
+      <i class="fas fa-user"></i> Guest Login
+    </button>
   </div>
+</header>
+
+<section class="hero">
+  <h1>Manage Your PG Digitally</h1>
+  <p class="subtitle">
+    A complete SaaS solution to manage guests, payments,
+    bookings and verification securely.
+  </p>
+</section>
+
+<section class="features">
+
+  <!-- ALL CARDS SAME CLASS -->
+  <div class="feature-card clickable">
+    <i class="fas fa-user-lock"></i>
+    <h3>User Authentication</h3>
+    <p>OTP based secure login for owners & guests.</p>
+  </div>
+
+  <div class="feature-card clickable">
+    <i class="fas fa-file-shield"></i>
+    <h3>Document Verification</h3>
+    <p>Aadhaar, Voter ID & Other verification.</p>
+  </div>
+
+  <div class="feature-card clickable">
+    <i class="fas fa-user-check"></i>
+    <h3>Guest Verification</h3>
+    <p>Verify guests before onboarding.</p>
+  </div>
+
+  <div class="feature-card clickable">
+    <i class="fas fa-gauge-high"></i>
+    <h3>Owner Dashboard</h3>
+    <p>Centralized dashboard to manage all PG operations.</p>
+  </div>
+
+<div class="feature-card clickable">
+    <i class="fas fa-bed"></i>
+    <h3>Room & Booking</h3>
+    <p>Manage rooms and allocations.</p>
+  </div>
+
+  <div class="feature-card clickable">
+    <i class="fas fa-credit-card"></i>
+    <h3>Payment Management</h3>
+    <p>Track rent, dues, payment history and verify payments.</p>
+  </div>
+
+  <div class="feature-card clickable">
+    <i class="fas fa-user-circle"></i>
+    <h3>Guest Self Service</h3>
+    <p>Manage profile, payments and PG stay records.</p>
+  </div>
+
+  <div class="feature-card clickable">
+    <i class="fas fa-crown"></i>
+    <h3>Subscription & Plans</h3>
+    <p>Free trial with paid upgrades.</p>
+  </div>
+
+
+</section>
+
+<footer class="footer">
+  Secure • Verified • Built for real-world PG management
+</footer>
+
+<!-- LOGIN REQUIRED MODAL -->
+<div class="login-modal" id="loginModal">
+  <div class="modal-box">
+    <h2>Login Required</h2>
+    <p>This feature is available after login.<br>
+       Please choose how you want to continue.</p>
+
+    <div class="modal-actions">
+      <button class="button owner-btn" onclick="location.href='ownerLogin.html'">
+        <i class="fas fa-building"></i> PG Owner Login
+      </button>
+      <button class="button guest-btn" onclick="location.href='guestLogin.html'">
+        <i class="fas fa-user"></i> Guest Login
+      </button>
+    </div>
+
+    <span class="close-modal" onclick="closeModal()">×</span>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById("loginModal");
+  const cards = document.querySelectorAll(".feature-card.clickable");
+
+  cards.forEach(card => {
+    card.addEventListener("click", () => {
+      modal.style.display = "flex";
+    });
+  });
+
+  function closeModal() {
+    modal.style.display = "none";
+  }
+</script>
 
 </body>
 </html>
